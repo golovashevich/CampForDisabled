@@ -1,0 +1,120 @@
+﻿@model Camp.Models.DriverModel
+
+@{
+    ViewBag.Title = ViewBag.IsCreate? Resources.Drivers.EditNew : Model.FullName;
+}
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.custom.js")" type="text/javascript"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#form").data("validator").settings.submitHandler = function (form) {
+            $("#save").attr("disabled", true).val("@Resources.Drivers.EditSaving");
+            form.submit();
+        }
+
+        //TODO: Centralize this
+        $('<span style="color:red;">*</span>').insertAfter('[data-val-required][type!="hidden"]');
+       });
+</script>
+
+<table style="border:0">
+    <tr>
+        <td style="border:0">
+            <h2>@(ViewBag.IsCreate ? Resources.Drivers.EditNew : Model.FullName)</h2>
+        </td>
+
+        <td style="border:0" align="right">
+            <button onclick="location.href='@Url.Action("Index", "Driver")'">
+                @Resources.Drivers.EditBackToList
+            </button>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" style="border:0">
+
+            @using (Html.BeginForm(ViewBag.IsCreate? "Create" : "Edit", "Driver", FormMethod.Post, new { id = "form" })) {
+                @Html.ValidationSummary(true)
+                <fieldset>
+                    <legend>@Resources.Drivers.EditLegend</legend>
+
+                    @Html.HiddenFor(model => model.Id)
+
+		            <div class="editor-item">
+			            <div class="editor-label">
+				            @Html.LabelFor(m => m.FirstName)
+			            </div>
+			            <div class="editor-field">
+				            @Html.EditorFor(m => m.FirstName) @Html.ValidationMessageFor(m => m.FirstName)
+			            </div>
+		            </div>
+
+                    <div class="editor-item">
+			            <div class="editor-label">
+				            @Html.LabelFor(m => m.LastName)
+			            </div>
+			            <div class="editor-field">
+				            @Html.EditorFor(m => m.LastName) @Html.ValidationMessageFor(m => m.LastName)
+			            </div>
+		            </div>
+
+                    <div class="editor-item">
+			            <div class="editor-label">
+				            @Html.LabelFor(m => m.Contacts)
+			            </div>
+			            <div class="editor-field">
+				            @Html.EditorFor(m => m.Contacts) @Html.ValidationMessageFor(m => m.Contacts)
+			            </div>
+		            </div>
+
+                    <div class="editor-item">
+			            <div class="editor-label">
+				            @Html.LabelFor(m => m.SitPlacesNum)
+			            </div>
+			            <div class="editor-field">
+				            @Html.EditorFor(m => m.SitPlacesNum) @Html.ValidationMessageFor(m => m.SitPlacesNum)
+			            </div>
+		            </div>
+
+                    <div class="editor-item">
+			            <div class="editor-label">
+				            @Html.LabelFor(m => m.WheelchairsNum)
+			            </div>
+			            <div class="editor-field">
+				            @Html.EditorFor(m => m.WheelchairsNum) @Html.ValidationMessageFor(m => m.WheelchairsNum)
+			            </div>
+		            </div>
+
+                    <div class="editor-item">
+			            <div class="editor-label">
+				            @Html.LabelFor(m => m.Comments)
+			            </div>
+			            <div class="editor-field">
+				            @Html.EditorFor(m => m.Comments) @Html.ValidationMessageFor(m => m.Comments)
+			            </div>
+		            </div>
+      
+                    <p>
+                        <span style="color:red;">*</span>@Resources.Drivers.EditRequiredFields
+                    </p>
+
+                    <p>
+                        <input type="submit" id="save" value="@(ViewBag.IsCreate? Resources.Drivers.EditCreate 
+													            : Resources.Drivers.EditSave) "/>
+                    </p>
+                </fieldset>
+            }
+
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="2" align="right" style="border:0">
+            @Html.ActionLink(Resources.Drivers.EditBackToList, "Index")
+        </td>
+    </tr>
+
+</table>
+

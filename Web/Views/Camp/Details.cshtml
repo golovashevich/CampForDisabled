@@ -1,0 +1,93 @@
+﻿@model Camp.Models.CampModel
+
+@{
+    ViewBag.Title = Model.Name;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table style="border:0">
+    <tr>
+        <td style="border:0">
+            <h2>@Model.Name</h2>
+        </td>
+
+        <td style="border:0" align="right">
+            @if (ViewBag.CanUpdate)
+            {
+                <button onclick="location.href='@Url.Action("Edit", "Camp", new { id = Model.Id })'">
+                     Редактировать
+                </button> 
+  
+                <button onclick="if (confirm('Вы уверены, что хотите удалить <@Model.Name>?')) { 
+                                    location.href='@Url.Action("Delete", "Camp", new { id = Model.Id })';
+                                 }">
+                     Удалить
+                </button> 
+            }
+            <button onclick="location.href='@Url.Action("Index", "Camp")'">
+                Вернуться к списку
+            </button>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" style="border:0">
+
+            <fieldset>
+                <legend>Информация о лагере</legend>
+                <div class="display-item">
+                    <div class="display-label">@Html.LabelFor(m => m.Year)</div>
+                    <div class="display-field">@Model.Year</div>
+                </div>
+
+                <div class="display-item">
+                    <div class="display-label">@Html.LabelFor(m => m.Name)</div>
+                    <div class="display-field">@Model.Name</div>
+                </div>
+
+                <div class="display-item">
+                    <div class="display-label">@Html.LabelFor(m => m.Theme)</div>
+                    <div class="display-field">@Model.Theme</div>
+                </div>
+
+                <div class="display-item">
+                    <div class="display-label">@Html.LabelFor(m => m.BeginDate)</div>
+                    <div class="display-field">@String.Format("{0:yyyy-MM-dd}", Model.BeginDate)</div>
+                </div>
+
+                <div class="display-item">
+                    <div class="display-label">@Html.LabelFor(m => m.EndDate)</div>
+                    <div class="display-field">@String.Format("{0:yyyy-MM-dd}", Model.EndDate)</div>
+                </div>
+
+                <div class="display-item">
+                    <div class="display-label">@Html.LabelFor(m => m.Description)</div>
+                    <div class="display-field">
+                        <text>@String.Format("{0}", (Model.Description.IsEmpty() ? "-" : Model.Description))</text>
+                    </div>
+                </div>
+
+                <div class="display-item">
+                    <div class="display-label">@Html.LabelFor(m => m.History)</div>
+                    <div class="display-field">
+                        <text>@String.Format("{0}", (Model.History.IsEmpty() ? "-" : Model.History))</text>
+                    </div>
+                </div>
+            </fieldset>
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="2" align="right" style="border:0">
+            @if (ViewBag.CanUpdate)
+            {
+                @: @Html.ActionLink("Редактировать", "Edit", new { id = Model.Id }) |
+                @: @Html.ActionLink("Удалить", "Delete", new { id = Model.Id },
+                                    new { onclick = "return confirm('Вы уверены, что хотите удалить <" + Model.Name + ">?')" }) |
+            }
+            @Html.ActionLink("Вернуться к списку", "Index")
+        </td>
+    </tr>
+
+</table>
+
+

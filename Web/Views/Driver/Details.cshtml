@@ -1,0 +1,87 @@
+﻿@model Camp.Models.DriverModel
+
+@{
+    ViewBag.Title = Model.FullName;
+}
+
+<table style="border:0">
+    <tr>
+        <td style="border:0">
+            <h2>@Model.FullName</h2>
+        </td>
+
+        <td style="border:0" align="right">
+            @if (ViewBag.CanUpdate)
+            {
+                <button onclick="location.href='@Url.Action("Edit", "Driver", new { id = Model.Id })'">
+                     @Resources.Drivers.DetailsEdit
+                </button> 
+  
+                <button onclick="if (confirm('@Model.DeleteConfirmationString')) { 
+                                    location.href='@Url.Action("Delete", "Driver", new { id = Model.Id })';
+                                 }">
+                     @Resources.Drivers.IndexDelete
+                </button> 
+            }
+            <button onclick="location.href='@Url.Action("Index", "Driver")'">
+                @Resources.Drivers.DetailsBackToList
+            </button>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" style="border:0">
+
+            <fieldset>
+                <legend>@Resources.Drivers.DetailsLegend</legend>
+
+                <div class="display-item">
+                    <div class="display-label">@Html.LabelFor(m => m.FirstName)</div>
+                    <div class="display-field">@Model.FirstName</div>
+                </div>
+
+                <div class="display-item">
+                    <div class="display-label">@Html.LabelFor(m => m.LastName)</div>
+                    <div class="display-field">@Model.LastName</div>
+                </div>
+
+                <div class="display-item">
+                    <div class="display-label">@Html.LabelFor(m => m.Contacts)</div>
+                    <div class="display-field">
+                        <text>@String.Format("{0}", (Model.Contacts.IsEmpty() ? "-" : Model.Contacts))</text>
+                    </div>
+                </div>
+
+                <div class="display-item">
+                    <div class="display-label">@Html.LabelFor(m => m.SitPlacesNum)</div>
+                    <div class="display-field">@Model.SitPlacesNum</div>
+                </div>
+
+                <div class="display-item">
+                    <div class="display-label">@Html.LabelFor(m => m.WheelchairsNum)</div>
+                    <div class="display-field">@Model.WheelchairsNum</div>
+                </div>
+
+                <div class="display-item">
+                    <div class="display-label">@Html.LabelFor(m => m.Comments)</div>
+                    <div class="display-field">
+                        <text>@String.Format("{0}", (Model.Comments.IsEmpty() ? "-" : Model.Comments))</text>
+                    </div>
+                </div>
+            </fieldset>
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="2" align="right" style="border:0">
+            @if (ViewBag.CanUpdate) {
+                @: @Html.ActionLink(Resources.Drivers.DetailsEdit, "Edit", new { id = Model.Id }) | 
+                @: @Html.ActionLink(Resources.Drivers.IndexDelete, "Delete", new { id = Model.Id },
+                            new { onclick = "return confirm('" + Model.DeleteConfirmationString + "')" })
+            }																   																   
+                @Html.ActionLink(Resources.Drivers.DetailsBackToList, "Index")
+        </td>
+    </tr>
+
+</table>
+
+

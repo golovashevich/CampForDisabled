@@ -1,0 +1,157 @@
+﻿@model Camp.Models.CampModel
+
+@{
+    ViewBag.Title = ViewBag.IsCreate ? "Новый лагерь" : ViewBag.Name ?? Model.Name;
+}
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery-ui.min.js")" type="text/javascript"></script>
+<link type="text/css" rel="stylesheet" href="@Url.Content("~/Content/themes/base/jquery-ui.css")" />
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        //TODO: Centralize this
+        $('<span style="color:red;">*</span>').insertAfter('[data-val-required][type!="hidden"]');
+
+        $(".datepicker").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            firstDay: 1,
+            dayNames: ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"],
+            dayNamesMin: ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
+            dayNamesShort: ["Воск", "Пон", "Втор", "Сред", "Четв", "Пятн", "Субб"],
+            monthNames: ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
+            monthNamesShort: ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"],
+            yearRange: "2003:2102",
+            dateFormat: "yy-mm-dd",
+            showMonthAfterYear: true,
+            defaultDate: "2003-06-01"
+        });
+
+        $("#form").data("validator").settings.submitHandler = function (form) {
+            $("#save").attr("disabled", true).val("Сохранение...");
+            form.submit();
+        }
+    });
+</script>
+
+<table style="border:0">
+    <tr>
+        <td style="border:0">
+            <h2>@(ViewBag.IsCreate? "Новый лагерь" : ViewBag.Name ?? Model.Name)</h2>
+        </td>
+
+        <td style="border:0" align="right">
+            <button onclick="location.href='@Url.Action("Index", "Camp")'">
+                Вернуться к списку
+            </button>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" style="border:0">
+
+            @using (Html.BeginForm(ViewBag.IsCreate ? "Create" : "Edit", "Camp", FormMethod.Post, new { id = "form" }))
+            {
+                @Html.ValidationSummary(true)
+                <fieldset>
+                    <legend>Редактирование информации о лагере</legend>
+
+                    @Html.HiddenFor(model => model.Id)
+              
+                     <div class="editor-item">
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.Year)
+                        </div>
+                        <div class="editor-field">
+                            @Html.DropDownListFor(m => m.Year, new SelectList(Enumerable.Range(2003, 100)))
+                            @Html.ValidationMessageFor(model => model.Year)
+                        </div>
+                    </div>
+   
+                    <div class="editor-item">
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.Name)
+                        </div>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.Name)
+                            @Html.ValidationMessageFor(model => model.Name)
+                        </div>
+                    </div>
+
+                    <div class="editor-item">
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.Theme)
+                        </div>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.Theme)
+                            @Html.ValidationMessageFor(model => model.Theme)
+                        </div>
+                    </div>
+        
+                    <div class="editor-item">
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.BeginDate)
+                        </div>
+                        <div class="editor-field">
+                            @Html.TextBoxFor(model => model.BeginDate, 
+                                new { @class = "datepicker", @readonly = true, 
+                                    @Value = String.Format("{0:yyyy-MM-dd}", Model.BeginDate) })
+                            @Html.ValidationMessageFor(model => model.BeginDate)
+                        </div>
+                    </div>
+
+                    <div class="editor-item">
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.EndDate)
+                        </div>
+                        <div class="editor-field">
+                            @Html.TextBoxFor(model => model.EndDate, 
+                                new { @class = "datepicker", @readonly = true, 
+                                    @Value = String.Format("{0:yyyy-MM-dd}", Model.EndDate) })
+                            @Html.ValidationMessageFor(model => model.EndDate)
+                        </div>
+                    </div>
+
+                    <div class="editor-item">
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.Description)
+                        </div>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.Description)
+                            @Html.ValidationMessageFor(model => model.Description)
+                        </div>
+                    </div>
+
+                    <div class="editor-item">
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.History)
+                        </div>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.History)
+                            @Html.ValidationMessageFor(model => model.History)
+                        </div>
+                    </div>
+            
+                    <p>
+                        <span style="color:red;">*</span> - Поля, обязательные к заполнению!
+                    </p>
+
+                    <p>
+                        <input type="submit" id="save" value="@(ViewBag.IsCreate ? "Создать" : "Сохранить")" />
+                    </p>
+                </fieldset>
+            }
+
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="2" align="right" style="border:0">
+            @Html.ActionLink("Вернуться к списку", "Index")
+        </td>
+    </tr>
+
+</table>
+
+

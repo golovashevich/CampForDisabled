@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Camp.Models.CampModel>
+
+@{
+    ViewBag.Title = "Лагеря";
+}
+
+<table style="border:0">
+    <tr>
+        <td style="border:0">
+            <h2>Лагеря</h2>
+        </td>
+
+        <td style="border:0" align="right">
+            @if (ViewBag.CanUpdate) {
+                <button onclick="location.href='@Url.Action("Create", "Camp")'">Добавить...</button>
+            }
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="2" style="border:0">
+            <table>
+                <tr>
+                    <th>
+                        @Html.LabelFor(m => Model.SingleOrDefault().Year)
+                    </th>
+                    <th>
+                        @Html.LabelFor(m => Model.SingleOrDefault().Name)
+                    </th>
+                    <th>
+                        @Html.LabelFor(m => Model.SingleOrDefault().Theme)
+                    </th>
+
+                    @if (ViewBag.CanUpdate) {        
+                    <th></th>
+                    }
+                </tr>
+
+                @foreach (var item in Model) {
+                <tr>
+                    <td>
+                        @item.Year
+                    </td>
+                    <td>
+                        @Html.ActionLink(item.Name, "Details", new { id = item.Id })
+                    </td>
+                    <td>
+                        @item.Theme
+                    </td> 
+        
+                    @if (ViewBag.CanUpdate) {        
+                    <td>
+                         @Html.ActionLink("Редактировать", "Edit", new { id=item.Id }) |
+                         @Html.ActionLink("Удалить", "Delete", new { id=item.Id },
+                            new { onclick = "return confirm('Вы уверены, что хотите удалить <"  + item.Name + ">?')"})
+                    </td>
+                    }
+                </tr>
+                }
+            </table>
+        </td>
+    </tr>
+    
+    @if (ViewBag.CanUpdate) {
+    <tr>
+        <td colspan="2" align="right" style="border:0">
+            @Html.ActionLink("Добавить...", "Create")
+        </td>
+    </tr>
+    }
+
+</table>
+

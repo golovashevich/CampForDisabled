@@ -1,0 +1,11 @@
+syntax: glob
+TestResults/
+*/bin/
+*/obj/*
+*.user
+*.suo
+Database/sql/debug/Database.sql
+Database/Database.dbproj.schemaview
+Database/sql/debug/
+Database/Database.dbmdl
+.svn

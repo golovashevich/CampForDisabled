@@ -1,0 +1,90 @@
+﻿@model IEnumerable<Camp.Models.DriverModel>
+@using Resources
+
+
+@{
+    ViewBag.Title = Drivers.IndexTitle;
+}
+
+<table style="border:0">
+    <tr>
+        <td style="border:0">
+            <h2>@Drivers.IndexTitle</h2>
+        </td>
+
+        <td style="border:0" align="right">
+            @if (ViewBag.CanUpdate) {
+                <button onclick="location.href='@Url.Action("Create", "Driver")'">
+                    @Drivers.IndexCreateNew
+                </button>
+            }
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="2" style="border:0">
+
+            <table>
+                <tr>
+                    <th>
+                        @Html.LabelFor(m => m.First().FullName)
+                    </th>
+                    <th>
+                        @Html.LabelFor(m => m.First().Contacts)
+                    </th>
+                    <th>
+                        @Html.LabelFor(m => m.First().SitPlacesNum)
+                    </th>
+                    <th>
+                        @Html.LabelFor(m => m.First().WheelchairsNum)
+                    </th>
+                    <th>
+                        @Html.LabelFor(m => m.First().Comments)
+                    </th>
+                    @if (ViewBag.CanUpdate)
+                    {
+                    <th></th>
+                    }	
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>
+                        @Html.ActionLink(item.FullName, "Details", new { id = item.Id }, null)
+                    </td>
+                    <td>
+                        @item.Contacts
+                    </td>
+                    <td>
+                        @item.SitPlacesNum
+                    </td>
+                    <td>
+                        @item.WheelchairsNum
+                    </td>
+                    <td>
+                        @item.Comments
+                    </td>
+                    @if (ViewBag.CanUpdate)
+                    {
+                    <td>
+                        @Html.ActionLink(Drivers.IndexEdit, "Edit", new { id = item.Id }) |
+                        @Html.ActionLink(Drivers.IndexDelete, "Delete", new { id = item.Id },
+                            new { onclick = "return confirm('" + item.DeleteConfirmationString + "')" }) 
+                    </td>
+                    }    
+	
+	            </tr>
+                }
+            </table>
+        </td>
+    </tr>
+    @if (ViewBag.CanUpdate)
+    {
+    <tr>
+        <td colspan="2" align="right" style="border:0">
+            @Html.ActionLink(Drivers.IndexCreateNew, "Create")
+        </td>
+    </tr>
+    }
+</table>

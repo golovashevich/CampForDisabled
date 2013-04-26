@@ -1,0 +1,261 @@
+﻿@model Camp.Models.CamperModel
+@using Resources;
+
+@{
+    ViewBag.Title = ViewBag.IsCreate ? @Campers.EditNew : ViewBag.FullName ?? Model.FullName;
+}
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.custom.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery-ui.min.js")" type="text/javascript"></script>
+<link type="text/css" rel="stylesheet" href="@Url.Content("~/Content/themes/base/jquery-ui.css")" />
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        //TODO: Centralize this
+    	$('<span style="color:red;">*</span>').insertAfter('[data-val-required][type!="hidden"]');
+
+        $(".datepicker").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            firstDay: 1,
+            dayNames: [@MvcHtmlString.Create(DatePicker.DayNames)],
+            dayNamesMin: [@MvcHtmlString.Create(DatePicker.DayNamesMin)],
+            dayNamesShort: [@MvcHtmlString.Create(DatePicker.DayNamesShort)],
+        	monthNames: [@MvcHtmlString.Create(DatePicker.MonthNames)],
+            monthNamesShort: [@MvcHtmlString.Create(DatePicker.MonthNamesShort)],
+            yearRange: "-100:-1",
+            dateFormat: "@DatePicker.DateFormat",
+            showMonthAfterYear: true,
+            defaultDate: "@DatePicker.DefaultDate"
+        });
+
+        $("#form").data("validator").settings.submitHandler = function (form) {
+            $("#save").attr("disabled", true).val("@Campers.EditSaving");
+            form.submit();
+        };
+    });
+</script>
+
+<table style="border:0">
+    <tr>
+        <td style="border:0">
+            <h2>@(ViewBag.IsCreate? @Campers.EditNew : ViewBag.FullName ?? Model.FullName)</h2>
+        </td>
+
+        <td style="border:0" align="right">
+            <button onclick="location.href='@Url.Action("Index", "Camper")'">
+				@Campers.EditBackToList
+            </button>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" style="border:0">
+
+            @using (Html.BeginForm(ViewBag.IsCreate ? "Create" : "Edit", "Camper", FormMethod.Post, new { id = "form" }))
+            {
+                @Html.ValidationSummary(true)
+                <fieldset>
+                    <legend>@Campers.EditLegend</legend>
+
+                    @Html.HiddenFor(model => model.Id)
+                
+                    <div class="editor-item">
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.LastName)
+                        </div>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.LastName)
+                            @Html.ValidationMessageFor(model => model.LastName)
+                        </div>
+                    </div>
+
+                    <div class="editor-item">
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.FirstName)
+                        </div>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.FirstName)
+                            @Html.ValidationMessageFor(model => model.FirstName)
+                        </div>
+                    </div>
+        
+                    <div class="editor-item">
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.DateOfBirth)
+                        </div>
+                        <div class="editor-field">
+                            @Html.TextBoxFor(model => model.DateOfBirth, 
+                                new { @class = "datepicker", @readonly = true, 
+                                    @Value = String.Format(Campers.EditBirthdateFormat, Model.DateOfBirth) })
+                            @Html.ValidationMessageFor(model => model.DateOfBirth)
+                        </div>
+                    </div>
+
+                    <div class="editor-item">
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.PostIndex)
+                        </div>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.PostIndex)
+                            @Html.ValidationMessageFor(model => model.PostIndex)
+                        </div>
+                    </div>
+
+                    @{Model.CityId = Model.CityId ?? 1;}
+                    @Html.HiddenFor(model => model.CityId)
+
+                    <div class="editor-item">
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.City)
+                        </div>
+                        <div class="editor-field">
+                            @Html.DisplayFor(model => model.City)
+                            @Html.ValidationMessageFor(model => model.City)
+                        </div>
+                    </div>
+
+                    <div class="editor-item">
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.District)
+                        </div>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.District)
+                            @Html.ValidationMessageFor(model => model.District)
+                        </div>
+                    </div>
+
+                    <div class="editor-item">
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.Street)
+                        </div>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.Street)
+                            @Html.ValidationMessageFor(model => model.Street)
+                        </div>
+                    </div>
+
+                    <div class="editor-item">
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.HomeNumber)
+                        </div>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.HomeNumber)
+                            @Html.ValidationMessageFor(model => model.HomeNumber)
+                        </div>
+                    </div>
+
+                    <div class="editor-item">
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.AppartmentNumber)
+                        </div>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.AppartmentNumber)
+                            @Html.ValidationMessageFor(model => model.AppartmentNumber)
+                        </div>
+                    </div>
+
+                    <div class="editor-item">
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.HomePhone)
+                        </div>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.HomePhone)
+                            @Html.ValidationMessageFor(model => model.HomePhone)
+                        </div>
+                    </div>
+
+                    <div class="editor-item">
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.AddressNote)
+                        </div>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.AddressNote)
+                            @Html.ValidationMessageFor(model => model.AddressNote)
+                        </div>
+                    </div>
+
+                    <div class="editor-item">
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.Contacts)
+                        </div>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.Contacts)
+                            @Html.ValidationMessageFor(model => model.Contacts)
+                        </div>
+                    </div>
+
+                    <div class="editor-item">
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.Email)
+                        </div>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.Email)
+                            @Html.ValidationMessageFor(model => model.Email)
+                        </div>
+                    </div>
+
+                    <div class="editor-item">
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.Skype)
+                        </div>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.Skype)
+                            @Html.ValidationMessageFor(model => model.Skype)
+                        </div>
+                    </div>
+
+                    <div class="editor-item">
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.DisabilityGrade)
+                        </div>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.DisabilityGrade)
+                            @Html.ValidationMessageFor(model => model.DisabilityGrade)
+                        </div>
+                    </div>
+
+                    <div class="editor-item">
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.MedicalNote)
+                        </div>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.MedicalNote)
+                            @Html.ValidationMessageFor(model => model.MedicalNote)
+                        </div>
+                    </div>
+
+                    <div class="editor-item">
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.Comments)
+                        </div>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.Comments)
+                            @Html.ValidationMessageFor(model => model.Comments)
+                        </div>
+                    </div>
+            
+                    <p>
+                        <span style="color:red;">*</span> @Campers.EditRequiredFields
+                    </p>
+
+                    <p>
+                        <input type="submit" id="save" 
+								value="@(ViewBag.IsCreate ? @Campers.EditCreate : @Campers.EditSave)" />
+                    </p>
+                </fieldset>
+            }
+
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="2" align="right" style="border:0">
+            @Html.ActionLink(@Campers.EditBackToList, "Index")
+        </td>
+    </tr>
+
+</table>
+
