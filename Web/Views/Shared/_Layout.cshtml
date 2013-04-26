@@ -27,13 +27,13 @@
                         @Html.ActionLink("Home", "Index", "Home")
                     </li>
                     <li class="@("Camper".Equals(currentController) ? "selected" : "")">
-                        @Html.ActionLink("Отдыхающие", "Index", "Camper")
+                        @Html.ActionLink(Resources.Campers.IndexTitle, "Index", "Camper")
                     </li>
                     <li class="@("Driver".Equals(currentController) ? "selected" : "")">
                         @Html.ActionLink(Resources.Drivers.IndexTitle, "Index", "Driver")
                     </li>
                     <li class="@("Camp".Equals(currentController) ? "selected" : "")">
-                        @Html.ActionLink("Лагеря", "Index", "Camp")
+                        @Html.ActionLink(Resources.Camps.MainMenuItem, "Index", "Camp")
                     </li>
                     <li class="@("Home".Equals(currentController) && "About".Equals(currentAction) ? "selected" : "")">
                         @Html.ActionLink("About", "About", "Home")

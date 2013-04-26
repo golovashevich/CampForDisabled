@@ -40,6 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Camps.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Camps.resx</DependentUpon>
+    </Compile>
     <Compile Include="DatePicker.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -63,6 +68,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Camps.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Camps.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Camps.ru.resx" />
     <EmbeddedResource Include="DatePicker.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>DatePicker.Designer.cs</LastGenOutput>

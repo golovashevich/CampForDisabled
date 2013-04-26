@@ -1,11 +1,12 @@
 ﻿@model Camp.Models.CampModel
+@using Resources;           
 
 @{
     ViewBag.Title = Model.Name;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<table style="border:0">
+<table style="border:0" width="98%">
     <tr>
         <td style="border:0">
             <h2>@Model.Name</h2>
@@ -15,17 +16,17 @@
             @if (ViewBag.CanUpdate)
             {
                 <button onclick="location.href='@Url.Action("Edit", "Camp", new { id = Model.Id })'">
-                     Редактировать
+                     @Camps.DetailsEdit
                 </button> 
   
                 <button onclick="if (confirm('Вы уверены, что хотите удалить <@Model.Name>?')) { 
                                     location.href='@Url.Action("Delete", "Camp", new { id = Model.Id })';
                                  }">
-                     Удалить
+                     @Camps.DetailsDelete
                 </button> 
             }
             <button onclick="location.href='@Url.Action("Index", "Camp")'">
-                Вернуться к списку
+                @Camps.DetailsBackToList
             </button>
         </td>
     </tr>
@@ -33,7 +34,7 @@
         <td colspan="2" style="border:0">
 
             <fieldset>
-                <legend>Информация о лагере</legend>
+                <legend>@Camps.DetailsLegend</legend>
                 <div class="display-item">
                     <div class="display-label">@Html.LabelFor(m => m.Year)</div>
                     <div class="display-field">@Model.Year</div>
@@ -80,11 +81,11 @@
         <td colspan="2" align="right" style="border:0">
             @if (ViewBag.CanUpdate)
             {
-                @: @Html.ActionLink("Редактировать", "Edit", new { id = Model.Id }) |
-                @: @Html.ActionLink("Удалить", "Delete", new { id = Model.Id },
-                                    new { onclick = "return confirm('Вы уверены, что хотите удалить <" + Model.Name + ">?')" }) |
+                @: @Html.ActionLink(Camps.DetailsEdit, "Edit", new { id = Model.Id }) |
+                @: @Html.ActionLink(Camps.DetailsDelete, "Delete", new { id = Model.Id },
+                                    new { onclick = "return confirm('" + Model.DeleteConfirmationString + "')" }) |
             }
-            @Html.ActionLink("Вернуться к списку", "Index")
+            @Html.ActionLink(Camps.DetailsBackToList, "Index")
         </td>
     </tr>
 

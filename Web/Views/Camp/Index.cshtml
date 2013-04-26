@@ -1,10 +1,11 @@
 ﻿@model IEnumerable<Camp.Models.CampModel>
+@using Resources;
 
 @{
-    ViewBag.Title = "Лагеря";
+    ViewBag.Title = Camps.IndexTitle;
 }
 
-<table style="border:0">
+<table style="border:0" width="98%">
     <tr>
         <td style="border:0">
             <h2>Лагеря</h2>
@@ -12,7 +13,9 @@
 
         <td style="border:0" align="right">
             @if (ViewBag.CanUpdate) {
-                <button onclick="location.href='@Url.Action("Create", "Camp")'">Добавить...</button>
+                <button onclick="location.href='@Url.Action("Create", "Camp")'">
+                    @Camps.IndexCreateNew
+                </button>
             }
         </td>
     </tr>
@@ -50,9 +53,9 @@
         
                     @if (ViewBag.CanUpdate) {        
                     <td>
-                         @Html.ActionLink("Редактировать", "Edit", new { id=item.Id }) |
-                         @Html.ActionLink("Удалить", "Delete", new { id=item.Id },
-                            new { onclick = "return confirm('Вы уверены, что хотите удалить <"  + item.Name + ">?')"})
+                         @Html.ActionLink(Camps.IndexEdit, "Edit", new { id=item.Id }) |
+                         @Html.ActionLink(Camps.IndexDelete, "Delete", new { id=item.Id },
+                            new { onclick = "return confirm('"  + item.DeleteConfirmationString + "')"})
                     </td>
                     }
                 </tr>
@@ -64,7 +67,7 @@
     @if (ViewBag.CanUpdate) {
     <tr>
         <td colspan="2" align="right" style="border:0">
-            @Html.ActionLink("Добавить...", "Create")
+            @Html.ActionLink(Camps.IndexCreateNew, "Create")
         </td>
     </tr>
     }

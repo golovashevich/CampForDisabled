@@ -4,7 +4,7 @@
     ViewBag.Title = Model.FullName;
 }
 
-<table style="border:0">
+<table style="border:0" width="98%">
     <tr>
         <td style="border:0">
             <h2>@Model.FullName</h2>
@@ -76,7 +76,7 @@
             @if (ViewBag.CanUpdate) {
                 @: @Html.ActionLink(Resources.Drivers.DetailsEdit, "Edit", new { id = Model.Id }) | 
                 @: @Html.ActionLink(Resources.Drivers.IndexDelete, "Delete", new { id = Model.Id },
-                            new { onclick = "return confirm('" + Model.DeleteConfirmationString + "')" })
+                            new { onclick = "return confirm('" + Model.DeleteConfirmationString + "')" }) |
             }																   																   
                 @Html.ActionLink(Resources.Drivers.DetailsBackToList, "Index")
         </td>

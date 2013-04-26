@@ -114,6 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Scripts\add_asterisk_for_requered_fields.js" />
     <Content Include="Scripts\jquery.validate.custom.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>

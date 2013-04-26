@@ -21,9 +21,9 @@ GO
 SET IDENTITY_INSERT Driver ON
 
 INSERT INTO [dbo].[Driver] ([Id], [FirstName], [LastName], [Contacts])
-VALUES (1, 'Максим', 'Головашевич', 'Квартира')
+VALUES (1, N'Максим', N'Головашевич', N'Квартира')
 
 INSERT INTO [dbo].[Driver] ([Id], [FirstName], [LastName], [Contacts])
-VALUES (2, 'Максим', 'Ляшенко', 'Дом')
+VALUES (2, N'Максим', N'Ляшенко', N'Дом')
 
 SET IDENTITY_INSERT Driver OFF

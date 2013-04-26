@@ -10,12 +10,10 @@
 <script src="@Url.Content("~/Scripts/jquery.validate.custom.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/jquery-ui.min.js")" type="text/javascript"></script>
 <link type="text/css" rel="stylesheet" href="@Url.Content("~/Content/themes/base/jquery-ui.css")" />
+<script src="@Url.Content("~/Scripts/add_asterisk_for_requered_fields.js")" type="text/javascript"></script>
 
 <script type="text/javascript">
     $(document).ready(function () {
-
-        //TODO: Centralize this
-    	$('<span style="color:red;">*</span>').insertAfter('[data-val-required][type!="hidden"]');
 
         $(".datepicker").datepicker({
             changeMonth: true,
@@ -39,7 +37,7 @@
     });
 </script>
 
-<table style="border:0">
+<table style="border:0" width="98%">
     <tr>
         <td style="border:0">
             <h2>@(ViewBag.IsCreate? @Campers.EditNew : ViewBag.FullName ?? Model.FullName)</h2>

@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Resources;
 
 
 namespace Camp.Models
@@ -14,42 +15,46 @@ namespace Camp.Models
 		[Required]
 		public virtual int Id { get; set; }
 
-		[DisplayName("Год")]
-		[Required(ErrorMessage = "Введите год проведения лагеря")]
+		[Display(Name = "ModelYear", ResourceType = typeof(Camps))]
+		[Required(ErrorMessageResourceName = "RequiredYear", ErrorMessageResourceType = typeof(Camps))]
 		[DefaultValue(2003)]
 		[Range(2003, 2103)] 
 		public virtual int Year { get; set; }
 
-		[DisplayName("Название")]
-		[Required(ErrorMessage = "Введите название лагеря")]
+		[Display(Name = "ModelName", ResourceType = typeof(Camps))]
+		[Required(ErrorMessageResourceName = "RequiredName", ErrorMessageResourceType = typeof(Camps))]
 		[StringLength(50)]
 		public virtual string Name { get; set; }
 
-		[DisplayName("Тема")]
-        [Required(ErrorMessage = "Введите тему лагеря")]
+		[Display(Name = "ModelTheme", ResourceType = typeof(Camps))]
+		[Required(ErrorMessageResourceName = "RequiredTheme", ErrorMessageResourceType = typeof(Camps))]
 		[StringLength(50)]
 		public virtual string Theme { get; set; }
 
-		[DisplayName("Начало")]
-		[Required(ErrorMessage = "Введите дату начала лагеря")]
+		[Display(Name = "ModelBeginDate", ResourceType = typeof(Camps))]
+		[Required(ErrorMessageResourceName = "RequiredBeginDate", ErrorMessageResourceType = typeof(Camps))]
 		[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
 		[DataType(DataType.Date)]
 		public virtual DateTime? BeginDate { get; set; }
 
-		[DisplayName("Конец")]
-		[Required(ErrorMessage = "Введите дату конца лагеря")]
+		[Display(Name = "ModelEndDate", ResourceType = typeof(Camps))]
+		[Required(ErrorMessageResourceName = "RequiredEndDate", ErrorMessageResourceType = typeof(Camps))]
 		[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
 		[DataType(DataType.Date)]
 		public virtual DateTime? EndDate { get; set; }
 
-		[DisplayName("Описание")]
+		[Display(Name = "ModelDescription", ResourceType = typeof(Camps))]
 		[DataType(DataType.MultilineText)]
 		public virtual string Description { get; set; }
 
-		[DisplayName("События")]
+		[Display(Name = "ModelHistory", ResourceType = typeof(Camps))]
 		[DataType(DataType.MultilineText)]
 		public virtual string History { get; set; }
 
+		public string DeleteConfirmationString
+		{
+			get { return String.Format(Camps.DeleteConfirmation, Name); }
+		}
 		#endregion
 	}
 }
