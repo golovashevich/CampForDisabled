@@ -6,7 +6,7 @@ using Camp.Models;
 
 namespace Web.Controllers
 {
-    public class DriverController : CampControllerBase, ICampController<DriverModel>
+    public class DriverController : CampEntityController, ICampEntityController<DriverModel>
     {
         public DriverController(ICampDB campDB) : base(campDB) { }
 

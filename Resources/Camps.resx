@@ -139,7 +139,7 @@
     <value>Back to list</value>
   </data>
   <data name="EditLegend" xml:space="preserve">
-    <value>Edit camp information</value>
+    <value>Camp information edit</value>
   </data>
   <data name="EditNew" xml:space="preserve">
     <value>New camp</value>
@@ -154,7 +154,7 @@
     <value>Saving...</value>
   </data>
   <data name="IndexCreateNew" xml:space="preserve">
-    <value>Create new...</value>
+    <value>Add new...</value>
   </data>
   <data name="IndexDelete" xml:space="preserve">
     <value>Delete</value>
@@ -163,7 +163,7 @@
     <value>Edit</value>
   </data>
   <data name="IndexTitle" xml:space="preserve">
-    <value>Camps for years</value>
+    <value>Camps by Year</value>
   </data>
   <data name="MainMenuItem" xml:space="preserve">
     <value>Camps</value>
@@ -188,20 +188,5 @@
   </data>
   <data name="ModelYear" xml:space="preserve">
     <value>Year</value>
-  </data>
-  <data name="RequiredBeginDate" xml:space="preserve">
-    <value>Choose the camp beginning date</value>
-  </data>
-  <data name="RequiredEndDate" xml:space="preserve">
-    <value>Choose the camp ending date</value>
-  </data>
-  <data name="RequiredName" xml:space="preserve">
-    <value>Input the camp name</value>
-  </data>
-  <data name="RequiredTheme" xml:space="preserve">
-    <value>Input camp theme</value>
-  </data>
-  <data name="RequiredYear" xml:space="preserve">
-    <value>Choose the camp year</value>
   </data>
 </root>

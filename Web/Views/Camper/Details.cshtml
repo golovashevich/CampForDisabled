@@ -13,21 +13,12 @@
         </td>
 
         <td style="border:0" align="right">
-            @if (ViewBag.CanUpdate)
-            {
-                <button onclick="location.href='@Url.Action("Edit", "Camper", new { id = Model.Id })'">
-                     @Campers.DetailsEdit
-                </button> 
-  
-                <button onclick="if (confirm('@Model.DeleteConfirmationString')) { 
-                                    location.href='@Url.Action("Delete", "Camper", new { id = Model.Id })';
-                                 }">
-                     @Campers.DetailsDelete
-                </button> 
+            @Html.ActionLink(Campers.DetailsBackToList, "Index")
+            @if (ViewBag.CanUpdate) {
+                @: | @Html.ActionLink(Campers.DetailsEdit, "Edit", new { id = Model.Id }) |
+                @: @Html.ActionLink(Campers.DetailsDelete, "Delete", new { id = Model.Id },
+                                            new { onclick = "return confirm('" + Model.DeleteConfirmationString + "')" })
             }
-            <button onclick="location.href='@Url.Action("Index", "Camper")'">
-                @Campers.DetailsBackToList
-            </button>
         </td>
     </tr>
     <tr>
@@ -133,12 +124,12 @@
 
     <tr>
         <td colspan="2" align="right" style="border:0">
+            @Html.ActionLink(Campers.DetailsBackToList, "Index")
             @if (ViewBag.CanUpdate) {
-                @: @Html.ActionLink(Campers.DetailsEdit, "Edit", new { id = Model.Id }) |
+                @: | @Html.ActionLink(Campers.DetailsEdit, "Edit", new { id = Model.Id }) |
                 @: @Html.ActionLink(Campers.DetailsDelete, "Delete", new { id = Model.Id },
-                                            new { onclick = "return confirm('" + Model.DeleteConfirmationString + "')" }) |
-            }																																									 
-                @Html.ActionLink(Campers.DetailsBackToList, "Index")
+                                            new { onclick = "return confirm('" + Model.DeleteConfirmationString + "')" })
+            }
         </td>
     </tr>
 

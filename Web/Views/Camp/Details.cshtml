@@ -13,21 +13,13 @@
         </td>
 
         <td style="border:0" align="right">
+            @Html.ActionLink(Camps.DetailsBackToList, "Index")
             @if (ViewBag.CanUpdate)
             {
-                <button onclick="location.href='@Url.Action("Edit", "Camp", new { id = Model.Id })'">
-                     @Camps.DetailsEdit
-                </button> 
-  
-                <button onclick="if (confirm('Вы уверены, что хотите удалить <@Model.Name>?')) { 
-                                    location.href='@Url.Action("Delete", "Camp", new { id = Model.Id })';
-                                 }">
-                     @Camps.DetailsDelete
-                </button> 
+                @: | @Html.ActionLink(Camps.DetailsEdit, "Edit", new { id = Model.Id }) |
+                @: @Html.ActionLink(Camps.DetailsDelete, "Delete", new { id = Model.Id },
+                                    new { onclick = "return confirm('" + Model.DeleteConfirmationString + "')" })
             }
-            <button onclick="location.href='@Url.Action("Index", "Camp")'">
-                @Camps.DetailsBackToList
-            </button>
         </td>
     </tr>
     <tr>
@@ -79,13 +71,13 @@
 
     <tr>
         <td colspan="2" align="right" style="border:0">
+            @Html.ActionLink(Camps.DetailsBackToList, "Index")
             @if (ViewBag.CanUpdate)
             {
-                @: @Html.ActionLink(Camps.DetailsEdit, "Edit", new { id = Model.Id }) |
+                @: | @Html.ActionLink(Camps.DetailsEdit, "Edit", new { id = Model.Id }) |
                 @: @Html.ActionLink(Camps.DetailsDelete, "Delete", new { id = Model.Id },
-                                    new { onclick = "return confirm('" + Model.DeleteConfirmationString + "')" }) |
+                                    new { onclick = "return confirm('" + Model.DeleteConfirmationString + "')" })
             }
-            @Html.ActionLink(Camps.DetailsBackToList, "Index")
         </td>
     </tr>
 

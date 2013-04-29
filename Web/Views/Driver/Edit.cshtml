@@ -25,14 +25,11 @@
         </td>
 
         <td style="border:0" align="right">
-            <button onclick="location.href='@Url.Action("Index", "Driver")'">
-                @Resources.Drivers.EditBackToList
-            </button>
+            @Html.ActionLink(Resources.Drivers.EditBackToList, "Index")
         </td>
     </tr>
     <tr>
         <td colspan="2" style="border:0">
-
             @using (Html.BeginForm(ViewBag.IsCreate? "Create" : "Edit", "Driver", FormMethod.Post, new { id = "form" })) {
                 @Html.ValidationSummary(true)
                 <fieldset>
@@ -94,17 +91,17 @@
 			            </div>
 		            </div>
       
-                    <p>
-                        <span style="color:red;">*</span>@Resources.Drivers.EditRequiredFields
-                    </p>
-
-                    <p>
-                        <input type="submit" id="save" value="@(ViewBag.IsCreate? Resources.Drivers.EditCreate 
-													            : Resources.Drivers.EditSave) "/>
-                    </p>
+                    <div class="editor-item">
+                        <div style="float:left; display:inline;">
+                            <span style="color:red;">*</span>@Resources.Drivers.EditRequiredFields
+                        </div>
+                        <div style="float:right">
+                            <input type="submit" id="save" 
+                                value="@(ViewBag.IsCreate? Resources.Drivers.EditAdd : Resources.Drivers.EditSave) "/>
+                        </div>
+                    </div>
                 </fieldset>
             }
-
         </td>
     </tr>
 

@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="DeleteConfirmation" xml:space="preserve">
-    <value>Вы уверены, что хотите удалить {0}?</value>
+    <value>Вы собираететсь удалить учетную запись водителя \n\n{0}\n\nУверены?</value>
   </data>
   <data name="DetailsBackToList" xml:space="preserve">
     <value>Назад к списку</value>
@@ -129,11 +129,11 @@
   <data name="DetailsLegend" xml:space="preserve">
     <value>Данные водителя</value>
   </data>
+  <data name="EditAdd" xml:space="preserve">
+    <value>Добавить</value>
+  </data>
   <data name="EditBackToList" xml:space="preserve">
     <value>Вернуться к списку</value>
-  </data>
-  <data name="EditCreate" xml:space="preserve">
-    <value>Создать</value>
   </data>
   <data name="EditLegend" xml:space="preserve">
     <value>Редактирование данных водителя</value>
@@ -142,7 +142,7 @@
     <value>Новый водитель</value>
   </data>
   <data name="EditRequiredFields" xml:space="preserve">
-    <value>- Поля, обязательные к заполнению!</value>
+    <value>- Поля, обязательные к заполнению</value>
   </data>
   <data name="EditSave" xml:space="preserve">
     <value>Сохранить</value>

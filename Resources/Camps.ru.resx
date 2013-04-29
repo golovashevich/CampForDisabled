@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="DeleteConfirmation" xml:space="preserve">
-    <value>Вы собираетесь удалить лагерь\n\n{0}\n\nВы уверены?</value>
+    <value>Вы собираетесь удалить информацию о лагере\n\n{0}\n\nВы уверены?</value>
   </data>
   <data name="DetailsBackToList" xml:space="preserve">
     <value>Вернуться к списку</value>
@@ -145,7 +145,7 @@
     <value>Новый лагерь</value>
   </data>
   <data name="EditRequiredFields" xml:space="preserve">
-    <value>- Поля, обязательные к заполнению!</value>
+    <value>- Поля, обязательные к заполнению</value>
   </data>
   <data name="EditSave" xml:space="preserve">
     <value>Сохранить</value>
@@ -188,20 +188,5 @@
   </data>
   <data name="ModelYear" xml:space="preserve">
     <value>Год</value>
-  </data>
-  <data name="RequiredBeginDate" xml:space="preserve">
-    <value>Введите дату начала лагеря</value>
-  </data>
-  <data name="RequiredEndDate" xml:space="preserve">
-    <value>Введите дату окончания лагеря</value>
-  </data>
-  <data name="RequiredName" xml:space="preserve">
-    <value>Введите название лагеря</value>
-  </data>
-  <data name="RequiredTheme" xml:space="preserve">
-    <value>Введите тему лагеря</value>
-  </data>
-  <data name="RequiredYear" xml:space="preserve">
-    <value>Выберите год проведения лагеря</value>
   </data>
 </root>

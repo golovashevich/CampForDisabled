@@ -5,10 +5,10 @@ namespace Web.Tests.Controllers
 {
     internal class InvalidIdChecks<T>
     {
-        private readonly ICampController<T> _controller;
+        private readonly ICampEntityController<T> _controller;
         private readonly string _controllerName;
 
-        public InvalidIdChecks(ICampController<T> controller)
+        public InvalidIdChecks(ICampEntityController<T> controller)
         {               
             _controller = controller;
             _controllerName = controller.GetType().Name;

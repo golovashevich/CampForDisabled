@@ -1,8 +1,8 @@
 ﻿IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Camp]') AND type in (N'U'))
 	DROP TABLE [dbo].[Camp]
 
-CREATE TABLE [Camp](
-	[Id] [int] NOT NULL,
+CREATE TABLE [dbo].[Camp](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[Year] [int] NOT NULL,
 	[Name] [nvarchar](50) NOT NULL,
 	[Theme] [nvarchar](100) NOT NULL,
@@ -18,7 +18,7 @@ CREATE TABLE [Camp](
 
 SET DATEFORMAT ymd;
 
-SET IDENTITY_INSERT Camper ON
+SET IDENTITY_INSERT Camp ON
 
 INSERT INTO [dbo].[Camp]
            ([Id]
@@ -308,5 +308,5 @@ INSERT INTO [dbo].[Camp]
            ,''
            ,N'Идет подготовка к лагерю')
 
-SET IDENTITY_INSERT Camper OFF
+SET IDENTITY_INSERT Camp OFF
 

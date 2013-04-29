@@ -3,7 +3,7 @@
 
 namespace Camp.Interfaces
 {
-    public interface ICampController<T>
+    public interface ICampEntityController<T>
     {
         ActionResult Create();
         ActionResult Create(T entity);

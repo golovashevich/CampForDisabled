@@ -1,12 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using Camp.Interfaces;
+using Camp.Models;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using Camp.Interfaces;
-using Camp.Models;
 
 namespace Web.Controllers
 {
-	public class CampController : CampControllerBase, ICampController<CampModel>
+	public class CampController : CampEntityController, ICampEntityController<CampModel>
 	{
 
         public CampController(ICampDB campDb) : base(campDb) { }

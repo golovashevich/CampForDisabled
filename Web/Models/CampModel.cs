@@ -16,29 +16,28 @@ namespace Camp.Models
 		public virtual int Id { get; set; }
 
 		[Display(Name = "ModelYear", ResourceType = typeof(Camps))]
-		[Required(ErrorMessageResourceName = "RequiredYear", ErrorMessageResourceType = typeof(Camps))]
+        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Validation))]
 		[DefaultValue(2003)]
-		[Range(2003, 2103)] 
 		public virtual int Year { get; set; }
 
 		[Display(Name = "ModelName", ResourceType = typeof(Camps))]
-		[Required(ErrorMessageResourceName = "RequiredName", ErrorMessageResourceType = typeof(Camps))]
-		[StringLength(50)]
+        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Validation))]
+		[StringLength(50, ErrorMessageResourceName = "StringLength", ErrorMessageResourceType = typeof(Validation))]
 		public virtual string Name { get; set; }
 
 		[Display(Name = "ModelTheme", ResourceType = typeof(Camps))]
-		[Required(ErrorMessageResourceName = "RequiredTheme", ErrorMessageResourceType = typeof(Camps))]
-		[StringLength(50)]
+        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Validation))]
+		[StringLength(50, ErrorMessageResourceName = "StringLength", ErrorMessageResourceType = typeof(Validation))]
 		public virtual string Theme { get; set; }
 
 		[Display(Name = "ModelBeginDate", ResourceType = typeof(Camps))]
-		[Required(ErrorMessageResourceName = "RequiredBeginDate", ErrorMessageResourceType = typeof(Camps))]
+        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Validation))]
 		[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
 		[DataType(DataType.Date)]
 		public virtual DateTime? BeginDate { get; set; }
 
 		[Display(Name = "ModelEndDate", ResourceType = typeof(Camps))]
-		[Required(ErrorMessageResourceName = "RequiredEndDate", ErrorMessageResourceType = typeof(Camps))]
+        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Validation))]
 		[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
 		[DataType(DataType.Date)]
 		public virtual DateTime? EndDate { get; set; }

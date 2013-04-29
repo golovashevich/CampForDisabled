@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Resources
+<!DOCTYPE html>
 <html>
 <head>
     <title>@ViewBag.Title</title>
@@ -11,10 +12,11 @@
 
         <div id="header">
             <div id="title">
-                <h1>Лагерь инвалидов</h1>
+                <h1>@Home.HomeTitle</h1>
             </div>
 
             <div id="logindisplay">
+                @Html.Partial("_LanguageSwitcher")
                 @Html.Partial("_LogOnPartial")
             </div>
 
@@ -23,20 +25,21 @@
                 <ul id="menu">
                     @{ string currentAction = ViewContext.Controller.ValueProvider.GetValue("action").RawValue.ToString();
                        string currentController = ViewContext.Controller.ValueProvider.GetValue("controller").RawValue.ToString(); }
+
                     <li class="@("Home".Equals(currentController) && "Index".Equals(currentAction) ? "selected" : "")">
-                        @Html.ActionLink("Home", "Index", "Home")
+                        @Html.ActionLink(Home.HomeMenu, "Index", "Home")
                     </li>
                     <li class="@("Camper".Equals(currentController) ? "selected" : "")">
-                        @Html.ActionLink(Resources.Campers.IndexTitle, "Index", "Camper")
+                        @Html.ActionLink(Campers.IndexTitle, "Index", "Camper")
                     </li>
                     <li class="@("Driver".Equals(currentController) ? "selected" : "")">
-                        @Html.ActionLink(Resources.Drivers.IndexTitle, "Index", "Driver")
+                        @Html.ActionLink(Drivers.IndexTitle, "Index", "Driver")
                     </li>
                     <li class="@("Camp".Equals(currentController) ? "selected" : "")">
-                        @Html.ActionLink(Resources.Camps.MainMenuItem, "Index", "Camp")
+                        @Html.ActionLink(Camps.MainMenuItem, "Index", "Camp")
                     </li>
                     <li class="@("Home".Equals(currentController) && "About".Equals(currentAction) ? "selected" : "")">
-                        @Html.ActionLink("About", "About", "Home")
+                        @Html.ActionLink(Home.AboutTitle, "About", "Home")
                     </li>
                 </ul>
 

@@ -117,118 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="DeleteConfirmation" xml:space="preserve">
-    <value>Вы собираететсь удалить учетную запись отдыхающего \n\n{0}\n\nУверены?</value>
+  <data name="IncorrectUserOrPassword" xml:space="preserve">
+    <value>The user name or password provided is incorrect.</value>
   </data>
-  <data name="DetailsBackToList" xml:space="preserve">
-    <value>Назад к списку</value>
+  <data name="LogOff" xml:space="preserve">
+    <value>Log Off</value>
   </data>
-  <data name="DetailsBirthdateFormat" xml:space="preserve">
-    <value>{0:yyyy-MM-dd}</value>
+  <data name="LogOn" xml:space="preserve">
+    <value>Log On</value>
   </data>
-  <data name="DetailsDelete" xml:space="preserve">
-    <value>Удалить</value>
+  <data name="LogOnButton" xml:space="preserve">
+    <value>Log On</value>
   </data>
-  <data name="DetailsEdit" xml:space="preserve">
-    <value>Редактировать</value>
+  <data name="LogOnLegend" xml:space="preserve">
+    <value>Account Information</value>
   </data>
-  <data name="DetailsLegend" xml:space="preserve">
-    <value>Данные отдыхающего</value>
+  <data name="LogOnTitle" xml:space="preserve">
+    <value>Log On</value>
   </data>
-  <data name="EditAdd" xml:space="preserve">
-    <value>Добавить</value>
+  <data name="LogOnValidationSummary" xml:space="preserve">
+    <value>Login was unsuccessful. Please correct the errors and try again.</value>
   </data>
-  <data name="EditBackToList" xml:space="preserve">
-    <value>Вернуться к списку</value>
+  <data name="ModelPassword" xml:space="preserve">
+    <value>Password</value>
   </data>
-  <data name="EditBirthdateFormat" xml:space="preserve">
-    <value>{0:yyyy-MM-dd}</value>
+  <data name="ModelRememberMe" xml:space="preserve">
+    <value>Remember me?</value>
   </data>
-  <data name="EditLegend" xml:space="preserve">
-    <value>Редактирование данных отдыхающего</value>
-  </data>
-  <data name="EditNew" xml:space="preserve">
-    <value>Новый отдыхающий</value>
-  </data>
-  <data name="EditRequiredFields" xml:space="preserve">
-    <value>- Поля, обязательные к заполнению</value>
-  </data>
-  <data name="EditSave" xml:space="preserve">
-    <value>Сохранить</value>
-  </data>
-  <data name="EditSaving" xml:space="preserve">
-    <value>Сохранение...</value>
-  </data>
-  <data name="IndexCreateNew" xml:space="preserve">
-    <value>Добавить...</value>
-  </data>
-  <data name="IndexDelete" xml:space="preserve">
-    <value>Удалить</value>
-  </data>
-  <data name="IndexEdit" xml:space="preserve">
-    <value>Редактировать</value>
-  </data>
-  <data name="IndexTitle" xml:space="preserve">
-    <value>Отдыхающие</value>
-  </data>
-  <data name="ModelAddressNote" xml:space="preserve">
-    <value>Как проехать</value>
-  </data>
-  <data name="ModelAppartmentNumber" xml:space="preserve">
-    <value>Номер квартиры</value>
-  </data>
-  <data name="ModelCity" xml:space="preserve">
-    <value>Город</value>
-  </data>
-  <data name="ModelCityId" xml:space="preserve">
-    <value>Город</value>
-  </data>
-  <data name="ModelComments" xml:space="preserve">
-    <value>Примечания</value>
-  </data>
-  <data name="ModelCommentsRequired" xml:space="preserve">
-    <value>Введите номер хотя бы одного телефона</value>
-  </data>
-  <data name="ModelContacts" xml:space="preserve">
-    <value>Контакты</value>
-  </data>
-  <data name="ModelDateOfBirth" xml:space="preserve">
-    <value>Дата рождения</value>
-  </data>
-  <data name="ModelDisabilityGrade" xml:space="preserve">
-    <value>Степень инвалидности</value>
-  </data>
-  <data name="ModelDistrict" xml:space="preserve">
-    <value>Район</value>
-  </data>
-  <data name="ModelEmail" xml:space="preserve">
-    <value>E-mail</value>
-  </data>
-  <data name="ModelFirstName" xml:space="preserve">
-    <value>Имя</value>
-  </data>
-  <data name="ModelFullName" xml:space="preserve">
-    <value>ФИО</value>
-  </data>
-  <data name="ModelHomeNumber" xml:space="preserve">
-    <value>Номер дома</value>
-  </data>
-  <data name="ModelHomePhone" xml:space="preserve">
-    <value>Домашний телефон</value>
-  </data>
-  <data name="ModelLastName" xml:space="preserve">
-    <value>Фамилия</value>
-  </data>
-  <data name="ModelMedicalNote" xml:space="preserve">
-    <value>Медицинская информация</value>
-  </data>
-  <data name="ModelPostIndex" xml:space="preserve">
-    <value>Почтовый индекс</value>
-  </data>
-  <data name="ModelSkype" xml:space="preserve">
-    <value>Skype</value>
-  </data>
-  <data name="ModelStreet" xml:space="preserve">
-    <value>Улица</value>
+  <data name="ModelUserName" xml:space="preserve">
+    <value>User name</value>
   </data>
 </root>

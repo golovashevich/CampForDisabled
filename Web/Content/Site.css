@@ -189,7 +189,6 @@ fieldset
     padding: 0.5em 1.4em 1.4em 1.4em;
     margin: 0 0 1.5em 5em;
     overflow:  hidden;
-    /*position: relative;*/
     width: auto;
 }
 
@@ -357,6 +356,17 @@ div#title
     overflow: hidden;
     text-align: left;
     padding: 0 0.5em 0 0.5em;
+}
+
+.editor-label
+{
+    font-weight: bold;
+    padding: 0.5em 0.5em 0 0.5em;
+}
+
+.editor-field
+{
+    padding: 0 0.5em 0.5em 0.5em;
 }
 
 .editor-item

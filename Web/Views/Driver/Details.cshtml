@@ -11,21 +11,12 @@
         </td>
 
         <td style="border:0" align="right">
-            @if (ViewBag.CanUpdate)
-            {
-                <button onclick="location.href='@Url.Action("Edit", "Driver", new { id = Model.Id })'">
-                     @Resources.Drivers.DetailsEdit
-                </button> 
-  
-                <button onclick="if (confirm('@Model.DeleteConfirmationString')) { 
-                                    location.href='@Url.Action("Delete", "Driver", new { id = Model.Id })';
-                                 }">
-                     @Resources.Drivers.IndexDelete
-                </button> 
+            @Html.ActionLink(Resources.Drivers.DetailsBackToList, "Index")
+            @if (ViewBag.CanUpdate) {
+                @: | @Html.ActionLink(Resources.Drivers.DetailsEdit, "Edit", new { id = Model.Id }) | 
+                @: @Html.ActionLink(Resources.Drivers.IndexDelete, "Delete", new { id = Model.Id },
+                            new { onclick = "return confirm('" + Model.DeleteConfirmationString + "')" })
             }
-            <button onclick="location.href='@Url.Action("Index", "Driver")'">
-                @Resources.Drivers.DetailsBackToList
-            </button>
         </td>
     </tr>
     <tr>
@@ -73,12 +64,12 @@
 
     <tr>
         <td colspan="2" align="right" style="border:0">
+            @Html.ActionLink(Resources.Drivers.DetailsBackToList, "Index")
             @if (ViewBag.CanUpdate) {
-                @: @Html.ActionLink(Resources.Drivers.DetailsEdit, "Edit", new { id = Model.Id }) | 
+                @: | @Html.ActionLink(Resources.Drivers.DetailsEdit, "Edit", new { id = Model.Id }) | 
                 @: @Html.ActionLink(Resources.Drivers.IndexDelete, "Delete", new { id = Model.Id },
-                            new { onclick = "return confirm('" + Model.DeleteConfirmationString + "')" }) |
-            }																   																   
-                @Html.ActionLink(Resources.Drivers.DetailsBackToList, "Index")
+                            new { onclick = "return confirm('" + Model.DeleteConfirmationString + "')" })
+            }
         </td>
     </tr>
 

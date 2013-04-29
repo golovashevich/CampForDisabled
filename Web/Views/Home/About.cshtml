@@ -1,8 +1,70 @@
-﻿@{
-    ViewBag.Title = "About Us";
+﻿@using Resources
+@{
+    ViewBag.Title = Home.AboutTitle;
 }
 
-<h2>About</h2>
+
 <p>
-    Приложение для автоматизации подготовки Лагеря инвалидов
+    @Html.Raw(Home.AboutDescription)
 </p>
+
+
+<table style="border:0">
+    <tr>
+        <td colspan="2" style="border:0">
+            <h2>@Home.AboutTitle</h2>
+        </td>
+    </tr>
+
+    <tr>
+        <td style="border:0">
+            <img src="../../Content/Images/MG.jpg" height="200"/>
+        </td>
+
+        <td style="border:0; vertical-align:top; padding:0px" >
+            <h3 style="margin-top:5px">Maxim Golovashevich</h3>
+            <b>Team Lead, Sr.Software Engineer</b>
+            <p><text>
+			<a href="http://www.linkedin.com/in/golovashevich">LinkedIn</a><br />
+			<a href="skype://golovashevich">Skype</a>
+            </text></p>
+			<p>Overall 14 years of working experience.<br />
+Expertise in OOP/Refactoring, .NET Framework (C#), TDD/Unit Testing, Agile Development and process (SCRUM),
+				WinForms, ASP.NET<br />
+Skills in managing small teams (3-5 people)<br />
+Certified SCRUM master</p>
+        </td>
+    </tr>
+
+     <tr>
+        <td style="border:0">
+            <img src="../../Content/Images/ML.jpg" height="200"/>
+        </td>
+
+        <td style="border:0; vertical-align:top; padding:0">
+            <h3 style="margin-top:5px">Maxim Lyashenko</h3>
+            <b>Jr.Software Engineer</b>
+            <p><text>
+            1.5 years experience as Junior Software Engineer <br />
+Expertise in .NET Framework (C#)
+            </text></p>
+        </td>
+    </tr>
+
+     <tr>
+        <td style="border:0">
+            <img src="../../Content/Images/JG.jpg" height="200"/>
+        </td>
+
+        <td style="border:0; vertical-align:top; padding:0">
+            <h3 style="margin-top:5px">Jane Golovashevich</h3>
+            <b>Jr.QA</b>
+            <p><text>
+            1 year experience as Junior QA<br />
+			Manual testing, positive and negative testing, new feature testing.
+
+            </text></p>
+        </td>
+    </tr>
+</table>
+

@@ -6,7 +6,7 @@
     ViewBag.Title = Drivers.IndexTitle;
 }
 
-<table style="border:0" width="98%">
+<table style="border:0">
     <tr>
         <td style="border:0">
             <h2>@Drivers.IndexTitle</h2>
@@ -14,9 +14,7 @@
 
         <td style="border:0" align="right">
             @if (ViewBag.CanUpdate) {
-                <button onclick="location.href='@Url.Action("Create", "Driver")'">
-                    @Drivers.IndexCreateNew
-                </button>
+                @Html.ActionLink(Drivers.IndexCreateNew, "Create")
             }
         </td>
     </tr>

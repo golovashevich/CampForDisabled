@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="DeleteConfirmation" xml:space="preserve">
-    <value>You are going to delete account \n\n{0}\n\nAre you sure?</value>
+    <value>You are going to delete the camper \n\n{0}\n\nAre you sure?</value>
   </data>
   <data name="DetailsBackToList" xml:space="preserve">
     <value>Back to List</value>
@@ -135,14 +135,14 @@
   <data name="DetailsLegend" xml:space="preserve">
     <value>Driver profile</value>
   </data>
+  <data name="EditAdd" xml:space="preserve">
+    <value>Add</value>
+  </data>
   <data name="EditBackToList" xml:space="preserve">
     <value>Back to List</value>
   </data>
   <data name="EditBirthdateFormat" xml:space="preserve">
     <value>{0:MM-dd-yyyy}</value>
-  </data>
-  <data name="EditCreate" xml:space="preserve">
-    <value>Create</value>
   </data>
   <data name="EditLegend" xml:space="preserve">
     <value>Camper profile edit</value>
@@ -160,7 +160,7 @@
     <value>Saving...</value>
   </data>
   <data name="IndexCreateNew" xml:space="preserve">
-    <value>Create New...</value>
+    <value>Add New...</value>
   </data>
   <data name="IndexDelete" xml:space="preserve">
     <value>Delete</value>

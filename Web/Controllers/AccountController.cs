@@ -1,11 +1,11 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
-using System.Web.Security;
 using Web.Models;
+using Resources;
 
 namespace Web.Controllers
 {
-    public class AccountController : Controller
+    public class AccountController : CampControllerBase
     {
         public IFormsAuthenticationService FormsService { get; set; }
         public IMembershipService MembershipService { get; set; }
@@ -46,7 +46,7 @@ namespace Web.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "The user name or password provided is incorrect.");
+                    ModelState.AddModelError("", Account.IncorrectUserOrPassword);
                 }
             }
 

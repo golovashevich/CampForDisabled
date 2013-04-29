@@ -124,7 +124,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit camp information.
+        ///   Looks up a localized string similar to Camp information edit.
         /// </summary>
         public static string EditLegend {
             get {
@@ -169,7 +169,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Create new....
+        ///   Looks up a localized string similar to Add new....
         /// </summary>
         public static string IndexCreateNew {
             get {
@@ -196,7 +196,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Camps for years.
+        ///   Looks up a localized string similar to Camps by Year.
         /// </summary>
         public static string IndexTitle {
             get {
@@ -273,51 +273,6 @@ namespace Resources {
         public static string ModelYear {
             get {
                 return ResourceManager.GetString("ModelYear", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Choose the camp beginning date.
-        /// </summary>
-        public static string RequiredBeginDate {
-            get {
-                return ResourceManager.GetString("RequiredBeginDate", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Choose the camp ending date.
-        /// </summary>
-        public static string RequiredEndDate {
-            get {
-                return ResourceManager.GetString("RequiredEndDate", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Input the camp name.
-        /// </summary>
-        public static string RequiredName {
-            get {
-                return ResourceManager.GetString("RequiredName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Input camp theme.
-        /// </summary>
-        public static string RequiredTheme {
-            get {
-                return ResourceManager.GetString("RequiredTheme", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Choose the camp year.
-        /// </summary>
-        public static string RequiredYear {
-            get {
-                return ResourceManager.GetString("RequiredYear", resourceCulture);
             }
         }
     }

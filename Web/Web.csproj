@@ -55,6 +55,7 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.Helpers" />
     <Reference Include="System" />
@@ -91,6 +92,7 @@
     <Compile Include="Attributes\NumericCoupledAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CampControllerFactory.cs" />
+    <Compile Include="Controllers\CampEntityController.cs" />
     <Compile Include="Controllers\CamperController.cs" />
     <Compile Include="Controllers\CampController.cs" />
     <Compile Include="Controllers\CampControllerBase.cs" />
@@ -113,6 +115,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Images\MG.jpg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\add_asterisk_for_requered_fields.js" />
     <Content Include="Scripts\jquery.validate.custom.js" />
@@ -168,7 +171,7 @@
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Content Include="Views\Shared\_LanguageSwitcher.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

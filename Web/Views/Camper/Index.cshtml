@@ -5,7 +5,7 @@
     ViewBag.Title = Campers.IndexTitle;
 }
 
-<table style="border:0" width="98%">
+<table style="border:0">
     <tr>
         <td style="border:0">
             <h2>@Campers.IndexTitle</h2>
@@ -13,7 +13,7 @@
 
         <td style="border:0" align="right">
             @if (ViewBag.CanUpdate) {
-                <button onclick="location.href='@Url.Action("Create", "Camper")'">@Campers.IndexCreateNew</button>
+                @Html.ActionLink(Campers.IndexCreateNew, "Create")
             }
         </td>
     </tr>

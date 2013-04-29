@@ -1,28 +1,37 @@
-﻿using System.Web.Mvc;
-using Camp.Models;
-using Camp.Interfaces;
+﻿using System;
+using System.Globalization;
+using System.Threading;
+using System.Web.Mvc;
 
 namespace Web.Controllers
 {
     public class CampControllerBase : Controller
     {
-        private readonly ICampDB _campDB;
-        protected ICampDB CampDB
-        {
-            get { return _campDB; }
-        }
-
-
-        public CampControllerBase(ICampDB campDB)
-        {
-            _campDB = campDB;
-        }
-
-
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             base.OnActionExecuting(filterContext);
             ViewBag.CanUpdate = Request.IsAuthenticated;
         }
+
+
+		protected override void ExecuteCore()
+		{
+			string cultureName = Convert.ToString(ControllerContext.RouteData.Values["language"]);
+			if (null == cultureName)
+			{
+				cultureName = "en";
+			}
+			else if (!cultureName.StartsWith("ru"))
+			{
+				cultureName = "en";
+			}
+			
+			var currentCulture = new CultureInfo(cultureName);
+
+			Thread.CurrentThread.CurrentCulture = currentCulture;
+			Thread.CurrentThread.CurrentUICulture = currentCulture;
+
+			base.ExecuteCore();
+		}
     }
 }

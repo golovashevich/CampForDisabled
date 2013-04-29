@@ -23,7 +23,7 @@
             dayNamesShort: [@MvcHtmlString.Create(DatePicker.DayNamesShort)],
         	monthNames: [@MvcHtmlString.Create(DatePicker.MonthNames)],
             monthNamesShort: [@MvcHtmlString.Create(DatePicker.MonthNamesShort)],
-            yearRange: "2003:2102",
+            yearRange: "2003:@(DateTime.Now.Year + 5)",
             dateFormat: "yy-mm-dd",
             showMonthAfterYear: true,
             defaultDate: "2003-06-01"
@@ -44,14 +44,11 @@
         </td>
 
         <td style="border:0" align="right">
-            <button onclick="location.href='@Url.Action("Index", "Camp")'">
-                @Camps.EditBackToList
-            </button>
+            @Html.ActionLink(Camps.EditBackToList, "Index")
         </td>
     </tr>
     <tr>
         <td colspan="2" style="border:0">
-
             @using (Html.BeginForm(ViewBag.IsCreate ? "Create" : "Edit", "Camp", FormMethod.Post, new { id = "form" }))
             {
                 @Html.ValidationSummary(true)
@@ -65,7 +62,8 @@
                             @Html.LabelFor(model => model.Year)
                         </div>
                         <div class="editor-field">
-                            @Html.DropDownListFor(m => m.Year, new SelectList(Enumerable.Range(2003, 100)))
+                            @Html.DropDownListFor(model => model.Year,
+                                new SelectList(Enumerable.Range(2003, DateTime.Now.Year - 2003 + 6)))
                             @Html.ValidationMessageFor(model => model.Year)
                         </div>
                     </div>
@@ -133,17 +131,17 @@
                             @Html.ValidationMessageFor(model => model.History)
                         </div>
                     </div>
-            
-                    <p>
-                        <span style="color:red;">*</span> @Camps.EditRequiredFields
-                    </p>
 
-                    <p>
-                        <input type="submit" id="save" value="@(ViewBag.IsCreate ? Camps.EditAdd : Camps.EditSave)" />
-                    </p>
+                    <div class="editor-item">
+                        <div style="float:left; display:inline;">
+                            <span style="color:red;">*</span> @Camps.EditRequiredFields
+                        </div>
+                        <div style="float:right">
+                            <input type="submit" id="save" value="@(ViewBag.IsCreate ? Camps.EditAdd : Camps.EditSave)" />
+                        </div>
+                    </div>
                 </fieldset>
             }
-
         </td>
     </tr>
 

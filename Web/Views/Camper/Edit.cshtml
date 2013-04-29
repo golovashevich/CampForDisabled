@@ -44,14 +44,11 @@
         </td>
 
         <td style="border:0" align="right">
-            <button onclick="location.href='@Url.Action("Index", "Camper")'">
-				@Campers.EditBackToList
-            </button>
+            @Html.ActionLink(@Campers.EditBackToList, "Index")
         </td>
     </tr>
     <tr>
         <td colspan="2" style="border:0">
-
             @using (Html.BeginForm(ViewBag.IsCreate ? "Create" : "Edit", "Camper", FormMethod.Post, new { id = "form" }))
             {
                 @Html.ValidationSummary(true)
@@ -235,17 +232,17 @@
                         </div>
                     </div>
             
-                    <p>
-                        <span style="color:red;">*</span> @Campers.EditRequiredFields
-                    </p>
-
-                    <p>
-                        <input type="submit" id="save" 
-								value="@(ViewBag.IsCreate ? @Campers.EditCreate : @Campers.EditSave)" />
-                    </p>
+                    <div class="editor-item">
+                        <div style="float:left; display:inline;">
+                            <span style="color:red;">*</span> @Campers.EditRequiredFields
+                        </div>
+                        <div style="float:right">
+                            <input type="submit" id="save" 
+								value="@(ViewBag.IsCreate ? @Campers.EditAdd : @Campers.EditSave)" />
+                        </div>
+                    </div>
                 </fieldset>
             }
-
         </td>
     </tr>
 

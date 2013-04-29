@@ -1,70 +1,29 @@
-﻿using System;
+﻿using Resources;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.Web.Mvc;
 using System.Web.Security;
 
+
 namespace Web.Models
 {
     #region Models
 
-    public class ChangePasswordModel
-    {
-        [Required]
-        [DataType(DataType.Password)]
-        [Display(Name = "Current password")]
-        public string OldPassword { get; set; }
-
-        [Required]
-        [ValidatePasswordLength]
-        [DataType(DataType.Password)]
-        [Display(Name = "New password")]
-        public string NewPassword { get; set; }
-
-        [DataType(DataType.Password)]
-        [Display(Name = "Confirm new password")]
-        [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
-        public string ConfirmPassword { get; set; }
-    }
-
     public class LogOnModel
     {
-        [Required]
-        [Display(Name = "User name")]
+		[Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Validation))]
+		[Display(Name = "ModelUserName", ResourceType = typeof(Account))]
         public string UserName { get; set; }
 
-        [Required]
-        [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+		[Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Validation))]
+		[DataType(DataType.Password)]
+		[Display(Name = "ModelPassword", ResourceType = typeof(Account))]
         public string Password { get; set; }
 
-        [Display(Name = "Remember me?")]
+		[Display(Name = "ModelRememberMe", ResourceType = typeof(Account))]
         public bool RememberMe { get; set; }
-    }
-
-
-    public class RegisterModel
-    {
-        [Required]
-        [Display(Name = "User name")]
-        public string UserName { get; set; }
-
-        [Required]
-        [DataType(DataType.EmailAddress)]
-        [Display(Name = "Email address")]
-        public string Email { get; set; }
-
-        [Required]
-        [ValidatePasswordLength]
-        [DataType(DataType.Password)]
-        [Display(Name = "Password")]
-        public string Password { get; set; }
-
-        [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
-        public string ConfirmPassword { get; set; }
     }
     #endregion
 

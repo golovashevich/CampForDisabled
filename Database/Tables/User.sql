@@ -31,4 +31,7 @@ VALUES (3, 'Jane', '202cb962ac59075b964b07152d234b70')
 INSERT INTO [dbo].[User] ([Id], [Name], [PasswordHash])
 VALUES (4, 'Oksana', '202cb962ac59075b964b07152d234b70')
 
+INSERT INTO [dbo].[User] ([Id], [Name], [PasswordHash])
+VALUES (5, 'Editor', '202cb962ac59075b964b07152d234b70')
+
 SET IDENTITY_INSERT Driver OFF
