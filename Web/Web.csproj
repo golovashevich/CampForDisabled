@@ -115,7 +115,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Images\JG.jpg" />
     <Content Include="Content\Images\MG.jpg" />
+    <Content Include="Content\Images\ML.jpg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\add_asterisk_for_requered_fields.js" />
     <Content Include="Scripts\jquery.validate.custom.js" />

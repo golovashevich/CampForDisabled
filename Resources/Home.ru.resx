@@ -122,15 +122,16 @@
 	ежегодного Лагеря для Инвалидов.&lt;br /&gt;
 
 	Прорабатываемые моменты: &lt;br /&gt;
-	&lt;ul&gt;
-		&lt;li&gt;Asp.Net MVC 3/4, Razor, Microsoft Visual Studio 2012&lt;/li&gt;
-		&lt;li&gt;Entity Framework, Microsoft SQL server&lt;/li&gt;
-		&lt;li&gt;jQuery&lt;/li&gt;
-		&lt;li&gt;jQuery.validation&lt;/li&gt;
-		&lt;li&gt;Globalization/Localization to English and Russian&lt;/li&gt;
-		&lt;li&gt;Unit Testing of Controllers&lt;/li&gt;
-		&lt;li&gt;Sprint Planning and organization, team velocity calculation&lt;/li&gt;
-	&lt;/ul&gt;</value>
+&lt;ul&gt;
+ &lt;li&gt;Asp.Net MVC 3/4, Razor, Microsoft Visual Studio 2012&lt;/li&gt;
+ &lt;li&gt;Entity Framework, Microsoft SQL Server&lt;/li&gt;
+ &lt;li&gt;jQuery&lt;/li&gt;
+ &lt;li&gt;jQuery.validation&lt;/li&gt;
+ &lt;li&gt;Unit Testing of Controllers and Validators&lt;/li&gt;
+ &lt;li&gt;Dependency Injection for Controllers&lt;/li&gt;
+ &lt;li&gt;Globalization, localization to English and Russian&lt;/li&gt;
+ &lt;li&gt;Sprint Planning and organization, team velocity calculation&lt;/li&gt;
+&lt;/ul&gt;</value>
   </data>
   <data name="AboutTitle" xml:space="preserve">
     <value>Наша команда</value>

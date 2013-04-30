@@ -32,99 +32,199 @@ GO
 
 SET IDENTITY_INSERT Camper ON
 
-INSERT INTO [dbo].[Camper] (
-	[Id],
-	[FirstName],
-	[LastName],
-	[DateOfBirth],
-	[CityId],
-	[District],
-	[Street],
-	[HomeNumber],
-	[AppartmentNumber],
-	[Contacts])
-VALUES (
-	1,
-	N'Виталик',
-	N'Марченко',
-	'1968-04-01',
-	1,
-	N'Рогань',
-	N'Танковая ул.',
-	'2',
-	'16',
-	N'телефон...')
+INSERT INTO [dbo].[Camper] 
+	([Id]
+	,[FirstName]
+	,[LastName]
+	,[DateOfBirth]
+	,[PostIndex]
+	,[CityId]
+	,[District]
+	,[Street]
+	,[HomeNumber]
+	,[AppartmentNumber]
+	,[HomePhone]
+	,[AddressNote]
+	,[Contacts]
+	,[Email]
+	,[Skype]
+	,[DisabilityGrade]
+	,[MedicalNote]
+	,[Comments])
+VALUES 
+	(1
+	,N'FirstName1'
+	,N'LastName1'
+	,'1980-01-01'
+	,11111
+	,1
+	,N'District1'
+	,N'Street'
+	,N'25A'
+	,N'1'
+	,N'+380670000001'
+	,N'Folow the pointers to city park than turn left'
+	,N'+380500000001, ask Betty (my mother)'
+	,N'mail@mail.com'
+	,N'my_skype'
+	,2
+	,N'No medical notes'
+	,N'Likes ice-cream')
 
-INSERT INTO [dbo].[Camper] (
-	[Id],
-	[FirstName],
-	[LastName],
-	[DateOfBirth],
-	[CityId],
-	[District],
-	[Street],
-	[HomeNumber],
-	[AppartmentNumber],
-	[Contacts])
-VALUES (
-	2,
-	N'Михаил',
-	N'Вергелес',
-	'1955-01-10',
-	1,
-	N'Алексеевка',
-	N'Победы пр.',
-	'10',
-	'100',
-	N'телефон...')
-
-INSERT INTO [dbo].[Camper] (
-	[Id],
-	[FirstName],
-	[LastName],
-	[DateOfBirth],
-	[CityId],
-	[District],
-	[Street],
-	[HomeNumber],
-	[AppartmentNumber],
-	[Contacts])
-VALUES (
-	3,
-	N'Мойша Ицыкович',
-	N'Купитман',
-	'1960-04-01',
-	2,
-	N'Слободской',
-	N'Севашёвская ул.',
-	'18',
-	'',
-	N'123-15-18, спросить Беню Ицыковича (брат)')
+INSERT INTO [dbo].[Camper] 
+	([Id]
+	,[FirstName]
+	,[LastName]
+	,[DateOfBirth]
+	,[PostIndex]
+	,[CityId]
+	,[District]
+	,[Street]
+	,[HomeNumber]
+	,[AppartmentNumber]
+	,[HomePhone]
+	,[AddressNote]
+	,[Contacts]
+	,[Email]
+	,[Skype]
+	,[DisabilityGrade]
+	,[MedicalNote]
+	,[Comments])
+VALUES 
+	(2
+	,N'FirstName2'
+	,N'LastName2'
+	,'1981-05-05'
+	,26147
+	,1
+	,N'District2'
+	,N'Second avenue'
+	,N'185'
+	,N'123'
+	,N'+380670000002'
+	,N'Center of city'
+	,N'+380500000002, my cell-phone'
+	,N'mail2@mail.com'
+	,N'my_skype2'
+	,2
+	,N'No medical notes'
+	,N'')
 	
+INSERT INTO [dbo].[Camper] 
+	([Id]
+	,[FirstName]
+	,[LastName]
+	,[DateOfBirth]
+	,[PostIndex]
+	,[CityId]
+	,[District]
+	,[Street]
+	,[HomeNumber]
+	,[AppartmentNumber]
+	,[HomePhone]
+	,[AddressNote]
+	,[Contacts]
+	,[Email]
+	,[Skype]
+	,[DisabilityGrade]
+	,[MedicalNote]
+	,[Comments])
+VALUES 
+	(3
+	,N'FirstName3'
+	,N'LastName3'
+	,'1979-12-06'
+	,98765
+	,1
+	,N'District2'
+	,N'Time Sq.'
+	,N'2'
+	,N'31'
+	,N'+380670000003'
+	,N'Center of city'
+	,N'+380500000003, my cell-phone'
+	,N'mail2@mail.com'
+	,N'my_skype3'
+	,2
+	,N'No medical notes'
+	,N'')
 
-INSERT INTO [dbo].[Camper] (
-	[Id],
-	[FirstName],
-	[LastName],
-	[DateOfBirth],
-	[CityId],
-	[District],
-	[Street],
-	[HomeNumber],
-	[AppartmentNumber],
-	[Contacts],
-	[Comments])
-VALUES (
-	4,
-	N'Беня Арнольдович',
-	N'Зухенвей',
-	'1900-01-01',
-	1,
-	N'Моськалёвка',
-	N'Рабкоровский пер.',
-	N'1-б',
-	'16',
-	N'123-45-67, спросить Мойшу Абрамовича Цуккермана (сосед)',
-	N'Очень длинное примечание. Очень длинное примечание. Очень длинное примечание. Очень длинное примечание. Очень длинное примечание. Очень длинное примечание. Очень длинное примечание. Очень длинное примечание. Очень длинное примечание. Очень длинное примечание. Очень длинное примечание. Очень длинное примечание. Очень длинное примечание. ')
-	
+INSERT INTO [dbo].[Camper] 
+	([Id]
+	,[FirstName]
+	,[LastName]
+	,[DateOfBirth]
+	,[PostIndex]
+	,[CityId]
+	,[District]
+	,[Street]
+	,[HomeNumber]
+	,[AppartmentNumber]
+	,[HomePhone]
+	,[AddressNote]
+	,[Contacts]
+	,[Email]
+	,[Skype]
+	,[DisabilityGrade]
+	,[MedicalNote]
+	,[Comments])
+VALUES 
+	(4
+	,N'FirstName4'
+	,N'LastName4'
+	,'1965-07-16'
+	,98765
+	,1
+	,N'District2'
+	,N'Time Sq.'
+	,N'2b'
+	,N'3'
+	,N'+380670000004'
+	,N'Center of city'
+	,N'+380500000004, my cell-phone'
+	,N'mail4@mail.com'
+	,N'my_skype4'
+	,2
+	,N'No medical notes'
+	,N'')
+
+INSERT INTO [dbo].[Camper] 
+	([Id]
+	,[FirstName]
+	,[LastName]
+	,[DateOfBirth]
+	,[PostIndex]
+	,[CityId]
+	,[District]
+	,[Street]
+	,[HomeNumber]
+	,[AppartmentNumber]
+	,[HomePhone]
+	,[AddressNote]
+	,[Contacts]
+	,[Email]
+	,[Skype]
+	,[DisabilityGrade]
+	,[MedicalNote]
+	,[Comments])
+VALUES 
+	(5
+	,N'FirstName5'
+	,N'LastName5'
+	,'1997-10-25'
+	,28763
+	,1
+	,N'District3'
+	,N'Elisabet St.'
+	,N'26'
+	,N''
+	,N'+380670000005'
+	,N'Near Target supermarket'
+	,N'+380500000005, my cell-phone'
+	,N'mail5@mail.com'
+	,N'my_skype5'
+	,1
+	,N'Grass pollen allergy'
+	,N'')
+
 SET IDENTITY_INSERT Camper OFF

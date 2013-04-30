@@ -64,14 +64,14 @@ namespace Resources {
         ///   Looks up a localized string similar to For improvement of Asp.Net MVC/jQuery knowledge we decided to create an application for automatization of annual Camp for Disabled preparation.&lt;br /&gt;
         ///Point of interests for us here:
         ///
-        ///	&lt;ul&gt;
-        ///		&lt;li&gt;Asp.Net MVC 3/4, Razor, Microsoft Visual Studio 2012&lt;/li&gt;
-        ///		&lt;li&gt;Entity Framework, Microsoft SQL server&lt;/li&gt;
-        ///		&lt;li&gt;jQuery&lt;/li&gt;
-        ///		&lt;li&gt;jQuery.validation&lt;/li&gt;
-        ///		&lt;li&gt;Globalization/Localization to English and Russian&lt;/li&gt;
-        ///		&lt;li&gt;Unit Testing of Controllers&lt;/li&gt;
-        ///		&lt;li&gt;Sprint Planning and organization, team velocit [rest of string was truncated]&quot;;.
+        ///&lt;ul&gt;
+        /// &lt;li&gt;Asp.Net MVC 3/4, Razor, Microsoft Visual Studio 2012&lt;/li&gt;
+        /// &lt;li&gt;Entity Framework, Microsoft SQL Server&lt;/li&gt;
+        /// &lt;li&gt;jQuery&lt;/li&gt;
+        /// &lt;li&gt;jQuery.validation&lt;/li&gt;
+        /// &lt;li&gt;Unit Testing of Controllers and Validators&lt;/li&gt;
+        /// &lt;li&gt;Dependency Injection for Controllers&lt;/li&gt;
+        /// &lt;li&gt;Globalization, localization to English and Russian&lt;/ [rest of string was truncated]&quot;;.
         /// </summary>
         public static string AboutDescription {
             get {

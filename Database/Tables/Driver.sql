@@ -20,10 +20,55 @@ GO
 
 SET IDENTITY_INSERT Driver ON
 
-INSERT INTO [dbo].[Driver] ([Id], [FirstName], [LastName], [Contacts])
-VALUES (1, N'Максим', N'Головашевич', N'Квартира')
+INSERT INTO [dbo].[Driver] 
+	([Id]
+	,[FirstName]
+	,[LastName]
+	,[Contacts]
+	,[SitPlacesNum]
+	,[WheelchairsNum]
+	,[Comments])
+VALUES
+	(1
+	,N'Driver1'
+	,N'Busman'
+	,N'+380 67 000-00-00'
+	,18
+	,8
+	,N'Volkswagen LT')
 
-INSERT INTO [dbo].[Driver] ([Id], [FirstName], [LastName], [Contacts])
-VALUES (2, N'Максим', N'Ляшенко', N'Дом')
+INSERT INTO [dbo].[Driver] 
+	([Id]
+	,[FirstName]
+	,[LastName]
+	,[Contacts]
+	,[SitPlacesNum]
+	,[WheelchairsNum]
+	,[Comments])
+VALUES
+	(2 
+	,N'Driver2'
+	,N'Vanman'
+	,N'+380 67 000-00-01'
+	,12
+	,7
+	,N'Vito TDI')
+
+INSERT INTO [dbo].[Driver] 
+	([Id]
+	,[FirstName]
+	,[LastName]
+	,[Contacts]
+	,[SitPlacesNum]
+	,[WheelchairsNum]
+	,[Comments])
+VALUES
+	(3
+	,N'Driver3'
+	,N'Carman'
+	,N'+380 67 000-00-03'
+	,5
+	,1
+	,N'VAZ 2108')
 
 SET IDENTITY_INSERT Driver OFF
