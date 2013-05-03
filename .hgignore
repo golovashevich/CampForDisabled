@@ -9,3 +9,4 @@ Database/Database.dbproj.schemaview
 Database/sql/debug/
 Database/Database.dbmdl
 .svn
+.git

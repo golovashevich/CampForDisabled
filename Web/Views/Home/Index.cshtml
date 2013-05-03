@@ -1,8 +1,14 @@
 ﻿@using Resources
 @{
-    ViewBag.Title = Home.HomeTitle;
+    ViewBag.Title = "Home Page";
 }
-
-<h2>@Home.HomeWelcomeMessage</h2>
-
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h2>@Home.HomeWelcomeMessage</h2>
+            </hgroup>
+        </div>
+    </section>
+}
 @Html.Raw(String.Format(Home.HomeDescription, Html.ActionLink(Home.AboutTitle, "About")))

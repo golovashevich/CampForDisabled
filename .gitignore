@@ -1,1 +1,10 @@
 .svn/
+.hg/
+bin/
+obj/
+debug/
+*.user
+*.suo
+Database/Database.dbproj.schemaview
+Database/Database.dbmdl
+camp2010.sln

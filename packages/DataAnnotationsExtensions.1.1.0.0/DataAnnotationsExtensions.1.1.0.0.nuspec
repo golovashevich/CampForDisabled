@@ -13,8 +13,5 @@
     If you are using MVC3 and also want client validation, use the DataAnnotationsExtensions.MVC3 package.</description>
     <releaseNotes>See https://github.com/srkirkland/DataAnnotationsExtensions/wiki/Version-History</releaseNotes>
     <tags>ASP.NET Validation</tags>
-    <references>
-      <reference file="DataAnnotationsExtensions.dll" />
-    </references>
   </metadata>
 </package>

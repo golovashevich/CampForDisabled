@@ -10,12 +10,7 @@ namespace Web.Controllers
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             base.OnActionExecuting(filterContext);
-            ViewBag.CanUpdate = Request.IsAuthenticated;
-        }
-
-
-		protected override void ExecuteCore()
-		{
+			ViewBag.CanUpdate = Request.IsAuthenticated;
 			string cultureName = Convert.ToString(ControllerContext.RouteData.Values["language"]);
 			if (null == cultureName)
 			{
@@ -30,8 +25,6 @@ namespace Web.Controllers
 
 			Thread.CurrentThread.CurrentCulture = currentCulture;
 			Thread.CurrentThread.CurrentUICulture = currentCulture;
-
-			base.ExecuteCore();
 		}
     }
 }
