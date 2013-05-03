@@ -147,4 +147,7 @@
   <data name="ModelUserName" xml:space="preserve">
     <value>Имя пользователя</value>
   </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>Добро пожаловать, &lt;b&gt;{0}&lt;/b&gt;!</value>
+  </data>
 </root>

@@ -10,7 +10,7 @@ namespace CustomValidation.Attributes
     public class PhoneNumberWithPlusValidator : ValidationAttribute, IClientValidatable
     {
 		private const string PHONE_INVALID_ERRORMESSAGE =
-			"Длина телефонного номер должна быть 11 или 12 цифр, если телефонный номер начинается с '+'";
+			"If the phone number starts with +, it should be 11 or 12 digits in length.";
 
 
 		public PhoneNumberWithPlusValidator() : base() { }

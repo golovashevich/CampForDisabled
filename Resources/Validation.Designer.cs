@@ -70,7 +70,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The field {0} must be a number..
+        ///   Looks up a localized string similar to The field {0} must be an integer number..
         /// </summary>
         public static string EnumDataType {
             get {
@@ -79,11 +79,20 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The field {0} should be a positive or negative non-decimal number..
+        ///   Looks up a localized string similar to The field {0} must be an integer number..
         /// </summary>
         public static string Integer {
             get {
                 return ResourceManager.GetString("Integer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to If the phone number starts with +, it should be 11 or 12 digits in length..
+        /// </summary>
+        public static string InvalidPhoneNumber {
+            get {
+                return ResourceManager.GetString("InvalidPhoneNumber", resourceCulture);
             }
         }
         
@@ -111,6 +120,15 @@ namespace Resources {
         public static string Phone {
             get {
                 return ResourceManager.GetString("Phone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The number of digits in the phone number must be between {0} and {1}..
+        /// </summary>
+        public static string PhoneDigitCountNotInTheRange {
+            get {
+                return ResourceManager.GetString("PhoneDigitCountNotInTheRange", resourceCulture);
             }
         }
         

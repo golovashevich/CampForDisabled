@@ -17,7 +17,7 @@ namespace CustomValidation.Attributes
 		private int _maxDigitsCount;
 
 		private const string PHONE_DIGITS_COUNT_IS_NOT_IN_RANGE_ERRORMESSAGE =
-			"Количество цифр в телефонном номере должно быть от {0} до {1}";
+			"The number of digits in the phone number must be between {0} and {1}";
 
 
 		public PhoneDigitsCountRange() : this(MIN_DIGITS_COUNT, MAX_DIGITS_COUNT) { }

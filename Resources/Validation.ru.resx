@@ -126,6 +126,9 @@
   <data name="Integer" xml:space="preserve">
     <value>Поле {0} должно содержать целое значение.</value>
   </data>
+  <data name="InvalidPhoneNumber" xml:space="preserve">
+    <value>Если телефонный номер начинается с +, его длина должна быть 11 или 12 цифр.</value>
+  </data>
   <data name="NumericLessThan" xml:space="preserve">
     <value>{0} должно быть меньше, чем {1}.</value>
   </data>
@@ -134,6 +137,9 @@
   </data>
   <data name="Phone" xml:space="preserve">
     <value>Допустимые символы: +(в начале), -, #, цифры, пробел, скобки.</value>
+  </data>
+  <data name="PhoneDigitCountNotInTheRange" xml:space="preserve">
+    <value>Количество цифр в телефонном номере должно быть от {0} до {1}</value>
   </data>
   <data name="PostInfex" xml:space="preserve">
     <value>Допускается только пятизначный номер индекса.</value>

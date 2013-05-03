@@ -109,15 +109,16 @@ namespace Camp.Models
 
 		//TODO: Get rid of waste validators
 		//TODO: Get rid of Validator suffix
-		//TODO: Globalize/localize PhoneNumberWithPlus
 		[Display(Name = "ModelHomePhone", ResourceType = typeof(Campers))]
 		[StringLength(20, ErrorMessageResourceName = "StringLength",
 				ErrorMessageResourceType = typeof(Validation))]
 		[DataType(DataType.PhoneNumber)]
 		[RegularExpression(@"^( +)?\+?[- 0-9#()]+?$", ErrorMessageResourceName = "Phone",
 				ErrorMessageResourceType = typeof(Validation))]
-        [PhoneDigitsCountRange]
-		[PhoneNumberWithPlusValidator]
+        [PhoneDigitsCountRange(ErrorMessageResourceName="PhoneDigitCountNotInTheRange",
+				ErrorMessageResourceType = typeof(Validation))]
+		[PhoneNumberWithPlusValidator(ErrorMessageResourceName = "InvalidPhoneNumber",
+				ErrorMessageResourceType = typeof(Validation))]
 		public virtual string HomePhone { get; set; }
 
 
