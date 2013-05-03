@@ -118,8 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AboutDescription" xml:space="preserve">
-    <value>Для углубления знаний по Asp.Net MVC/jQuery мы решили сделать приложение для автоматизации подготовки 
-	ежегодного Лагеря для Инвалидов.&lt;br /&gt;
+    <value>Для углубления знаний по Asp.Net MVC/jQuery мы решили сделать приложение для автоматизации подготовки ежегодного Лагеря инвалидов.&lt;br /&gt;
 
 	Прорабатываемые моменты: &lt;br /&gt;
 &lt;ul&gt;

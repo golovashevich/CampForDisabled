@@ -123,7 +123,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Wellcome to Camp for Disabled preparation utility.
+        ///   Looks up a localized string similar to Welcome to Camp for Disabled preparation utility.
         /// </summary>
         public static string HomeWelcomeMessage {
             get {
