@@ -425,30 +425,26 @@ legend
         }
 
 label {
-    display: block;
-    font-size: 1.2em;
     font-weight: 600;
 }
 
 label.checkbox {
     display: inline;
+    vertical-align: middle;
 }
 
 input, textarea {
     border: 1px solid #e2e2e2;
+    font-size: 1em;
     background: #fff;
     color: #333;
-    font-size: 1.2em;
-   /*font-size: 100%;*//*from old css - compare!*/
-    margin: 5px 0 6px 0;
-    padding: 5px;
     width: 300px;
     font-family: Verdana, Tahoma, Arial, "Helvetica Neue", Helvetica, Sans-Serif;
 }
 
 textarea {
-    font-family: inherit;
-/*    width: 500px;*/
+    font-family: Verdana, Tahoma, Arial, "Helvetica Neue", Helvetica, Sans-Serif;
+    font-size: 1em;
     min-height: 40px;
     width: inherit;
     resize: none;
@@ -771,43 +767,36 @@ tr.pager td {
 }
 /* Styles for editor and display helpers
 ----------------------------------------------------------*/
-.display-item
-{
+.display-item {
     width: 100%;
     height: 100%;
     margin: 1em 0 0 0;
     overflow: hidden;
 }
 
-.display-item .display-label
-{
-    width: 30%;
+.display-item .display-label {
     float: left;
     height: auto;
-    font-weight: bold;
-    text-align: right;
-    padding: 0 0.5em 0 0.5em;
+    width: 30%;
     overflow:  hidden;
+    padding: 0 0.5em 0 0.5em;
+    text-align: right;
 }
 
-.display-item .display-field
-{
+.display-item .display-field {
     float: left;
     height: auto;
     width: 65%;
     overflow: hidden;
-    text-align: left;
     padding: 0 0.5em 0 0.5em;
+    text-align: left;
 }
 
-.editor-label
-{
-    font-weight: bold;
+.editor-label {
     padding: 0.5em 0.5em 0 0.5em;
 }
 
-.editor-field
-{
+.editor-field {
     padding: 0 0.5em 0.5em 0.5em;
 }
 
@@ -822,17 +811,16 @@ tr.pager td {
 .editor-item .editor-label,
 .editor-footer .left
 {
-    width: 30%;
     float: left;
     height: auto;
-    font-weight: bold;
-    text-align: right;
-    padding: 0 0.5em 0 0.5em;
+    width: 30%;
     overflow:  hidden;
+    padding: 0 0.5em 0 0.5em;
+    text-align: right;
 }
     .editor-footer .left {
         text-align: left;
-        font-weight: normal;
+        width: auto;
     }
 
 .editor-item .editor-field,
@@ -842,12 +830,15 @@ tr.pager td {
     height: auto;
     width: 65%;
     overflow: hidden;
-    text-align: left;
     padding: 0 0.5em 0 0.5em;
+    text-align: left;
     position: relative;
 }
     .editor-footer .right {
         text-align: right;
+        width: auto;
+        float: right;
+        margin-right: 4%;
         font-weight: normal;
     }
 
