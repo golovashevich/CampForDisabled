@@ -204,6 +204,12 @@ ul#menu {
             text-decoration: none;
         }
 
+        ul#menu li.selected a
+        {
+            background-color: #eee;
+            color: #000;
+        }
+
 
 /* page elements
 ----------------------------------------------------------*/
@@ -396,7 +402,7 @@ aside {
 
 /* forms */
 fieldset {
-    border: none;
+    border:1px solid #ddd;
     padding: 0.5em 1.4em 1.4em 1.4em;
     margin: 0 0 1.5em 5em;
     overflow:  hidden;
@@ -405,14 +411,9 @@ fieldset {
 
 legend 
 {
-    font-size:1.2em;
+    font-size:1.5em;
     font-weight: bold;
 }
-
-
-    fieldset legend {
-        display: none;
-    }
 
     fieldset ol {
         padding: 0;
@@ -810,7 +811,7 @@ tr.pager td {
     padding: 0 0.5em 0.5em 0.5em;
 }
 
-.editor-item
+.editor-item, .editor-footer
 {
     width: 100%;
     height: auto;
@@ -818,7 +819,8 @@ tr.pager td {
     overflow: hidden;
 }
 
-.editor-item .editor-label
+.editor-item .editor-label,
+.editor-footer .left
 {
     width: 30%;
     float: left;
@@ -828,8 +830,13 @@ tr.pager td {
     padding: 0 0.5em 0 0.5em;
     overflow:  hidden;
 }
+    .editor-footer .left {
+        text-align: left;
+        font-weight: normal;
+    }
 
-.editor-item .editor-field
+.editor-item .editor-field,
+.editor-footer .right
 {
     float: left;
     height: auto;
@@ -839,6 +846,11 @@ tr.pager td {
     padding: 0 0.5em 0 0.5em;
     position: relative;
 }
+    .editor-footer .right {
+        text-align: right;
+        font-weight: normal;
+    }
+
 
 .text-box
 {

@@ -10,3 +10,5 @@ Database/sql/debug/
 Database/Database.dbmdl
 .svn
 .git
+_UpgradeReport_Files/*
+UpgradeLog.*

@@ -232,13 +232,13 @@
                         </div>
                     </div>
             
-                    <div class="editor-item">
-                        <div style="float:left; display:inline;">
+                    <div class="editor-footer">
+                        <div class="left">
                             <span style="color:red;">*</span> @Campers.EditRequiredFields
                         </div>
-                        <div style="float:right">
-                            <input type="submit" id="save" 
-								value="@(ViewBag.IsCreate ? @Campers.EditAdd : @Campers.EditSave)" />
+                        <div class="right">
+                            <input type="submit" id="save" style="margin-right:2%"
+ 								value="@(ViewBag.IsCreate ? @Campers.EditAdd : @Campers.EditSave)" />
                         </div>
                     </div>
                 </fieldset>
