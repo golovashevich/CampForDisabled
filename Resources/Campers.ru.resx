@@ -139,7 +139,7 @@
     <value>Добавить</value>
   </data>
   <data name="EditBackToList" xml:space="preserve">
-    <value>Вернуться к списку</value>
+    <value>Назад к списку</value>
   </data>
   <data name="EditBirthdateFormat" xml:space="preserve">
     <value>{0:yyyy-MM-dd}</value>
@@ -174,6 +174,9 @@
   <data name="ModelAddressNote" xml:space="preserve">
     <value>Как проехать</value>
   </data>
+  <data name="ModelAnotherCity" xml:space="preserve">
+    <value>Другой город</value>
+  </data>
   <data name="ModelAppartmentNumber" xml:space="preserve">
     <value>Номер квартиры</value>
   </data>
@@ -186,11 +189,11 @@
   <data name="ModelComments" xml:space="preserve">
     <value>Примечания</value>
   </data>
-  <data name="ModelCommentsRequired" xml:space="preserve">
-    <value>Введите номер хотя бы одного телефона</value>
-  </data>
   <data name="ModelContacts" xml:space="preserve">
     <value>Контакты</value>
+  </data>
+  <data name="ModelContactsRequired" xml:space="preserve">
+    <value>Введите номер хотя бы одного телефона</value>
   </data>
   <data name="ModelDateOfBirth" xml:space="preserve">
     <value>Дата рождения</value>
@@ -215,6 +218,9 @@
   </data>
   <data name="ModelHomePhone" xml:space="preserve">
     <value>Домашний телефон</value>
+  </data>
+  <data name="ModelKharkov" xml:space="preserve">
+    <value>Харьков</value>
   </data>
   <data name="ModelLastName" xml:space="preserve">
     <value>Фамилия</value>

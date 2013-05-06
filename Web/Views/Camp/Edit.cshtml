@@ -51,9 +51,7 @@
     </tr>
     <tr>
         <td colspan="2" style="border:0">
-            @using (Html.BeginForm(ViewBag.IsCreate ? "Create" : "Edit", "Camp", FormMethod.Post, new { id = "form" }))
-            {
-                @Html.ValidationSummary(true)
+            @using (Html.BeginForm(ViewBag.IsCreate ? "Create" : "Edit", "Camp", FormMethod.Post, new { id = "form" })) {
                 <fieldset>
                     <legend>@Camps.EditLegend</legend>
 
@@ -123,7 +121,7 @@
                             @Html.ValidationMessageFor(model => model.Description)
                         </div>
                     </div>
-
+                        
                     <div class="editor-item">
                         <div class="editor-label">
                             @Html.LabelFor(model => model.History)

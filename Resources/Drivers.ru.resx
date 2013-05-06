@@ -133,7 +133,7 @@
     <value>Добавить</value>
   </data>
   <data name="EditBackToList" xml:space="preserve">
-    <value>Вернуться к списку</value>
+    <value>Назад к списку</value>
   </data>
   <data name="EditLegend" xml:space="preserve">
     <value>Редактирование данных водителя</value>
@@ -163,7 +163,7 @@
     <value>Водители</value>
   </data>
   <data name="ModelComments" xml:space="preserve">
-    <value>Заметки</value>
+    <value>Примечания</value>
   </data>
   <data name="ModelContacts" xml:space="preserve">
     <value>Контакты</value>

@@ -121,7 +121,7 @@
     <value>Вы собираетесь удалить информацию о лагере\n\n{0}\n\nВы уверены?</value>
   </data>
   <data name="DetailsBackToList" xml:space="preserve">
-    <value>Вернуться к списку</value>
+    <value>Назад к списку</value>
   </data>
   <data name="DetailsDelete" xml:space="preserve">
     <value>Удалить</value>
@@ -136,7 +136,7 @@
     <value>Добавить</value>
   </data>
   <data name="EditBackToList" xml:space="preserve">
-    <value>Вернуться к списку</value>
+    <value>Назад к списку</value>
   </data>
   <data name="EditLegend" xml:space="preserve">
     <value>Редактирование информации о лагере</value>

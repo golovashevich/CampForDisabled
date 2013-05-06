@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Resources;
+using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Resources;
+using System.Web.Mvc;
 
 
 namespace Camp.Models
@@ -12,7 +13,7 @@ namespace Camp.Models
 	{
 		#region Public properties
 
-		[Required]
+        [HiddenInput]
 		public virtual int Id { get; set; }
 
 		[Display(Name = "ModelYear", ResourceType = typeof(Camps))]

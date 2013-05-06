@@ -73,7 +73,7 @@ namespace Camp.Models
 		[Display(Name = "ModelCity", ResourceType = typeof(Campers))]
 		public virtual string City
 		{
-			get { return CityId == 1 ? "Харьков" : "Другой город"; }
+			get { return CityId == 1 ? Campers.ModelKharkov : Campers.ModelAnotherCity; }
 			// TODO: Add Cities table in Database
 		}
 
@@ -128,7 +128,7 @@ namespace Camp.Models
 
 
 		[Display(Name = "ModelContacts", ResourceType = typeof(Campers))]
-		[Required(ErrorMessageResourceName = "ModelCommentsRequired", 
+		[Required(ErrorMessageResourceName = "ModelContactsRequired", 
 				ErrorMessageResourceType = typeof(Campers))]
 		[DataType(DataType.MultilineText)]
 		public virtual string Contacts { get; set; }

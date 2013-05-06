@@ -53,7 +53,7 @@
         
                     @if (ViewBag.CanUpdate)
                     {        
-                    <td>
+                    <td id="actions">
                          @Html.ActionLink(Camps.IndexEdit, "Edit", new { id = item.Id }) |
                          @Html.ActionLink(Camps.IndexDelete, "Delete", new { id = item.Id },
                             new { onclick = "return confirm('" + item.DeleteConfirmationString + "')" })
@@ -68,7 +68,7 @@
     @if (ViewBag.CanUpdate)
     {
     <tr>
-        <td colspan="2" align="right" style="border:0">
+        <td colspan="2" id="footer">
             @Html.ActionLink(Camps.IndexCreateNew, "Create")
         </td>
     </tr>

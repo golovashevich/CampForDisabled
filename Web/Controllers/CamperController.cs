@@ -73,7 +73,6 @@ namespace Web.Controllers
         [Authorize]
         public ActionResult Create(CamperModel camper)
 		{
-			ViewBag.IsCreate = true;
 			if (!ModelState.IsValid)
 			{
 				ViewBag.IsCreate = true;

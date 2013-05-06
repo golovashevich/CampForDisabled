@@ -65,7 +65,7 @@
                     </td>
                     @if (ViewBag.CanUpdate)
                     {
-                    <td>
+                    <td id="actions">
                         @Html.ActionLink(Drivers.IndexEdit, "Edit", new { id = item.Id }) |
                         @Html.ActionLink(Drivers.IndexDelete, "Delete", new { id = item.Id },
                             new { onclick = "return confirm('" + item.DeleteConfirmationString + "')" }) 
@@ -80,7 +80,7 @@
     @if (ViewBag.CanUpdate)
     {
     <tr>
-        <td colspan="2" align="right" style="border:0">
+        <td colspan="2" id="footer">
             @Html.ActionLink(Drivers.IndexCreateNew, "Create")
         </td>
     </tr>

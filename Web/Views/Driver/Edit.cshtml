@@ -1,8 +1,5 @@
 ﻿@model Camp.Models.DriverModel
-
-@{
-    ViewBag.Title = ViewBag.IsCreate? Resources.Drivers.EditNew : Model.FullName;
-}
+@using Resources;
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
@@ -10,10 +7,14 @@
 	@Scripts.Render("~/bundles/campedit")
 }
 
+@{
+    ViewBag.Title = ViewBag.IsCreate ? Drivers.EditNew : ViewBag.FullName ?? Model.FullName;
+}
+
 <script type="text/javascript">
     $(document).ready(function () {
         $("#form").data("validator").settings.submitHandler = function (form) {
-            $("#save").attr("disabled", true).val("@Resources.Drivers.EditSaving");
+            $("#save").attr("disabled", true).val("@Drivers.EditSaving");
             form.submit();
         }
     });
@@ -22,19 +23,18 @@
 <table style="border:0" width="98%">
     <tr>
         <td style="border:0">
-            <h2>@(ViewBag.IsCreate ? Resources.Drivers.EditNew : Model.FullName)</h2>
+            <h2>@(ViewBag.IsCreate ? Drivers.EditNew : ViewBag.FullName ?? Model.FullName)</h2>
         </td>
 
         <td style="border:0" align="right">
-            @Html.ActionLink(Resources.Drivers.EditBackToList, "Index")
+            @Html.ActionLink(Drivers.EditBackToList, "Index")
         </td>
     </tr>
     <tr>
         <td colspan="2" style="border:0">
             @using (Html.BeginForm(ViewBag.IsCreate? "Create" : "Edit", "Driver", FormMethod.Post, new { id = "form" })) {
-                @Html.ValidationSummary(true)
                 <fieldset>
-                    <legend>@Resources.Drivers.EditLegend</legend>
+                    <legend>@Drivers.EditLegend</legend>
 
                     @Html.HiddenFor(model => model.Id)
 
@@ -95,11 +95,11 @@
 
                      <div class="editor-footer">
                         <div class="left">
-                            <span style="color:red;">*</span>@Resources.Drivers.EditRequiredFields
+                            <span style="color:red;">*</span>@Drivers.EditRequiredFields
                         </div>
                         <div class="right">
                             <input type="submit" id="save" style="margin-right:2%"
-                                value="@(ViewBag.IsCreate? Resources.Drivers.EditAdd : Resources.Drivers.EditSave) "/>
+                                value="@(ViewBag.IsCreate? Drivers.EditAdd : Drivers.EditSave) "/>
                         </div>
                     </div>
                 </fieldset>
@@ -109,7 +109,7 @@
 
     <tr>
         <td colspan="2" align="right" style="border:0">
-            @Html.ActionLink(Resources.Drivers.EditBackToList, "Index")
+            @Html.ActionLink(Drivers.EditBackToList, "Index")
         </td>
     </tr>
 

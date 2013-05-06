@@ -70,7 +70,6 @@ namespace Web.Controllers
         [Authorize]
 		public ActionResult Create(CampModel camp)
 		{
-			ViewBag.IsCreate = true;
 			if (!ModelState.IsValid)
 			{
 				ViewBag.IsCreate = true;
@@ -111,6 +110,7 @@ namespace Web.Controllers
             {
                 return RedirectToAction("Index");
             }
+
 			var p = from camp in CampDB.Camps
 					where camp.Id == id
 					select camp;

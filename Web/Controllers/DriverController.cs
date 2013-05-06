@@ -48,8 +48,8 @@ namespace Web.Controllers
         }
 
 
-        [Authorize]
         [HttpPost]
+        [Authorize]
         public ActionResult Create(DriverModel driver)
         {
             if (!ModelState.IsValid)
@@ -88,28 +88,40 @@ namespace Web.Controllers
         [Authorize]
         public ActionResult Edit(int? id, DriverModel newDriver)
         {
-            if (!ModelState.IsValid || null == id)
+            if (null == id)
             {
-                ViewBag.IsCreate = false; 
-                return View(newDriver);
+                return RedirectToAction("Index");
             }
-
+            
             var p = from driver in CampDB.Drivers
                     where driver.Id == id
                     select driver;
             var existingDriver = p.FirstOrDefault();
-            if (null == existingDriver)
+
+            if (!ModelState.IsValid)
             {
-                ViewBag.IsCreate = false; 
+                ViewBag.IsCreate = false;
+                if (existingDriver != null)
+                {
+                    ViewBag.FullName = existingDriver.FullName;
+                }
+
                 return View(newDriver);
             }
-                                            
-            existingDriver.FirstName = newDriver.FirstName;
-            existingDriver.LastName = newDriver.LastName;
-            existingDriver.Contacts = newDriver.Contacts;
-            existingDriver.SitPlacesNum = newDriver.SitPlacesNum;
-            existingDriver.WheelchairsNum = newDriver.WheelchairsNum;
-            existingDriver.Comments = newDriver.Comments;
+
+            if (existingDriver != null)
+            {
+                existingDriver.FirstName = newDriver.FirstName;
+                existingDriver.LastName = newDriver.LastName;
+                existingDriver.Contacts = newDriver.Contacts;
+                existingDriver.SitPlacesNum = newDriver.SitPlacesNum;
+                existingDriver.WheelchairsNum = newDriver.WheelchairsNum;
+                existingDriver.Comments = newDriver.Comments;
+            }
+            else
+            {
+                CampDB.Drivers.Add(newDriver);
+            }
 
             CampDB.SaveChanges();
             return RedirectToAction("Index");

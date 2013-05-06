@@ -49,9 +49,7 @@
     </tr>
     <tr>
         <td colspan="2" style="border:0">
-            @using (Html.BeginForm(ViewBag.IsCreate ? "Create" : "Edit", "Camper", FormMethod.Post, new { id = "form" }))
-            {
-                @Html.ValidationSummary(true)
+            @using (Html.BeginForm(ViewBag.IsCreate ? "Create" : "Edit", "Camper", FormMethod.Post, new { id = "form" })) {
                 <fieldset>
                     <legend>@Campers.EditLegend</legend>
 
