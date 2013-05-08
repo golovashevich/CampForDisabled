@@ -41,13 +41,13 @@
                 @foreach (var item in Model)
                 {
                 <tr>
-                    <td>
+                    <td id="numeric">
                         @item.Year
                     </td>
-                    <td>
+                    <td id="name">
                         @Html.ActionLink(item.Name, "Details", new { id = item.Id })
                     </td>
-                    <td>
+                    <td id="theme">
                         @item.Theme
                     </td> 
         

@@ -48,16 +48,16 @@
                 @foreach (var item in Model)
                 {
                 <tr>
-                    <td>
+                    <td id="name">
                         @Html.ActionLink(item.FullName, "Details", new { id = item.Id }, null)
                     </td>
-                    <td>
+                    <td id="contacts">
                         @item.Contacts
                     </td>
-                    <td>
+                    <td id="numeric">
                         @item.SitPlacesNum
                     </td>
-                    <td>
+                    <td id="numeric">
                         @item.WheelchairsNum
                     </td>
                     <td>

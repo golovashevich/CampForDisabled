@@ -155,7 +155,9 @@ namespace Resources {
         /// </summary>
         public static string Required {
             get {
-                return ResourceManager.GetString("Required", resourceCulture);
+				var result = 
+                 ResourceManager.GetString("Required", resourceCulture);
+				return result;
             }
         }
         

@@ -46,10 +46,10 @@
                 @foreach (var item in Model)
                 {
                 <tr>
-                    <td>
+                    <td id="name">
                         @Html.ActionLink(item.FullName, "Details", new { id = item.Id })
                     </td>
-                    <td>
+                    <td id="date">
                         @String.Format("{0:yyyy-MM-dd}", item.DateOfBirth)
                     </td>
                     <td>
@@ -58,7 +58,7 @@
                     <td>
                         @item.District
                     </td> 
-                    <td style = "max-width: 20em; overflow:hidden">
+                    <td id="comments">
                         @((item.Comments ?? "").Substring(0, (item.Comments ?? "").Length > 60 ? 60 : (item.Comments ?? "").Length))
                     </td>
                     @if (ViewBag.CanUpdate)
