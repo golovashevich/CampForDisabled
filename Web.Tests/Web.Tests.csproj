@@ -64,6 +64,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\CompareOperatorTests.cs" />
     <Compile Include="Attributes\NumericLessThanTests.cs" />
     <Compile Include="Attributes\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

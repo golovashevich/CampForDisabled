@@ -190,8 +190,10 @@
     <Compile Include="App_Start\RegisterClientValidationExtensions.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Attributes\CompareOperatorAttribute.cs" />
     <Compile Include="Attributes\ModelClientPhoneDigitsCountRangeRule.cs" />
     <Compile Include="Attributes\ModelClientPhoneNumberWithPlusValidatorRule.cs" />
+    <Compile Include="Attributes\ModelClientValidationCompareRule.cs" />
     <Compile Include="Attributes\ModelClientValidationNumericCoupledRule.cs" />
     <Compile Include="Attributes\ModelClientValidationNumericLessThanRule.cs" />
     <Compile Include="Attributes\NumericCoupledAttribute.cs" />
