@@ -30,8 +30,15 @@ a {
         background-color: #c7d1d6;
     }
 
+	a#clear {
+		color: #888;
+		text-decoration: none;
+		font-size:smaller;
+	}
+
 	a#clear:hover {
 		background-color: inherit;
+		color: #222;
 		cursor: pointer;
 	}
 
