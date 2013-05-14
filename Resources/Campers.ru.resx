@@ -144,6 +144,9 @@
   <data name="EditBirthdateFormat" xml:space="preserve">
     <value>{0:yyyy-MM-dd}</value>
   </data>
+  <data name="EditClearDateOfBirth" xml:space="preserve">
+    <value>Очистить</value>
+  </data>
   <data name="EditLegend" xml:space="preserve">
     <value>Редактирование данных отдыхающего</value>
   </data>

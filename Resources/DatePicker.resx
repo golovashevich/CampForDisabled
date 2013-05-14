@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="DateFormat" xml:space="preserve">
-    <value>mm-dd-yy</value>
+    <value>yy-mm-dd</value>
   </data>
   <data name="DayNames" xml:space="preserve">
     <value>'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'</value>

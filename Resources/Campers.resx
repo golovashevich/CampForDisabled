@@ -124,7 +124,7 @@
     <value>Back to List</value>
   </data>
   <data name="DetailsBirthdateFormat" xml:space="preserve">
-    <value>{0:MM-dd-yyyy}</value>
+    <value>{0:yyyy-MM-dd}</value>
   </data>
   <data name="DetailsDelete" xml:space="preserve">
     <value>Delete</value>
@@ -142,7 +142,10 @@
     <value>Back to List</value>
   </data>
   <data name="EditBirthdateFormat" xml:space="preserve">
-    <value>{0:MM-dd-yyyy}</value>
+    <value>{0:yyyy-MM-dd}</value>
+  </data>
+  <data name="EditClearDateOfBirth" xml:space="preserve">
+    <value>Clear</value>
   </data>
   <data name="EditLegend" xml:space="preserve">
     <value>Camper profile edit</value>

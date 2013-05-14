@@ -61,7 +61,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to mm-dd-yy.
+        ///   Looks up a localized string similar to yy-mm-dd.
         /// </summary>
         public static string DateFormat {
             get {

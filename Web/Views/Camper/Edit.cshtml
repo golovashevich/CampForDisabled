@@ -35,6 +35,11 @@
             form.submit();
         };
     });
+
+    function clearDateOfBirth() {
+        var labelObj = document.getElementById("DateOfBirth");
+        labelObj.value = "";
+    }
 </script>
 
 <table style="border:0" width="98%">
@@ -84,6 +89,7 @@
                                 new { @class = "datepicker", @readonly = true, 
                                     @Value = String.Format(Campers.EditBirthdateFormat, Model.DateOfBirth) })
                             @Html.ValidationMessageFor(model => model.DateOfBirth)
+                            <a id="clear" onclick="clearDateOfBirth();">@Campers.EditClearDateOfBirth</a>
                         </div>
                     </div>
 

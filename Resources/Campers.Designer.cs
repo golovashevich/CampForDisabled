@@ -79,7 +79,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0:MM-dd-yyyy}.
+        ///   Looks up a localized string similar to {0:yyyy-MM-dd}.
         /// </summary>
         public static string DetailsBirthdateFormat {
             get {
@@ -133,11 +133,20 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0:MM-dd-yyyy}.
+        ///   Looks up a localized string similar to {0:yyyy-MM-dd}.
         /// </summary>
         public static string EditBirthdateFormat {
             get {
                 return ResourceManager.GetString("EditBirthdateFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clear.
+        /// </summary>
+        public static string EditClearDateOfBirth {
+            get {
+                return ResourceManager.GetString("EditClearDateOfBirth", resourceCulture);
             }
         }
         
