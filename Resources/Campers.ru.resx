@@ -135,6 +135,21 @@
   <data name="DetailsLegend" xml:space="preserve">
     <value>Данные отдыхающего</value>
   </data>
+  <data name="DisabilityGradeBedPatient" xml:space="preserve">
+    <value>Лежачий</value>
+  </data>
+  <data name="DisabilityGradeHardWalking" xml:space="preserve">
+    <value>Тяжело ходящий</value>
+  </data>
+  <data name="DisabilityGradeUnknown" xml:space="preserve">
+    <value>Неизвестно</value>
+  </data>
+  <data name="DisabilityGradeWalking" xml:space="preserve">
+    <value>Ходящий</value>
+  </data>
+  <data name="DisabilityGradeWheelchair" xml:space="preserve">
+    <value>Колясочник</value>
+  </data>
   <data name="EditAdd" xml:space="preserve">
     <value>Добавить</value>
   </data>

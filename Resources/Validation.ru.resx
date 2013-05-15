@@ -120,9 +120,6 @@
   <data name="Email" xml:space="preserve">
     <value>Некорректный адрес e-mail.</value>
   </data>
-  <data name="EnumDataType" xml:space="preserve">
-    <value>Поле {0} должно содержать целое значение.</value>
-  </data>
   <data name="Integer" xml:space="preserve">
     <value>Поле {0} должно содержать целое значение.</value>
   </data>

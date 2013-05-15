@@ -115,6 +115,51 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to BedPatient.
+        /// </summary>
+        public static string DisabilityGradeBedPatient {
+            get {
+                return ResourceManager.GetString("DisabilityGradeBedPatient", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to HardWalking.
+        /// </summary>
+        public static string DisabilityGradeHardWalking {
+            get {
+                return ResourceManager.GetString("DisabilityGradeHardWalking", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unknown.
+        /// </summary>
+        public static string DisabilityGradeUnknown {
+            get {
+                return ResourceManager.GetString("DisabilityGradeUnknown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Walking.
+        /// </summary>
+        public static string DisabilityGradeWalking {
+            get {
+                return ResourceManager.GetString("DisabilityGradeWalking", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wheelchair.
+        /// </summary>
+        public static string DisabilityGradeWheelchair {
+            get {
+                return ResourceManager.GetString("DisabilityGradeWheelchair", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add.
         /// </summary>
         public static string EditAdd {

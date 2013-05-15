@@ -211,7 +211,14 @@
                             @Html.LabelFor(model => model.DisabilityGrade)
                         </div>
                         <div class="editor-field">
-                            @Html.EditorFor(model => model.DisabilityGrade)
+                            @Html.DropDownListFor(model => model.DisabilityGrade,
+                                new List<SelectListItem> {
+                                    new SelectListItem { Value = "0", Text = Campers.DisabilityGradeUnknown },
+                                    new SelectListItem { Value = "1", Text = Campers.DisabilityGradeWalking},
+                                    new SelectListItem { Value = "2", Text = Campers.DisabilityGradeHardWalking},
+                                    new SelectListItem { Value = "3", Text = Campers.DisabilityGradeWheelchair},
+                                    new SelectListItem { Value = "4", Text = Campers.DisabilityGradeBedPatient}
+                                })
                             @Html.ValidationMessageFor(model => model.DisabilityGrade)
                         </div>
                     </div>

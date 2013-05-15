@@ -135,6 +135,21 @@
   <data name="DetailsLegend" xml:space="preserve">
     <value>Camper profile</value>
   </data>
+  <data name="DisabilityGradeBedPatient" xml:space="preserve">
+    <value>BedPatient</value>
+  </data>
+  <data name="DisabilityGradeHardWalking" xml:space="preserve">
+    <value>HardWalking</value>
+  </data>
+  <data name="DisabilityGradeUnknown" xml:space="preserve">
+    <value>Unknown</value>
+  </data>
+  <data name="DisabilityGradeWalking" xml:space="preserve">
+    <value>Walking</value>
+  </data>
+  <data name="DisabilityGradeWheelchair" xml:space="preserve">
+    <value>Wheelchair</value>
+  </data>
   <data name="EditAdd" xml:space="preserve">
     <value>Add</value>
   </data>

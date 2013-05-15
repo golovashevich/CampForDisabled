@@ -72,15 +72,6 @@ namespace Resources {
         /// <summary>
         ///   Looks up a localized string similar to The field {0} must be an integer number..
         /// </summary>
-        public static string EnumDataType {
-            get {
-                return ResourceManager.GetString("EnumDataType", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The field {0} must be an integer number..
-        /// </summary>
         public static string Integer {
             get {
                 return ResourceManager.GetString("Integer", resourceCulture);
@@ -155,9 +146,7 @@ namespace Resources {
         /// </summary>
         public static string Required {
             get {
-				var result = 
-                 ResourceManager.GetString("Required", resourceCulture);
-				return result;
+                return ResourceManager.GetString("Required", resourceCulture);
             }
         }
         

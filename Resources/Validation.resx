@@ -120,9 +120,6 @@
   <data name="Email" xml:space="preserve">
     <value>Invalid e-mail address.</value>
   </data>
-  <data name="EnumDataType" xml:space="preserve">
-    <value>The field {0} must be an integer number.</value>
-  </data>
   <data name="Integer" xml:space="preserve">
     <value>The field {0} must be an integer number.</value>
   </data>

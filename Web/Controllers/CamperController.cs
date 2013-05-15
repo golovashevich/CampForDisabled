@@ -1,5 +1,6 @@
 ﻿using Camp.Interfaces;
 using Camp.Models;
+using Resources;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -100,7 +101,7 @@ namespace Web.Controllers
 				return RedirectToAction("Index");	
 			}
 
-			ViewBag.IsCreate = false; 
+			ViewBag.IsCreate = false;
 			return View(camper);
         }
 

@@ -71,9 +71,10 @@ namespace Camp.Models
 
 
 		[Display(Name = "ModelCity", ResourceType = typeof(Campers))]
-		public virtual string City
-		{
-			get { return CityId == 1 ? Campers.ModelKharkov : Campers.ModelAnotherCity; }
+		public virtual string City {
+			get { 
+				return CityId == 1 ? Campers.ModelKharkov : Campers.ModelAnotherCity; 
+			}
 			// TODO: Add Cities table in Database
 		}
 
@@ -148,24 +149,34 @@ namespace Camp.Models
 		public virtual string Skype { get; set; }
 
 
-		//TODO: Globalize DisabilityGradeEnum
 		private enum DisabilityGradeEnum { Unknown, Walking, HardWalking, Wheelchair, BedPatient };
-		//TODO: Make DisabilityGrade drop down list
 		[Display(Name = "ModelDisabilityGrade", ResourceType = typeof(Campers))]
-		[Range(0, 4, ErrorMessageResourceName = "Range",
-				ErrorMessageResourceType = typeof(Validation))]
 		[DefaultValue(0)]
-		[EnumDataType(typeof(DisabilityGradeEnum), ErrorMessageResourceName = "EnumDataType", 
-				ErrorMessageResourceType = typeof(Validation))] //temporary not working solution; to
-				// be removed afte drop down list implementation 
 		public virtual int? DisabilityGrade { get; set; }
-		//TODO: Add DisabilityGrade enum or table 
-		// 0 - Неизвестно
-		// 1 - Ходящий
-		// 2 - Тяжело ходящий
-		// 3 - Коляска
-		// 4 - Лежачий
 
+		public string DisabilityGradeString {
+			get {
+				if (DisabilityGrade == null) {
+					return Campers.DisabilityGradeUnknown;
+				}
+
+				switch (DisabilityGrade) {
+					case 0:
+						return Campers.DisabilityGradeUnknown;
+					case 1:
+						return Campers.DisabilityGradeWalking;
+					case 2:
+						return Campers.DisabilityGradeHardWalking;
+					case 3:
+						return Campers.DisabilityGradeWheelchair;
+					case 4:
+						return Campers.DisabilityGradeBedPatient;
+					
+					default:
+						return Campers.DisabilityGradeUnknown;
+				}
+			}
+		}
 
 		[Display(Name = "ModelMedicalNote", ResourceType = typeof(Campers))]
 		[DataType(DataType.MultilineText)]
