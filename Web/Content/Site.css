@@ -560,9 +560,11 @@ table {
 th {
     font-size: 1.2em;
     text-align: left;
-    border: none 0px;
+    border: 1px solid #888;
     padding: 0.25em 1em 0.25em 1em;
     vertical-align: baseline;
+
+	background-color: #ddd;
 }
 
     th a {
@@ -603,7 +605,7 @@ th {
 
 table td {
     padding: 0.25em 1em 0.25em 1em;
-    border: 0 none;
+    border: 1px solid #888;
     vertical-align: baseline;
 }
 
@@ -617,7 +619,7 @@ table td {
 	table td#comments {
 		max-width: 20em;
 		white-space: nowrap;
-		overflow: hidden;		
+		overflow: hidden;
     }					  
 
 	table td#contacts {
@@ -637,6 +639,7 @@ table td {
         padding-top: 1.25em;
 		padding-right: 1em;
         text-align: right;
+		border: 0 none;
     }
 
 tr.pager td {
