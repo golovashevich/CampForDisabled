@@ -94,3 +94,31 @@ jQuery.validator.unobtrusive.adapters.add('phonenumberwithplusvalidator', [], fu
     }
 });
 
+
+//jQuery.validator.addMethod('phonenumbervalidator', function (value, element, params) {
+//    if (value == "") {
+//        return true;
+//    }
+
+//    if (!/^( +)?\+?[- 0-9#()]+?$/.test(value)) {
+//        return false;
+//    }
+
+//    var dig_count = value.replace(/[^\d.]/g, "").length;
+
+//    if (/^( +)?\+([^\+]+)?$/.test(value)) {
+//        return dig_count == 11 || dig_count == 12;
+//    }
+//    else {
+//        return (dig_count >= 5 && dig_count <= 20)
+//    }
+//}, '');
+
+
+//jQuery.validator.unobtrusive.adapters.add('phonenumbervalidator', [], function (options) {
+//    options.rules['phonenumbervalidator'] = {};
+//    if (options.message) {
+//        options.messages['phonenumbervalidator'] = options.message;
+//    }
+//});
+

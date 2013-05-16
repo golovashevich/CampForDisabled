@@ -1,6 +1,6 @@
 ﻿@using Resources
 @if(Request.IsAuthenticated) {
-	<text>@Html.Raw(String.Format(@Account.Welcome, Context.User.Identity.Name))
+	<text>@Html.Raw(String.Format(Account.Welcome, Context.User.Identity.Name))
 	[@Html.ActionLink(Account.LogOff, "LogOff", "Account") ]</text>
 }
 else {

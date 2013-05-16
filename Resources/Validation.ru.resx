@@ -132,13 +132,16 @@
   <data name="NumericLessThanOrEqual" xml:space="preserve">
     <value>{0} должно быть меньше или равно {1}.</value>
   </data>
-  <data name="Phone" xml:space="preserve">
-    <value>Допустимые символы: +(в начале), -, #, цифры, пробел, скобки.</value>
-  </data>
   <data name="PhoneDigitCountNotInTheRange" xml:space="preserve">
     <value>Количество цифр в телефонном номере должно быть от {0} до {1}</value>
   </data>
-  <data name="PostInfex" xml:space="preserve">
+  <data name="PhoneInvalidSymbols" xml:space="preserve">
+    <value>Допустимые символы: +(в начале), -, #, цифры, пробел, скобки.</value>
+  </data>
+  <data name="PhoneStartedWithPlus" xml:space="preserve">
+    <value>Длина телефона, начинающегося с '+', должна быть 11 или 12 цифр.</value>
+  </data>
+  <data name="PostIndex" xml:space="preserve">
     <value>Допускается только пятизначный номер индекса.</value>
   </data>
   <data name="Range" xml:space="preserve">

@@ -1,12 +1,12 @@
 ﻿    @using Resources
 @if (!ViewContext.RouteData.Values["language"].ToString().StartsWith("ru"))
 {
-@: [ @Home.LanguageEnglish |@Html.ActionLink(Home.LanguageRussian, 
+@: [ <b>@Home.LanguageEnglish</b> |@Html.ActionLink(Home.LanguageRussian, 
 		ViewContext.RouteData.Values["action"].ToString(), 
 		new { language = "ru", id = ViewContext.RouteData.Values["id"]})] 
 } else {
     @:[@Html.ActionLink(Home.LanguageEnglish, 
 		ViewContext.RouteData.Values["action"].ToString(), 
 		new { language = "en", id = ViewContext.RouteData.Values["id"]}) |
-	@:@Home.LanguageRussian ]
+	@:<b>@Home.LanguageRussian</b> ]
 }

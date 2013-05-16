@@ -55,12 +55,11 @@ namespace Camp.Models
 		// TODO: Add foto
 		// public virtual Image Foto { get; set; }
 
-		//TODO: Globalize this
-		[Range(0, 99999, ErrorMessageResourceName = "PostInfex", 
-				ErrorMessageResourceType = typeof(Validation))]
 		[Display(Name = "ModelPostIndex", ResourceType = typeof(Campers))]
-		[Integer(ErrorMessageResourceName = "Integer", ErrorMessageResourceType = typeof(Validation))]
 		[DisplayFormat(DataFormatString = "{0,5:D5}", ApplyFormatInEditMode = true)]
+		[Integer(ErrorMessageResourceName = "Integer", ErrorMessageResourceType = typeof(Validation))]
+		[Range(0, 99999, ErrorMessageResourceName = "PostIndex",
+				ErrorMessageResourceType = typeof(Validation))]
 		public virtual int? PostIndex { get; set; }
 
 
@@ -112,14 +111,16 @@ namespace Camp.Models
 		//TODO: Get rid of Validator suffix
 		[Display(Name = "ModelHomePhone", ResourceType = typeof(Campers))]
 		[StringLength(20, ErrorMessageResourceName = "StringLength",
-				ErrorMessageResourceType = typeof(Validation))]
+			ErrorMessageResourceType = typeof(Validation))]
 		[DataType(DataType.PhoneNumber)]
-		[RegularExpression(@"^( +)?\+?[- 0-9#()]+?$", ErrorMessageResourceName = "Phone",
-				ErrorMessageResourceType = typeof(Validation))]
+		[RegularExpression(@"^( +)?\+?[- 0-9#()]+?$", ErrorMessageResourceName = "PhoneInvalidSymbols",
+			ErrorMessageResourceType = typeof(Validation))]
         [PhoneDigitsCountRange(ErrorMessageResourceName="PhoneDigitCountNotInTheRange",
-				ErrorMessageResourceType = typeof(Validation))]
+			ErrorMessageResourceType = typeof(Validation))]
 		[PhoneNumberWithPlusValidator(ErrorMessageResourceName = "InvalidPhoneNumber",
-				ErrorMessageResourceType = typeof(Validation))]
+			ErrorMessageResourceType = typeof(Validation))]
+		//One PhoneValidator instead of above standart validators (Not finished)
+		//[PhoneNumberValidator(ErrorMessageResourceType = typeof(Validation))]
 		public virtual string HomePhone { get; set; }
 
 
@@ -149,7 +150,6 @@ namespace Camp.Models
 		public virtual string Skype { get; set; }
 
 
-		private enum DisabilityGradeEnum { Unknown, Walking, HardWalking, Wheelchair, BedPatient };
 		[Display(Name = "ModelDisabilityGrade", ResourceType = typeof(Campers))]
 		[DefaultValue(0)]
 		public virtual int? DisabilityGrade { get; set; }

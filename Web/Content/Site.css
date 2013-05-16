@@ -168,7 +168,7 @@ footer {
         margin-left: 10px;
         margin-right: 3px;
         padding: 2px 3px;
-        font-weight: 600;
+        font-weight: normal;
         text-decoration: underline;
     }
 
@@ -610,7 +610,7 @@ table td {
 }
 
     table td#actions {
-		padding-right: 0;
+		padding-right: 0.5em;
         text-align: right;
     }
 	
@@ -685,7 +685,7 @@ tr.pager td {
         }
 
         #login a {
-            font-weight: 600;
+            font-weight: normal;
             margin: 2px;
             padding: 0;
             text-decoration: underline;

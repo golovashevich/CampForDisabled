@@ -132,13 +132,16 @@
   <data name="NumericLessThanOrEqual" xml:space="preserve">
     <value>{0} must be less than or equal to {1}.</value>
   </data>
-  <data name="Phone" xml:space="preserve">
-    <value>Allowed characters: + at the beginning, -, #, digits, space, ().</value>
-  </data>
   <data name="PhoneDigitCountNotInTheRange" xml:space="preserve">
     <value>The number of digits in the phone number must be between {0} and {1}.</value>
   </data>
-  <data name="PostInfex" xml:space="preserve">
+  <data name="PhoneInvalidSymbols" xml:space="preserve">
+    <value>Allowed characters: + at the beginning, -, #, digits, space, ().</value>
+  </data>
+  <data name="PhoneStartedWithPlus" xml:space="preserve">
+    <value>If the phone number starts with +, it should be 11 or 12 digits in length.</value>
+  </data>
+  <data name="PostIndex" xml:space="preserve">
     <value>Only five-digit post index is allowed.</value>
   </data>
   <data name="Range" xml:space="preserve">

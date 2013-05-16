@@ -106,15 +106,6 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Allowed characters: + at the beginning, -, #, digits, space, ()..
-        /// </summary>
-        public static string Phone {
-            get {
-                return ResourceManager.GetString("Phone", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to The number of digits in the phone number must be between {0} and {1}..
         /// </summary>
         public static string PhoneDigitCountNotInTheRange {
@@ -124,11 +115,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Allowed characters: + at the beginning, -, #, digits, space, ()..
+        /// </summary>
+        public static string PhoneInvalidSymbols {
+            get {
+                return ResourceManager.GetString("PhoneInvalidSymbols", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to If the phone number starts with +, it should be 11 or 12 digits in length..
+        /// </summary>
+        public static string PhoneStartedWithPlus {
+            get {
+                return ResourceManager.GetString("PhoneStartedWithPlus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Only five-digit post index is allowed..
         /// </summary>
-        public static string PostInfex {
+        public static string PostIndex {
             get {
-                return ResourceManager.GetString("PostInfex", resourceCulture);
+                return ResourceManager.GetString("PostIndex", resourceCulture);
             }
         }
         
