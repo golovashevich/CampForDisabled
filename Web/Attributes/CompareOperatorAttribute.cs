@@ -9,7 +9,9 @@ using System.Web.Mvc;
 using System.Web.UI.WebControls;
 
 namespace Web.Attributes {
-	public class CompareOperatorAttribute : ValidationAttribute, IClientValidatable{
+	[AttributeUsage(AttributeTargets.Property, AllowMultiple = true)]
+	public class CompareOperatorAttribute : ValidationAttribute, IClientValidatable {
+		//TODO: Add default messages
 		public string OtherProperty { get; private set; }
 
 		public ValidationCompareOperator Operator { get; set; }
@@ -220,9 +222,13 @@ namespace Web.Attributes {
 
 		public IEnumerable<ModelClientValidationRule> GetClientValidationRules(ModelMetadata metadata,
 				ControllerContext context) {
-			TryToExtractOtherPropertyTitle(metadata.ContainerType.GetProperty(OtherProperty));
-			var rule = new ModelClientValidationCompareRule(FormatErrorMessage(metadata.DisplayName),
-					FormatPropertyForClientValidation(this.OtherProperty), Operator);
+					if (OtherProperty != null) {
+						TryToExtractOtherPropertyTitle(metadata.ContainerType.GetProperty(OtherProperty));
+					}
+			var displayName = metadata.DisplayName ?? metadata.PropertyName;
+			var rule = new ModelClientValidationCompareRule(FormatErrorMessage(displayName),
+					OtherProperty == null? "" : FormatPropertyForClientValidation(this.OtherProperty), 
+					Type.ToString(), Operator);
 			return new[] { rule };
 		}
 	}
