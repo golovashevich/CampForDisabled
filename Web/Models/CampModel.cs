@@ -26,6 +26,12 @@ namespace Camp.Models
 		[StringLength(50, ErrorMessageResourceName = "StringLength", ErrorMessageResourceType = typeof(Validation))]
 		public virtual string Name { get; set; }
 
+		public virtual string CampName {
+			get {
+				return String.Format("{0}, {1}", Year, Name);
+			}
+		}
+
 		[Display(Name = "ModelTheme", ResourceType = typeof(Camps))]
         [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Validation))]
 		[StringLength(50, ErrorMessageResourceName = "StringLength", ErrorMessageResourceType = typeof(Validation))]

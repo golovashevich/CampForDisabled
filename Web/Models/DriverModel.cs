@@ -2,9 +2,11 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using CustomValidation.Attributes;
 using DataAnnotationsExtensions;
 using Resources;
+using Web.Attributes;
 
 
 namespace Camp.Models
@@ -47,10 +49,11 @@ namespace Camp.Models
         public virtual string Contacts { get; set; }
 
 
-        [Range(1, 19, ErrorMessageResourceName = "Range", ErrorMessageResourceType = typeof(Validation))]
-        [Display(Name = "ModelSitPlacesNum", ResourceType = typeof(Drivers))]
-        [NumericCoupled("WheelchairsNum")]
-        [Integer(ErrorMessageResourceName = "Integer", ErrorMessageResourceType = typeof(Validation))]
+		[Range(1, 19, ErrorMessageResourceName = "Range", ErrorMessageResourceType = typeof(Validation))]
+		[Display(Name = "ModelSitPlacesNum", ResourceType = typeof(Drivers))]
+		[NumericCoupled("WheelchairsNum")]
+		[CompareOperator(ValidationDataType.Integer, ErrorMessageResourceName = "Integer", 
+				ErrorMessageResourceType = typeof(Validation))]
         public virtual int? SitPlacesNum { get; set; }
 
 
@@ -58,8 +61,9 @@ namespace Camp.Models
         [Display(Name = "ModelWheelchairsNum", ResourceType = typeof(Drivers))]
         [NumericLessThan("SitPlacesNum", AllowEquality = true, ErrorMessageResourceName = "NumericLessThanOrEqual", 
                 ErrorMessageResourceType = typeof(Validation))]
-        [Integer(ErrorMessageResourceName = "Integer", ErrorMessageResourceType = typeof(Validation))]
-        public virtual int? WheelchairsNum { get; set; }
+		[CompareOperator(ValidationDataType.Integer, ErrorMessageResourceName = "Integer",
+				ErrorMessageResourceType = typeof(Validation))]
+		public virtual int? WheelchairsNum { get; set; }
 
 
         [DataType(DataType.MultilineText)]

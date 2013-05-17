@@ -221,6 +221,7 @@
     <Compile Include="Models\CamperModel.cs" />
     <Compile Include="Models\CampMembershipProvider.cs" />
     <Compile Include="Models\CampModel.cs" />
+    <Compile Include="Models\CamperForYearModel.cs" />
     <Compile Include="Models\DriverModel.cs" />
     <Compile Include="Models\FullNameComposer.cs" />
     <Compile Include="Models\UserModel.cs" />
@@ -345,6 +346,7 @@
     <Content Include="Views\Shared\_LogOnPartial.cshtml">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="Views\Camp\CamperForYearList.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

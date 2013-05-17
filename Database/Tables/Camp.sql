@@ -37,18 +37,8 @@ INSERT INTO [dbo].[Camp]
            ,'2004-06-01'
            ,'2004-06-12'
            ,N''
-           ,N'')
-
-INSERT INTO [dbo].[Camp]
-           ([Id]
-		   ,[Year]
-           ,[Name]
-           ,[Theme]
-           ,[BeginDate]
-           ,[EndDate]
-           ,[Description]
-           ,[History])
-     VALUES
+           ,N''),
+           
            (2
 		   ,2005
            ,N'Second Camp'
@@ -56,18 +46,8 @@ INSERT INTO [dbo].[Camp]
            ,'2005-06-04'
            ,'2005-06-18'
            ,N''
-           ,N'')
-
-INSERT INTO [dbo].[Camp]
-           ([Id]
-		   ,[Year]
-           ,[Name]
-           ,[Theme]
-           ,[BeginDate]
-           ,[EndDate]
-           ,[Description]
-           ,[History])
-     VALUES
+           ,N''),
+           
            (3
 		   ,2006
            ,N'Third Camp'
@@ -75,18 +55,8 @@ INSERT INTO [dbo].[Camp]
            ,'2006-06-06'
            ,'2006-06-19'
            ,N''
-           ,N'')
+           ,N''),
 
-INSERT INTO [dbo].[Camp]
-           ([Id]
-	 	   ,[Year]
-           ,[Name]
-           ,[Theme]
-           ,[BeginDate]
-           ,[EndDate]
-           ,[Description]
-           ,[History])
-     VALUES
            (4
 		   ,2007
            ,N'4th Camp'
@@ -95,6 +65,7 @@ INSERT INTO [dbo].[Camp]
            ,'2007-06-15'
            ,N''
            ,N'')
+           
 
 SET IDENTITY_INSERT Camp OFF
 

@@ -61,6 +61,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Campers.
+        /// </summary>
+        public static string Campers {
+            get {
+                return ResourceManager.GetString("Campers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You are going to delete the camp \n\n{0}\n\nAre you sure?.
         /// </summary>
         public static string DeleteConfirmation {
@@ -70,7 +79,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Back to list.
+        ///   Looks up a localized string similar to Back to List.
         /// </summary>
         public static string DetailsBackToList {
             get {
@@ -115,7 +124,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Back to list.
+        ///   Looks up a localized string similar to Back to List.
         /// </summary>
         public static string EditBackToList {
             get {

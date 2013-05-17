@@ -10,6 +10,42 @@
 }, '');
 
 
+jQuery.validator.addMethod('compareoperator', function (value, element, params) {
+	value = value.trim();
+	var dataType = $(params.dataType);
+	if (params.compareOperator == "DataTypeCheck") {
+		switch (params.dataType) {
+			case "Integer": {
+				return parseFloat(value) == parseInt(value, 10) && !isNaN(value);
+			}
+
+			case "Double": {
+				return value === +value && value !== (value | 0);
+			}
+
+			case "Currency": {
+			}
+
+			case "Date": {
+			}
+
+			case "String": {
+			}
+		}
+	}
+
+	var otherValue = $(params.element).val().trim();
+	alert("dataType: " + dataType + ", compareOperator: " + compareOperator);
+
+	return false;
+	//return isNaN(value) && isNaN(otherValue)
+	//    || "" == value || "" == otherValue //skip comparison if one of values is empty
+	//    || (params.allowequality === 'True'
+	//        ? parseFloat(value) <= parseFloat(otherValue)
+	//        : parseFloat(value) < parseFloat(otherValue));
+}, '');
+
+
 jQuery.validator.unobtrusive.adapters.add('numericlessthan', ['other', 'allowequality'], function (options) {
     var prefix = options.element.name.substr(0, options.element.name.lastIndexOf('.') + 1),
     other = options.params.other,
@@ -23,6 +59,30 @@ jQuery.validator.unobtrusive.adapters.add('numericlessthan', ['other', 'allowequ
         options.messages['numericlessthan'] = options.message;
     }
 });
+
+
+jQuery.validator.unobtrusive.adapters.add('compareoperator', ['other', 'datatype', 'compareoperator'],
+		function (options) {
+			var prefix = options.element.name.substr(0, options.element.name.lastIndexOf('.') + 1);
+
+			//other = options.params.other;
+			var otherElement;
+			if (options.params.other != undefined) {
+				fullOtherName = appendModelPrefix(options.params.other, prefix);
+				otherElement = $(options.form).find(':input[name=' + fullOtherName + ']')[0];
+			}
+
+			options.rules['compareoperator'] = {
+				dataType: options.params.datatype,
+				compareOperator: options.params.compareoperator,
+				element: otherElement
+			};
+
+			if (options.message) {
+				options.messages['compareoperator'] = options.message;
+			}
+		});
+
 
 
 jQuery.validator.addMethod('numericcoupled', function (value, element, params) {

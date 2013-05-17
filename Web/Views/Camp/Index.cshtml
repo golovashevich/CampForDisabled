@@ -51,14 +51,14 @@
                         @item.Theme
                     </td> 
         
-                    @if (ViewBag.CanUpdate)
-                    {        
                     <td id="actions">
-                         @Html.ActionLink(Camps.IndexEdit, "Edit", new { id = item.Id }) |
-                         @Html.ActionLink(Camps.IndexDelete, "Delete", new { id = item.Id },
-                            new { onclick = "return confirm('" + item.DeleteConfirmationString + "')" })
+                        @Html.ActionLink(Camps.Campers, "CamperForYearList", new { id = item.Id })
+                        @if (ViewBag.CanUpdate) {        
+                             @: | @Html.ActionLink(Camps.IndexEdit, "Edit", new { id = item.Id })
+                             @: | @Html.ActionLink(Camps.IndexDelete, "Delete", new { id = item.Id },
+                                new { onclick = "return confirm('" + item.DeleteConfirmationString + "')" })
+                        }
                     </td>
-                    }
                 </tr>
                 }
             </table>

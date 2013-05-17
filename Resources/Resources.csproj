@@ -48,6 +48,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Account.resx</DependentUpon>
     </Compile>
+    <Compile Include="CamperForYear.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CamperForYear.resx</DependentUpon>
+    </Compile>
     <Compile Include="Home.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -86,6 +91,11 @@
       <LastGenOutput>Account.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Account.ru.resx" />
+    <EmbeddedResource Include="CamperForYear.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CamperForYear.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CamperForYear.ru.resx" />
     <EmbeddedResource Include="Home.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Home.Designer.cs</LastGenOutput>

@@ -117,79 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Campers" xml:space="preserve">
-    <value>Отдыхающие</value>
+  <data name="BackToCamps" xml:space="preserve">
+    <value>Back to Сamps</value>
   </data>
-  <data name="DeleteConfirmation" xml:space="preserve">
-    <value>Вы собираетесь удалить информацию о лагере\n\n{0}\n\nВы уверены?</value>
+  <data name="DeleteFromList" xml:space="preserve">
+    <value>Delete</value>
   </data>
-  <data name="DetailsBackToList" xml:space="preserve">
-    <value>Назад к списку</value>
+  <data name="EditList" xml:space="preserve">
+    <value>Edit list</value>
   </data>
-  <data name="DetailsDelete" xml:space="preserve">
-    <value>Удалить</value>
-  </data>
-  <data name="DetailsEdit" xml:space="preserve">
-    <value>Редактировать</value>
-  </data>
-  <data name="DetailsLegend" xml:space="preserve">
-    <value>Информация о лагере</value>
-  </data>
-  <data name="EditAdd" xml:space="preserve">
-    <value>Добавить</value>
-  </data>
-  <data name="EditBackToList" xml:space="preserve">
-    <value>Назад к списку</value>
-  </data>
-  <data name="EditLegend" xml:space="preserve">
-    <value>Редактирование информации о лагере</value>
-  </data>
-  <data name="EditNew" xml:space="preserve">
-    <value>Новый лагерь</value>
-  </data>
-  <data name="EditRequiredFields" xml:space="preserve">
-    <value>- Поля, обязательные к заполнению</value>
-  </data>
-  <data name="EditSave" xml:space="preserve">
-    <value>Сохранить</value>
-  </data>
-  <data name="EditSaving" xml:space="preserve">
-    <value>Сохранение...</value>
-  </data>
-  <data name="IndexCreateNew" xml:space="preserve">
-    <value>Добавить...</value>
-  </data>
-  <data name="IndexDelete" xml:space="preserve">
-    <value>Удалить</value>
-  </data>
-  <data name="IndexEdit" xml:space="preserve">
-    <value>Редактировать</value>
-  </data>
-  <data name="IndexTitle" xml:space="preserve">
-    <value>Лагеря по годам</value>
-  </data>
-  <data name="MainMenuItem" xml:space="preserve">
-    <value>Лагеря</value>
-  </data>
-  <data name="ModelBeginDate" xml:space="preserve">
-    <value>Начало</value>
-  </data>
-  <data name="ModelDescription" xml:space="preserve">
-    <value>Описание</value>
-  </data>
-  <data name="ModelEndDate" xml:space="preserve">
-    <value>Конец</value>
-  </data>
-  <data name="ModelHistory" xml:space="preserve">
-    <value>События</value>
-  </data>
-  <data name="ModelName" xml:space="preserve">
-    <value>Название</value>
-  </data>
-  <data name="ModelTheme" xml:space="preserve">
-    <value>Тема</value>
-  </data>
-  <data name="ModelYear" xml:space="preserve">
-    <value>Год</value>
+  <data name="Title" xml:space="preserve">
+    <value>Campers for year</value>
   </data>
 </root>

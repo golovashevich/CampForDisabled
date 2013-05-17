@@ -9,5 +9,6 @@ namespace Camp.Models
         public DbSet<CamperModel> Campers { get; set; }
         public DbSet<UserModel> Users { get; set; }
 		public DbSet<CampModel> Camps { get; set; }
+		public DbSet<CamperForYearModel> CampersForYear { get; set; }
     }
 }
