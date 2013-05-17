@@ -1,11 +1,13 @@
-﻿using CustomValidation.Attributes;
-using DataAnnotationsExtensions;
-using Resources;
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
+using CustomValidation.Attributes;
+using DataAnnotationsExtensions;
+using Resources;
+using Web.Attributes;
 
 
 //TODO: Adjust string lengths accroding to SQL
@@ -57,7 +59,8 @@ namespace Camp.Models
 
 		[Display(Name = "ModelPostIndex", ResourceType = typeof(Campers))]
 		[DisplayFormat(DataFormatString = "{0,5:D5}", ApplyFormatInEditMode = true)]
-		[Integer(ErrorMessageResourceName = "Integer", ErrorMessageResourceType = typeof(Validation))]
+		[CompareOperator(ValidationDataType.Integer, ErrorMessageResourceName = "Integer",
+				ErrorMessageResourceType = typeof(Validation))]
 		[Range(0, 99999, ErrorMessageResourceName = "PostIndex",
 				ErrorMessageResourceType = typeof(Validation))]
 		public virtual int? PostIndex { get; set; }

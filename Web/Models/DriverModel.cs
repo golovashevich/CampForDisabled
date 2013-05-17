@@ -61,8 +61,9 @@ namespace Camp.Models
         [Display(Name = "ModelWheelchairsNum", ResourceType = typeof(Drivers))]
         [NumericLessThan("SitPlacesNum", AllowEquality = true, ErrorMessageResourceName = "NumericLessThanOrEqual", 
                 ErrorMessageResourceType = typeof(Validation))]
-        [Integer(ErrorMessageResourceName = "Integer", ErrorMessageResourceType = typeof(Validation))]
-        public virtual int? WheelchairsNum { get; set; }
+		[CompareOperator(ValidationDataType.Integer, ErrorMessageResourceName = "Integer",
+				ErrorMessageResourceType = typeof(Validation))]
+		public virtual int? WheelchairsNum { get; set; }
 
 
         [DataType(DataType.MultilineText)]
