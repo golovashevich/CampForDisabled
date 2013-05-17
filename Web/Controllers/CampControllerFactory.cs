@@ -13,6 +13,9 @@ namespace Web.Controllers
         {
             string controllerTypeName = String.Format("{0}.{1}Controller", this.GetType().Namespace, controllerName);
             Type controllerType = Type.GetType(controllerTypeName);
+			if (controllerType == null) {
+				return null;
+			}
             IController controller;
             var constructor = controllerType.GetConstructor(new Type[] { typeof(ICampDB) });
 
