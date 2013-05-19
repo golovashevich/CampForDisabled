@@ -191,6 +191,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Attributes\CompareOperatorAttribute.cs" />
+    <Compile Include="Attributes\CustomModelBinder.cs" />
     <Compile Include="Attributes\ModelClientPhoneDigitsCountRangeRule.cs" />
     <Compile Include="Attributes\ModelClientPhoneNumberValidatorRule.cs" />
     <Compile Include="Attributes\ModelClientPhoneNumberWithPlusValidatorRule.cs" />

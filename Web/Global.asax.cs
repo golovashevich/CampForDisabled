@@ -1,9 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Globalization;
-using System.Web.Http;
+﻿using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Web.Attributes;
 using Web.Controllers;
 
 namespace Web
@@ -23,6 +22,21 @@ namespace Web
 			BundleConfig.RegisterBundles(BundleTable.Bundles);
 			AuthConfig.RegisterAuth();
 			RegisterCampControllerFactory();
+
+			TurnOffStandardValueTypeValidators();
+
+			ModelBinders.Binders.DefaultBinder = new CustomModelBinder();
+		}
+
+
+		//Turn off standard validators for model's ValueType fields
+		private static void TurnOffStandardValueTypeValidators() {
+			foreach (ModelValidatorProvider prov in ModelValidatorProviders.Providers) {
+				if (prov.GetType().Equals(typeof(ClientDataTypeModelValidatorProvider))) {
+					ModelValidatorProviders.Providers.Remove(prov);
+					break;
+				}
+			}
 		}
 
 

@@ -1,4 +1,7 @@
-﻿jQuery.validator.addMethod('numericlessthan', function (value, element, params) {
+﻿$.validator.attributeRules = function () { return {}; };
+
+
+jQuery.validator.addMethod('numericlessthan', function (value, element, params) {
     value = value.trim();
     var otherValue = $(params.element).val().trim();
 
@@ -11,25 +14,28 @@
 
 
 jQuery.validator.addMethod('compareoperator', function (value, element, params) {
-	value = value.trim();
+	value = value.trim();									
 	var dataType = $(params.dataType);
 	if (params.compareOperator == "DataTypeCheck") {
 		switch (params.dataType) {
 			case "Integer": {
-				return parseFloat(value) == parseInt(value, 10) && !isNaN(value);
+				return compareOperator_isValidInteger(value);
 			}
 
 			case "Double": {
-				return value === +value && value !== (value | 0);
+				return compareOperator_isValidDouble(value);
 			}
 
 			case "Currency": {
+				return compareOperator_isValidCurrency(value);
 			}
 
 			case "Date": {
+				return compareOperator_isValidDate(value);
 			}
 
 			case "String": {
+				return typeof (value) == "string";
 			}
 		}
 	}
@@ -45,6 +51,27 @@ jQuery.validator.addMethod('compareoperator', function (value, element, params) 
 	//        : parseFloat(value) < parseFloat(otherValue));
 }, '');
 
+
+
+function compareOperator_isValidCurrency(value) {
+	floatValue = +value;
+	return !isNaN(floatValue) && floatValue > -7.9e28 && floatValue < 7.9e28;
+}
+
+function compareOperator_isValidInteger(value) {
+	floatValue = +value;
+	return !isNaN(floatValue) && floatValue % 1 == 0
+}
+
+function compareOperator_isValidDouble(value) {
+	floatValue = +value;
+	return !isNaN(floatValue) && floatValue > -1.7e308 && floatValue < 1.7e308;
+}
+
+function compareOperator_isValidDate(value) {
+	var dateValue = new Date(value);
+	return !isNaN(dateValue);
+}
 
 jQuery.validator.unobtrusive.adapters.add('numericlessthan', ['other', 'allowequality'], function (options) {
     var prefix = options.element.name.substr(0, options.element.name.lastIndexOf('.') + 1),
@@ -113,10 +140,17 @@ function appendModelPrefix(value, prefix) {
 }
 
 
-//Modifies standard jQuery number validator so that it ignores preceeding and trailing spaces
 $.extend($.validator.methods, {
-    number: function (value, element) {
-        return this.optional(element) || /^-?(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?$/.test(value.trim());
+	//Modifies standard jQuery number validator so that it ignores preceeding and trailing spaces
+	number: function (value, element) {
+		return this.optional(element) || /^-?(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?$/.test(value.trim());
+	},
+
+	//Skips range check if value is not number (in case it's called before number validator)
+    range: function (value, element, param) {
+    	return this.optional(element)
+			|| !$.validator.methods.number.call(this, value, element)
+			|| (value >= param[0] && value <= param[1]);
     }
 });
 

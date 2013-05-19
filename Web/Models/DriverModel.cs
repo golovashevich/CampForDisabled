@@ -49,12 +49,12 @@ namespace Camp.Models
         public virtual string Contacts { get; set; }
 
 
-		[Range(1, 19, ErrorMessageResourceName = "Range", ErrorMessageResourceType = typeof(Validation))]
 		[Display(Name = "ModelSitPlacesNum", ResourceType = typeof(Drivers))]
 		[NumericCoupled("WheelchairsNum")]
 		[CompareOperator(ValidationDataType.Integer, ErrorMessageResourceName = "Integer", 
 				ErrorMessageResourceType = typeof(Validation))]
-        public virtual int? SitPlacesNum { get; set; }
+		[Range(1, 19, ErrorMessageResourceName = "Range", ErrorMessageResourceType = typeof(Validation))]
+		public virtual int? SitPlacesNum { get; set; }
 
 
         [Range(0, 19, ErrorMessageResourceName = "Range", ErrorMessageResourceType = typeof(Validation))]
