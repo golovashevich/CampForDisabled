@@ -67,9 +67,8 @@ namespace Web.Tests.Attributes {
 			Assert.IsNull(compareOperator.GetValidationResult(null, nullContext), 
 					"Both other and value are nulls");
 			Assert.IsNotNull(compareOperator.GetValidationResult(1, nullContext), "Null other value");
-			Assert.IsNotNull(compareOperator.GetValidationResult(null, context), "Null value");
+			Assert.IsNull(compareOperator.GetValidationResult(null, context), "Null value");
 			Assert.IsNotNull(compareOperator.GetValidationResult(DateTime.Now, context), "Different types");
-
 		}
 
 
@@ -318,6 +317,13 @@ namespace Web.Tests.Attributes {
 					holder.otherProperty = check.Item1;
 					Assert.IsNull(compareOperator.GetValidationResult(check.Item2, context), trueMessage);
 					Assert.IsNotNull(compareOperator.GetValidationResult(check.Item3, context), falseMessage);
+
+					//check is always true if value null or empty
+					var emptyMessage = String.Format("Comparison operator {0} with empty value should be true",
+							compareOperator.Operator);
+					Assert.IsNull(compareOperator.GetValidationResult(null, context), emptyMessage);
+					Assert.IsNull(compareOperator.GetValidationResult("", context), emptyMessage);
+					Assert.IsNull(compareOperator.GetValidationResult(" ", context), emptyMessage);
 
 					//string version check
 					holder.otherProperty = Convert.ToString(check.Item1);

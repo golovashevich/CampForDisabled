@@ -9,9 +9,10 @@ using System.Web.Mvc;
 using System.Web.UI.WebControls;
 
 namespace Web.Attributes {
+	//TODO: Separate into CompareOperator itself and TypeCheck
 	[AttributeUsage(AttributeTargets.Property, AllowMultiple = true)]
 	public class CompareOperatorAttribute : ValidationAttribute, IClientValidatable {
-		//TODO: Add default messages
+		//TODO: Add default [globalized] messages
 		public string OtherProperty { get; private set; }
 
 		public ValidationCompareOperator Operator { get; set; }
@@ -99,9 +100,8 @@ namespace Web.Attributes {
 				return null;
 			}
 
-			if (null == value || null == otherPropertyValue) {
-				TryToExtractOtherPropertyTitle(otherPropertyInfo);
-				return new ValidationResult(FormatErrorMessage(validationContext.DisplayName));
+			if (null == value) {
+				return null;
 			}
 
 			ValidationDataType valueType;
@@ -113,7 +113,7 @@ namespace Web.Attributes {
 			if (Type != ValidationDataType.String) {
 				if (valueType == ValidationDataType.String) {
 					var otherValueString = Convert.ToString(otherPropertyValue);
-					if (String.IsNullOrEmpty((string)value) || String.IsNullOrEmpty(otherValueString)) {
+					if (String.IsNullOrWhiteSpace((string)value) || String.IsNullOrWhiteSpace(otherValueString)) {
 						return null;
 					}
 					try {
@@ -124,8 +124,7 @@ namespace Web.Attributes {
 						return new ValidationResult(FormatErrorMessage(validationContext.DisplayName));
 					}
 				} else {
-
-					if (value.GetType() != otherPropertyValue.GetType()) {
+					if (otherPropertyValue == null || value.GetType() != otherPropertyValue.GetType()) {
 						TryToExtractOtherPropertyTitle(otherPropertyInfo);
 						return new ValidationResult(FormatErrorMessage(validationContext.DisplayName));
 					}
@@ -146,8 +145,14 @@ namespace Web.Attributes {
 				}
 			}
 			else { //Type is string
-				if (!(value is String) || !(otherPropertyValue is String) 
-					|| !Comparers[Operator]((IComparable)value, (IComparable)otherPropertyValue)) {
+				if (!(value is String) || !(otherPropertyValue is String)) {
+					TryToExtractOtherPropertyTitle(otherPropertyInfo);
+					return new ValidationResult(FormatErrorMessage(validationContext.DisplayName));
+				}
+				if (String.IsNullOrWhiteSpace((string)value)) {
+					return null;
+				}
+				if (!Comparers[Operator]((IComparable)value, (IComparable)otherPropertyValue)) {
 					TryToExtractOtherPropertyTitle(otherPropertyInfo);
 					return new ValidationResult(FormatErrorMessage(validationContext.DisplayName));
 				}
@@ -217,18 +222,42 @@ namespace Web.Attributes {
 				throw new ArgumentException("Value cannot be null or empty.", "property");
 			}
 			return "*." + property;
-		}       
+		}
+
+
+		public override string FormatErrorMessage(string name) {
+			//http://connect.microsoft.com/VisualStudio/feedback/details/757298/emailaddress-attribute-is-unable-to-load-error-message-from-resource-mvc
+			if (!String.IsNullOrEmpty(ErrorMessageResourceName)) {
+				ErrorMessage = null;
+			}
+			return String.Format(CultureInfo.CurrentCulture, ErrorMessageString, name, OtherPropertyTitle);
+		}
+
+
+		private object _typeId = new object();
+		public override object TypeId {
+			get {
+				return this._typeId;
+			}
+		}
 
 
 		public IEnumerable<ModelClientValidationRule> GetClientValidationRules(ModelMetadata metadata,
 				ControllerContext context) {
-					if (OtherProperty != null) {
-						TryToExtractOtherPropertyTitle(metadata.ContainerType.GetProperty(OtherProperty));
-					}
 			var displayName = metadata.DisplayName ?? metadata.PropertyName;
-			var rule = new ModelClientValidationCompareRule(FormatErrorMessage(displayName),
-					OtherProperty == null? "" : FormatPropertyForClientValidation(this.OtherProperty), 
-					Type.ToString(), Operator);
+			var errorMessage = FormatErrorMessage(displayName);
+
+			ModelClientValidationRule rule;
+			if (Operator == ValidationCompareOperator.DataTypeCheck) {
+				rule = new ModelClientValidationTypeCheckRule(errorMessage, Type.ToString());
+			} else {
+				if (OtherProperty != null) {
+					TryToExtractOtherPropertyTitle(metadata.ContainerType.GetProperty(OtherProperty));
+				}
+				string otherProperty = OtherProperty == null ? "" : FormatPropertyForClientValidation(this.OtherProperty);
+				rule = new ModelClientValidationCompareRule(errorMessage, otherProperty, Type.ToString(),
+						Operator);
+			}
 			return new[] { rule };
 		}
 	}

@@ -57,12 +57,12 @@ namespace Camp.Models
 		public virtual int? SitPlacesNum { get; set; }
 
 
-        [Range(0, 19, ErrorMessageResourceName = "Range", ErrorMessageResourceType = typeof(Validation))]
+		[Range(0, 19, ErrorMessageResourceName = "Range", ErrorMessageResourceType = typeof(Validation))]
         [Display(Name = "ModelWheelchairsNum", ResourceType = typeof(Drivers))]
-        [NumericLessThan("SitPlacesNum", AllowEquality = true, ErrorMessageResourceName = "NumericLessThanOrEqual", 
-                ErrorMessageResourceType = typeof(Validation))]
 		[CompareOperator(ValidationDataType.Integer, ErrorMessageResourceName = "Integer",
 				ErrorMessageResourceType = typeof(Validation))]
+		[CompareOperator("SitPlacesNum", ValidationCompareOperator.LessThanEqual, ValidationDataType.Integer,
+				ErrorMessageResourceName = "NumericLessThanOrEqual", ErrorMessageResourceType = typeof(Validation))]
 		public virtual int? WheelchairsNum { get; set; }
 
 

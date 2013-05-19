@@ -13,44 +13,111 @@ jQuery.validator.addMethod('numericlessthan', function (value, element, params) 
 }, '');
 
 
+jQuery.validator.addMethod('compareoperatortypecheck', function (value, element, params) {
+	switch (params.dataType) {
+		case "Integer": {
+			return compareOperator_isValidInteger(value);
+		}
+
+		case "Double": {
+			return compareOperator_isValidDouble(value);
+		}
+
+		case "Currency": {
+			return compareOperator_isValidCurrency(value);
+		}
+
+		case "Date": {
+			return compareOperator_isValidDate(value);
+		}
+
+		case "String": {
+			return typeof (value) == "string";
+		}
+	}
+}, '');
+
+
 jQuery.validator.addMethod('compareoperator', function (value, element, params) {
-	value = value.trim();									
-	var dataType = $(params.dataType);
-	if (params.compareOperator == "DataTypeCheck") {
-		switch (params.dataType) {
-			case "Integer": {
-				return compareOperator_isValidInteger(value);
-			}
+	value = value.trim();
+	return compareOperator_performComparison(value, element, params);
+}, '');
 
-			case "Double": {
-				return compareOperator_isValidDouble(value);
-			}
 
-			case "Currency": {
-				return compareOperator_isValidCurrency(value);
-			}
+function compareOperator_performComparison(value, element, params) {
+	var otherValue = $(params.element).val().trim();
 
-			case "Date": {
-				return compareOperator_isValidDate(value);
+	if (compareOperator_isEmpty(value)) {
+		return true;
+	}
+	//TODO: validate delegate map here
+	switch (params.dataType) {
+		case "Integer": {
+			if (!compareOperator_isValidInteger(value) || !compareOperator_isValidInteger(otherValue)) {
+				return true; 
 			}
+			x = +value;
+			y = +otherValue;
+			break;
+		}
 
-			case "String": {
-				return typeof (value) == "string";
+		case "Double": {
+			if (!compareOperator_isValidDouble(value) || !compareOperator_isValidDouble(otherValue)) {
+				return true;
 			}
+			x = +value;
+			y = +otherValue;
+			break;
+		}
+
+		case "Currency": {
+			if (!compareOperator_isValidCurrency(value) || !compareOperator_isValidCurrency(otherValue)) {
+				return true;
+			}
+			x = +value;
+			y = +otherValue;
+			break;
+		}
+
+		case "Date": {
+			if (!compareOperator_isValidDate(value) || !compareOperator_isValidDate(otherValue)) {
+				return true;
+			}
+			x = new Date(value);
+			y = new Date(otherValue);
+			break;
+		}
+
+		case "String": {
+			if (typeof value != "string" || typeof otherValue != "string") {
+				return true;
+			}
+			x = value;
+			y = otherValue;
+			break;
 		}
 	}
 
-	var otherValue = $(params.element).val().trim();
-	alert("dataType: " + dataType + ", compareOperator: " + compareOperator);
+	switch (params.compareOperator) {
+		case "LessThan":
+			return x < y;
 
-	return false;
-	//return isNaN(value) && isNaN(otherValue)
-	//    || "" == value || "" == otherValue //skip comparison if one of values is empty
-	//    || (params.allowequality === 'True'
-	//        ? parseFloat(value) <= parseFloat(otherValue)
-	//        : parseFloat(value) < parseFloat(otherValue));
-}, '');
+		case "LessThanEqual":
+			return x <= y;
 
+		case "GreaterThan":
+			return x > y;
+
+		case "GreaterThanEqual":
+			return x >= y;
+
+		case "Equal":
+			return x == y;
+
+		case "NotEqual":
+			return x != y;
+	}
+}
 
 
 function compareOperator_isValidCurrency(value) {
@@ -63,15 +130,25 @@ function compareOperator_isValidInteger(value) {
 	return !isNaN(floatValue) && floatValue % 1 == 0
 }
 
+
 function compareOperator_isValidDouble(value) {
 	floatValue = +value;
 	return !isNaN(floatValue) && floatValue > -1.7e308 && floatValue < 1.7e308;
 }
 
+
 function compareOperator_isValidDate(value) {
 	var dateValue = new Date(value);
 	return !isNaN(dateValue);
 }
+
+
+function compareOperator_isEmpty(value) {
+	if (typeof value == "undefined" || value == null || value.trim() == "") {
+		return true;
+	}
+}
+
 
 jQuery.validator.unobtrusive.adapters.add('numericlessthan', ['other', 'allowequality'], function (options) {
     var prefix = options.element.name.substr(0, options.element.name.lastIndexOf('.') + 1),
@@ -92,7 +169,6 @@ jQuery.validator.unobtrusive.adapters.add('compareoperator', ['other', 'datatype
 		function (options) {
 			var prefix = options.element.name.substr(0, options.element.name.lastIndexOf('.') + 1);
 
-			//other = options.params.other;
 			var otherElement;
 			if (options.params.other != undefined) {
 				fullOtherName = appendModelPrefix(options.params.other, prefix);
@@ -110,6 +186,17 @@ jQuery.validator.unobtrusive.adapters.add('compareoperator', ['other', 'datatype
 			}
 		});
 
+
+jQuery.validator.unobtrusive.adapters.add('compareoperatortypecheck', ['datatype'],
+		function (options) {
+			options.rules['compareoperatortypecheck'] = {
+				dataType: options.params.datatype,
+			};
+
+			if (options.message) {
+				options.messages['compareoperatortypecheck'] = options.message;
+			}
+		});
 
 
 jQuery.validator.addMethod('numericcoupled', function (value, element, params) {
