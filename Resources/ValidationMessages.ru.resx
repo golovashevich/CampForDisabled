@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Date" xml:space="preserve">
+    <value>Поле {0} должно содержать дату.</value>
+  </data>
+  <data name="DateGreaterThanEqual" xml:space="preserve">
+    <value>{0} должно быть больше или равно {1}.</value>
+  </data>
   <data name="Email" xml:space="preserve">
     <value>Некорректный адрес e-mail.</value>
   </data>

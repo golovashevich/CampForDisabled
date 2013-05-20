@@ -28,7 +28,8 @@
             yearRange: "2003:@(DateTime.Now.Year + 5)",
             dateFormat: "yy-mm-dd",
             showMonthAfterYear: true,
-            defaultDate: "2003-06-01"
+            defaultDate: "2003-06-01",
+            onClose: function () { $(this).valid(); } //http://stackoverflow.com/questions/2287011/jquery-datepicker-validation-message-issue
         });
 
         

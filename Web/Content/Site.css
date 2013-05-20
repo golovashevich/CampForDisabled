@@ -14,20 +14,20 @@ body {
 }
 
 a {
-    color: #333;
+    color: #66e;
     outline: none;
     padding-left: 3px;
     padding-right: 3px;
-    text-decoration: underline;
+	text-decoration: none;
 }
 
     a:link, a:visited,
     a:active, a:hover {
-        color: #333;
+        color: #66e;
     }
 
     a:hover {
-        background-color: #c7d1d6;
+		text-decoration: underline;
     }
 
 	a#clear {
@@ -169,8 +169,12 @@ footer {
         margin-right: 3px;
         padding: 2px 3px;
         font-weight: normal;
-        text-decoration: underline;
+        text-decoration: none;
     }
+
+		#login a:hover {
+			text-decoration: underline;
+		}
 
     #login a.username {
         background: none;
@@ -623,7 +627,7 @@ table td {
     }					  
 
 	table td#contacts {
-		max-width: 8em;
+		max-width: 12em;
 		white-space: nowrap;
 		overflow: hidden;		
     }
