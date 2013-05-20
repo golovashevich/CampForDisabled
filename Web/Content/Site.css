@@ -623,7 +623,7 @@ table td {
     }					  
 
 	table td#contacts {
-		max-width: 8em;
+		max-width: 12em;
 		white-space: nowrap;
 		overflow: hidden;		
     }
