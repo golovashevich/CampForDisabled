@@ -25,7 +25,7 @@ namespace CustomValidation.Attributes
 			
 			string phone = (string) value;
 			if (!Regex.IsMatch(phone, @"^( +)?\+?[- 0-9#()]+?$")) {
-				ErrorMessage = Validation.PhoneInvalidSymbols;
+				ErrorMessage = ValidationMessages.PhoneInvalidSymbols;
 				return new ValidationResult(ErrorMessage);
 			}
 
@@ -34,14 +34,14 @@ namespace CustomValidation.Attributes
 
 			if (phone.ToCharArray()[0] == '+') {
 				if (onlyDigitsPhone.Length != 11 && onlyDigitsPhone.Length != 12) {
-					ErrorMessage = Validation.PhoneStartedWithPlus;
+					ErrorMessage = ValidationMessages.PhoneStartedWithPlus;
 					return new ValidationResult(ErrorMessage);
 				}
 			}
 			else {
 				if (onlyDigitsPhone.Length < MIN_DIGITS_COUNT || onlyDigitsPhone.Length > MAX_DIGITS_COUNT) {
 					ErrorMessage = String.Format(CultureInfo.CurrentUICulture,
-						Validation.PhoneDigitCountNotInTheRange, MIN_DIGITS_COUNT, MAX_DIGITS_COUNT);
+						ValidationMessages.PhoneDigitCountNotInTheRange, MIN_DIGITS_COUNT, MAX_DIGITS_COUNT);
 					return new ValidationResult(ErrorMessage);
 				}
 			}

@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using CustomValidation.Attributes;
 using DataAnnotationsExtensions;
 using Resources;
-using Web.Attributes;
+using Validation.Attributes;
 
 
 //TODO: Adjust string lengths accroding to SQL
@@ -37,15 +37,15 @@ namespace Camp.Models
 		}
 
 
-		[Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Validation))]
+		[Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(ValidationMessages))]
 		[Display(Name = "ModelFirstName", ResourceType = typeof(Campers))]
-		[StringLength(30, ErrorMessageResourceName = "StringLength", ErrorMessageResourceType = typeof(Validation))]
+		[StringLength(30, ErrorMessageResourceName = "StringLength", ErrorMessageResourceType = typeof(ValidationMessages))]
 		public virtual string FirstName { get; set; }
 
 
-		[Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Validation))]
+		[Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(ValidationMessages))]
 		[Display(Name = "ModelLastName", ResourceType = typeof(Campers))]
-		[StringLength(30, ErrorMessageResourceName = "StringLength", ErrorMessageResourceType = typeof(Validation))]
+		[StringLength(30, ErrorMessageResourceName = "StringLength", ErrorMessageResourceType = typeof(ValidationMessages))]
 		public virtual string LastName { get; set; }
 
 
@@ -60,15 +60,15 @@ namespace Camp.Models
 		[Display(Name = "ModelPostIndex", ResourceType = typeof(Campers))]
 		[DisplayFormat(DataFormatString = "{0,5:D5}", ApplyFormatInEditMode = true)]
 		[CompareOperator(ValidationDataType.Integer, ErrorMessageResourceName = "Integer",
-				ErrorMessageResourceType = typeof(Validation))]
+				ErrorMessageResourceType = typeof(ValidationMessages))]
 		[Range(0, 99999, ErrorMessageResourceName = "PostIndex",
-				ErrorMessageResourceType = typeof(Validation))]
+				ErrorMessageResourceType = typeof(ValidationMessages))]
 		public virtual int? PostIndex { get; set; }
 
 
 		[Display(Name = "ModelCityId", ResourceType = typeof(Campers))]
 		[DefaultValue(1)]
-		[Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Validation))]
+		[Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(ValidationMessages))]
 		public virtual int? CityId { get; set; }
 
 
@@ -82,31 +82,31 @@ namespace Camp.Models
 
 
 		[Display(Name = "ModelDistrict", ResourceType = typeof(Campers))]
-		[Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Validation))]
+		[Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(ValidationMessages))]
 		[StringLength(30, ErrorMessageResourceName = "StringLength", 
-				ErrorMessageResourceType = typeof(Validation))]
+				ErrorMessageResourceType = typeof(ValidationMessages))]
 		public virtual string District { get; set; }
 
 
 		[Display(Name = "ModelStreet", ResourceType = typeof(Campers))]
 		[Required(ErrorMessageResourceName = "Required",
-				ErrorMessageResourceType = typeof(Validation))]
+				ErrorMessageResourceType = typeof(ValidationMessages))]
 		[StringLength(40, ErrorMessageResourceName = "StringLength", 
-				ErrorMessageResourceType = typeof(Validation))]
+				ErrorMessageResourceType = typeof(ValidationMessages))]
 		public virtual string Street { get; set; }
 
 
 		[Display(Name = "ModelHomeNumber", ResourceType = typeof(Campers))]
 		[Required(ErrorMessageResourceName = "Required",
-				ErrorMessageResourceType = typeof(Validation))]
+				ErrorMessageResourceType = typeof(ValidationMessages))]
 		[StringLength(10, ErrorMessageResourceName = "StringLength",
-				ErrorMessageResourceType = typeof(Validation))]
+				ErrorMessageResourceType = typeof(ValidationMessages))]
 		public virtual string HomeNumber { get; set; }
 
 
 		[Display(Name = "ModelAppartmentNumber", ResourceType = typeof(Campers))]
 		[StringLength(10, ErrorMessageResourceName = "StringLength", 
-				ErrorMessageResourceType = typeof(Validation))]
+				ErrorMessageResourceType = typeof(ValidationMessages))]
 		public virtual string AppartmentNumber { get; set; }
 
 
@@ -114,16 +114,16 @@ namespace Camp.Models
 		//TODO: Get rid of Validator suffix
 		[Display(Name = "ModelHomePhone", ResourceType = typeof(Campers))]
 		[StringLength(20, ErrorMessageResourceName = "StringLength",
-			ErrorMessageResourceType = typeof(Validation))]
+			ErrorMessageResourceType = typeof(ValidationMessages))]
 		[DataType(DataType.PhoneNumber)]
 		[RegularExpression(@"^( +)?\+?[- 0-9#()]+?$", ErrorMessageResourceName = "PhoneInvalidSymbols",
-			ErrorMessageResourceType = typeof(Validation))]
+			ErrorMessageResourceType = typeof(ValidationMessages))]
         [PhoneDigitsCountRange(ErrorMessageResourceName="PhoneDigitCountNotInTheRange",
-			ErrorMessageResourceType = typeof(Validation))]
+			ErrorMessageResourceType = typeof(ValidationMessages))]
 		[PhoneNumberWithPlusValidator(ErrorMessageResourceName = "InvalidPhoneNumber",
-			ErrorMessageResourceType = typeof(Validation))]
+			ErrorMessageResourceType = typeof(ValidationMessages))]
 		//One PhoneValidator instead of above standart validators (Not finished)
-		//[PhoneNumberValidator(ErrorMessageResourceType = typeof(Validation))]
+		//[PhoneNumberValidator(ErrorMessageResourceType = typeof(ValidationMessages))]
 		public virtual string HomePhone { get; set; }
 
 
@@ -141,15 +141,15 @@ namespace Camp.Models
 
 		[Display(Name = "ModelEmail", ResourceType = typeof(Campers))]
 		[StringLength(100, ErrorMessageResourceName = "StringLength", 
-				ErrorMessageResourceType = typeof(Validation))]
+				ErrorMessageResourceType = typeof(ValidationMessages))]
 		[Email(ErrorMessageResourceName = "Email", 
-				ErrorMessageResourceType = typeof(Validation))]
+				ErrorMessageResourceType = typeof(ValidationMessages))]
         public virtual string Email { get; set; }
 
 
 		[Display(Name = "ModelSkype", ResourceType = typeof(Campers))]
 		[StringLength(40, ErrorMessageResourceName = "StringLength", 
-				ErrorMessageResourceType = typeof(Validation))]
+				ErrorMessageResourceType = typeof(ValidationMessages))]
 		public virtual string Skype { get; set; }
 
 

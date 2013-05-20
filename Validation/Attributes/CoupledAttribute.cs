@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 
-namespace CustomValidation.Attributes
+namespace Validation.Attributes
 {
     /// <summary>
     /// Indicates that validating field marked with this attribute also should validate coupled field
     /// </summary>
-    public class NumericCoupledAttribute : ValidationAttribute, IClientValidatable
+    public class CoupledAttribute : ValidationAttribute, IClientValidatable
     {
         public string OtherProperty { get; private set; }
 
 
-        public NumericCoupledAttribute(string otherProperty)
+        public CoupledAttribute(string otherProperty)
         {
             if (otherProperty == null) { throw new ArgumentNullException("otherProperty"); }
 
@@ -37,9 +37,10 @@ namespace CustomValidation.Attributes
         }       
 
 
-        public IEnumerable<ModelClientValidationRule> GetClientValidationRules(ModelMetadata metadata, ControllerContext context)
+        public IEnumerable<ModelClientValidationRule> GetClientValidationRules(ModelMetadata metadata, 
+				ControllerContext context)
         {
-            yield return new ModelClientValidationNumericCoupledRule(ErrorMessageString, 
+            yield return new ModelClientValidationCoupledRule(ErrorMessageString, 
                     FormatPropertyForClientValidation(OtherProperty));
         }    }
 }

@@ -8,7 +8,7 @@ using System.Resources;
 using System.Web.Mvc;
 using System.Web.UI.WebControls;
 
-namespace Web.Attributes {
+namespace Validation.Attributes {
 	//TODO: Separate into CompareOperator itself and TypeCheck
 	[AttributeUsage(AttributeTargets.Property, AllowMultiple = true)]
 	public class CompareOperatorAttribute : ValidationAttribute, IClientValidatable {
@@ -26,8 +26,8 @@ namespace Web.Attributes {
 		}
 
 
-		public CompareOperatorAttribute(ValidationDataType dataType) : 
-				this(null, ValidationCompareOperator.DataTypeCheck, dataType) {
+		public CompareOperatorAttribute(ValidationDataType dataType) :
+			this(null, ValidationCompareOperator.DataTypeCheck, dataType) {
 		}
 
 
@@ -46,7 +46,7 @@ namespace Web.Attributes {
 		}
 
 
-		private static Dictionary<Type, ValidationDataType> TypeDataTypeMap =  
+		private static Dictionary<Type, ValidationDataType> TypeDataTypeMap =
 				new Dictionary<Type, ValidationDataType>() {
 						{ typeof(DateTime), ValidationDataType.Date },
 						{ typeof(String), ValidationDataType.String },
@@ -90,7 +90,7 @@ namespace Web.Attributes {
 
 			if (otherPropertyInfo == null) {
 				//TODO: Globalization
-				return new ValidationResult(String.Format(CultureInfo.CurrentCulture, 
+				return new ValidationResult(String.Format(CultureInfo.CurrentCulture,
 						"Could not find a property named {0}.", OtherProperty));
 			}
 
@@ -143,8 +143,7 @@ namespace Web.Attributes {
 					TryToExtractOtherPropertyTitle(otherPropertyInfo);
 					return new ValidationResult(FormatErrorMessage(validationContext.DisplayName));
 				}
-			}
-			else { //Type is string
+			} else { //Type is string
 				if (!(value is String) || !(otherPropertyValue is String)) {
 					TryToExtractOtherPropertyTitle(otherPropertyInfo);
 					return new ValidationResult(FormatErrorMessage(validationContext.DisplayName));
@@ -163,7 +162,7 @@ namespace Web.Attributes {
 
 		private ValidationResult IsValidDataType(object value, ValidationContext context) {
 			if (null == value) {
- 				return null;
+				return null;
 			}
 
 			ValidationDataType valueType;
@@ -189,7 +188,7 @@ namespace Web.Attributes {
 			try {
 				Convert.ChangeType(value, DataTypeTypeMap[Type]);
 				return null;
-			} 
+			}
 			catch {
 				return new ValidationResult(FormatErrorMessage(context.DisplayName));
 			}

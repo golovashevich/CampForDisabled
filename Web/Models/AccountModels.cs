@@ -13,11 +13,11 @@ namespace Web.Models
 
     public class LogOnModel
     {
-		[Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Validation))]
+		[Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(ValidationMessages))]
 		[Display(Name = "ModelUserName", ResourceType = typeof(Account))]
         public string UserName { get; set; }
 
-		[Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Validation))]
+		[Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(ValidationMessages))]
 		[DataType(DataType.Password)]
 		[Display(Name = "ModelPassword", ResourceType = typeof(Account))]
         public string Password { get; set; }

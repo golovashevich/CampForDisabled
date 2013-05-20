@@ -190,17 +190,10 @@
     <Compile Include="App_Start\RegisterClientValidationExtensions.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Attributes\CompareOperatorAttribute.cs" />
-    <Compile Include="Attributes\ModelClientValidationTypeCheckRule.cs" />
     <Compile Include="Attributes\CustomModelBinder.cs" />
     <Compile Include="Attributes\ModelClientPhoneDigitsCountRangeRule.cs" />
     <Compile Include="Attributes\ModelClientPhoneNumberValidatorRule.cs" />
     <Compile Include="Attributes\ModelClientPhoneNumberWithPlusValidatorRule.cs" />
-    <Compile Include="Attributes\ModelClientValidationCompareRule.cs" />
-    <Compile Include="Attributes\ModelClientValidationNumericCoupledRule.cs" />
-    <Compile Include="Attributes\ModelClientValidationNumericLessThanRule.cs" />
-    <Compile Include="Attributes\NumericCoupledAttribute.cs" />
-    <Compile Include="Attributes\NumericLessThanAttribute.cs" />
     <Compile Include="Attributes\PhoneDigitsCountRangeAttribute.cs" />
     <Compile Include="Attributes\PhoneNumberValidatorAttribute.cs" />
     <Compile Include="Attributes\PhoneNumberWithPlusValidatorAttribute.cs" />
@@ -306,6 +299,7 @@
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\Validation.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -358,6 +352,10 @@
     <ProjectReference Include="..\Resources\Resources.csproj">
       <Project>{6d483833-4fcd-4ef8-aa67-3440ffc11cb5}</Project>
       <Name>Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Validation\Validation.csproj">
+      <Project>{defcc8fc-47d3-4262-9444-babf136541b5}</Project>
+      <Name>Validation</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

@@ -5,7 +5,7 @@ using System.Diagnostics;
 using System.Reflection;
 using System.Web.UI.WebControls;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Web.Attributes;
+using Validation.Attributes;
 
 namespace Web.Tests.Attributes {
 	[TestClass]

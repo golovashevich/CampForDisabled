@@ -79,10 +79,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Drivers.resx</DependentUpon>
     </Compile>
-    <Compile Include="Validation.Designer.cs">
+    <Compile Include="ValidationMessages.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Validation.resx</DependentUpon>
+      <DependentUpon>ValidationMessages.resx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -121,11 +121,11 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Drivers.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Validation.resx">
+    <EmbeddedResource Include="ValidationMessages.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Validation.Designer.cs</LastGenOutput>
+      <LastGenOutput>ValidationMessages.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Validation.ru.resx" />
+    <EmbeddedResource Include="ValidationMessages.ru.resx" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

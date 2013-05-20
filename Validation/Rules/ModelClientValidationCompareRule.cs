@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.UI.WebControls;
 
-namespace Web.Attributes {
+namespace Validation.Attributes {
 	public class ModelClientValidationCompareRule : ModelClientValidationRule {
 		public ModelClientValidationCompareRule(string errorMessage, string otherProperty, string dataType, 
 				ValidationCompareOperator compareOperator)

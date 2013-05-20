@@ -17,13 +17,13 @@ namespace Camp.Models
 		public virtual int Id { get; set; }
 
 		[Display(Name = "ModelYear", ResourceType = typeof(Camps))]
-        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Validation))]
+        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(ValidationMessages))]
 		[DefaultValue(2003)]
 		public virtual int Year { get; set; }
 
 		[Display(Name = "ModelName", ResourceType = typeof(Camps))]
-        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Validation))]
-		[StringLength(50, ErrorMessageResourceName = "StringLength", ErrorMessageResourceType = typeof(Validation))]
+        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(ValidationMessages))]
+		[StringLength(50, ErrorMessageResourceName = "StringLength", ErrorMessageResourceType = typeof(ValidationMessages))]
 		public virtual string Name { get; set; }
 
 		public virtual string CampName {
@@ -33,18 +33,18 @@ namespace Camp.Models
 		}
 
 		[Display(Name = "ModelTheme", ResourceType = typeof(Camps))]
-        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Validation))]
-		[StringLength(50, ErrorMessageResourceName = "StringLength", ErrorMessageResourceType = typeof(Validation))]
+        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(ValidationMessages))]
+		[StringLength(50, ErrorMessageResourceName = "StringLength", ErrorMessageResourceType = typeof(ValidationMessages))]
 		public virtual string Theme { get; set; }
 
 		[Display(Name = "ModelBeginDate", ResourceType = typeof(Camps))]
-        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Validation))]
+        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(ValidationMessages))]
 		[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
 		[DataType(DataType.Date)]
 		public virtual DateTime? BeginDate { get; set; }
 
 		[Display(Name = "ModelEndDate", ResourceType = typeof(Camps))]
-        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Validation))]
+        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(ValidationMessages))]
 		[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
 		[DataType(DataType.Date)]
 		public virtual DateTime? EndDate { get; set; }

@@ -64,13 +64,6 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Attributes\CompareOperatorTests.cs" />
-    <Compile Include="Attributes\NumericLessThanTests.cs" />
-    <Compile Include="Attributes\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\CampControllerTest.cs" />
     <Compile Include="Controllers\CamperControllerTest.cs" />
     <Compile Include="Controllers\DriverControllerTest.cs" />
@@ -94,12 +87,6 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="Test References\Web.accessor" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Attributes\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

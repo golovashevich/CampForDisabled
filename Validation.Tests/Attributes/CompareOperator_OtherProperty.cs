@@ -2,13 +2,14 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Reflection;
-using CustomValidation.Attributes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Validation.Attributes;
+using Validation.Tests.Attributes;
 
 namespace Web.Tests.Attributes
 {
     [TestClass]
-    public class NumericLessThanTests
+    public class CompareOperator_OtherProperty
     {
         private class TestProperties
         {
@@ -32,9 +33,9 @@ namespace Web.Tests.Attributes
         [TestMethod]
         public void OtherPropertyTitle()
         {
-            var methodInfo = typeof(NumericLessThanAttribute).GetMethod("TryToExtractOtherPropertyTitle", 
+            var methodInfo = typeof(CompareOperatorAttribute).GetMethod("TryToExtractOtherPropertyTitle", 
                     BindingFlags.Instance | BindingFlags.NonPublic);
-            var getOtherPropertyTitle = typeof(NumericLessThanAttribute).GetProperty("OtherPropertyTitle", 
+            var getOtherPropertyTitle = typeof(CompareOperatorAttribute).GetProperty("OtherPropertyTitle", 
                     BindingFlags.Instance | BindingFlags.NonPublic).GetGetMethod(true);
 
             var checks = new Tuple<string, string>[] { 
@@ -47,7 +48,7 @@ namespace Web.Tests.Attributes
 
             foreach (var check in checks)
             {
-                var attribute = new NumericLessThanAttribute(check.Item1);
+                var attribute = new CompareOperatorAttribute(check.Item1);
                 var propertyInfo = typeof(TestProperties).GetProperty(check.Item1);
                 methodInfo.Invoke(attribute, new[] { propertyInfo });
                 Assert.AreEqual(check.Item2, getOtherPropertyTitle.Invoke(attribute, null), 
