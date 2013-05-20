@@ -1,10 +1,11 @@
-﻿using Resources;
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Web.Mvc;
-
+using System.Web.UI.WebControls;
+using Resources;
+using Validation.Attributes;
 
 namespace Camp.Models
 {
@@ -40,13 +41,17 @@ namespace Camp.Models
 		[Display(Name = "ModelBeginDate", ResourceType = typeof(Camps))]
         [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(ValidationMessages))]
 		[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
-		[DataType(DataType.Date)]
+		[CompareOperator(ValidationDataType.Date, ErrorMessageResourceName = "Date",
+				ErrorMessageResourceType = typeof(ValidationMessages))]
 		public virtual DateTime? BeginDate { get; set; }
 
 		[Display(Name = "ModelEndDate", ResourceType = typeof(Camps))]
         [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(ValidationMessages))]
 		[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
-		[DataType(DataType.Date)]
+		[CompareOperator(ValidationDataType.Date, ErrorMessageResourceName = "Date",
+				ErrorMessageResourceType = typeof(ValidationMessages))]
+		[CompareOperator("BeginDate", ValidationCompareOperator.GreaterThanEqual, ValidationDataType.Date,
+				ErrorMessageResourceName = "DateGreaterThanEqual", ErrorMessageResourceType = typeof(ValidationMessages))]
 		public virtual DateTime? EndDate { get; set; }
 
 		[Display(Name = "ModelDescription", ResourceType = typeof(Camps))]
