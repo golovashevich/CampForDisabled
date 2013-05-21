@@ -21,7 +21,7 @@ namespace Web.Controllers
 
             if (null != constructor)
             {
-                controller = constructor.Invoke(new [] { new CampDB() }) as IController;
+                controller = constructor.Invoke(new [] { new CampDB(true) }) as IController;
             }
             else
             {
