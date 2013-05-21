@@ -11,6 +11,7 @@
     ViewBag.Title = ViewBag.IsCreate ? Drivers.EditNew : ViewBag.FullName ?? Model.FullName;
 }
 
+
 <script type="text/javascript">
     $(document).ready(function () {
         $("#form").data("validator").settings.submitHandler = function (form) {
@@ -114,4 +115,5 @@
     </tr>
 
 </table>
-
+@*Remove after debug*@
+@ViewBag.ConnectionString

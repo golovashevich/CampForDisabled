@@ -236,10 +236,57 @@ namespace Web.Tests.Attributes {
 			return Tuple.Create(value1, value2);
 		}
 
-	
+
 		[TestMethod]
 		public void ComparisonChecks() {
+			var checks = CreateComparisonChecksTable();
+
+			var holder = new PropertyHolder();
+			var context = new ValidationContext(holder);
+			var mapInfo = typeof(CompareOperatorAttribute).GetField("TypeDataTypeMap", 
+					BindingFlags.NonPublic | BindingFlags.Static);
+			var typeDataTypeMap = (Dictionary<Type, ValidationDataType>) mapInfo.GetValue(null);
+
+			foreach (var operatorCheck in checks) {
+				foreach (var check in operatorCheck.Item2) {
+					var compareOperator = new CompareOperatorAttribute("otherProperty", 
+							operatorCheck.Item1, typeDataTypeMap[check.Item1.GetType()]);
+
+					var trueMessage = String.Format(
+							"Comparison operator {0} with {1} and {2} should be true",
+							compareOperator.Operator, check.Item1, check.Item2);
+					var falseMessage = String.Format(
+							"Comparison operator {0} with {1} and {2} should be false",
+								compareOperator.Operator, check.Item1, check.Item3);
+
+					//pure value check
+					holder.otherProperty = check.Item1;
+					Assert.IsNull(compareOperator.GetValidationResult(check.Item2, context), trueMessage);
+					Assert.IsNotNull(compareOperator.GetValidationResult(check.Item3, context), falseMessage);
+
+					//check is always true if value null or empty
+					var emptyMessage = String.Format("Comparison operator {0} with empty value should be true",
+							compareOperator.Operator);
+					Assert.IsNull(compareOperator.GetValidationResult(null, context), emptyMessage);
+					Assert.IsNull(compareOperator.GetValidationResult("", context), emptyMessage);
+					Assert.IsNull(compareOperator.GetValidationResult(" ", context), emptyMessage);
+
+					//string version check
+					holder.otherProperty = Convert.ToString(check.Item1);
+					Assert.IsNull(
+							compareOperator.GetValidationResult(Convert.ToString(check.Item2), context), 
+							trueMessage);
+					Assert.IsNotNull(
+							compareOperator.GetValidationResult(Convert.ToString(check.Item3), context), 
+							falseMessage);
+				}
+			}
+		}
+
+
+		private static Tuple<ValidationCompareOperator, Tuple<object, object, object>[]>[] CreateComparisonChecksTable() {
 			// value2, value 1 -> true, value3, value 1 -> false
+			// Why not Double.MaxValue: http://stackoverflow.com/questions/4441782/why-does-double-tryparse-return-false-for-a-string-containing-double-maxvalue
 			var checks = new Tuple<ValidationCompareOperator, Tuple<object, object, object>[]>[] {
 				Tuple.Create(ValidationCompareOperator.Equal, new [] { 
 					CreateCheckTriple(Int32.MinValue, Int32.MinValue, Int32.MaxValue),
@@ -294,47 +341,7 @@ namespace Web.Tests.Attributes {
 					CreateCheckTriple("test", "test", "xyz")
 				})
 			};
-
-			var holder = new PropertyHolder();
-			var context = new ValidationContext(holder);
-			var mapInfo = typeof(CompareOperatorAttribute).GetField("TypeDataTypeMap", 
-					BindingFlags.NonPublic | BindingFlags.Static);
-			var typeDataTypeMap = (Dictionary<Type, ValidationDataType>) mapInfo.GetValue(null);
-
-			foreach (var operatorCheck in checks) {
-				foreach (var check in operatorCheck.Item2) {
-					var compareOperator = new CompareOperatorAttribute("otherProperty", 
-							operatorCheck.Item1, typeDataTypeMap[check.Item1.GetType()]);
-
-					var trueMessage = String.Format(
-							"Comparison operator {0} with {1} and {2} should be true",
-							compareOperator.Operator, check.Item1, check.Item2);
-					var falseMessage = String.Format(
-							"Comparison operator {0} with {1} and {2} should be false",
-								compareOperator.Operator, check.Item1, check.Item3);
-
-					//pure value check
-					holder.otherProperty = check.Item1;
-					Assert.IsNull(compareOperator.GetValidationResult(check.Item2, context), trueMessage);
-					Assert.IsNotNull(compareOperator.GetValidationResult(check.Item3, context), falseMessage);
-
-					//check is always true if value null or empty
-					var emptyMessage = String.Format("Comparison operator {0} with empty value should be true",
-							compareOperator.Operator);
-					Assert.IsNull(compareOperator.GetValidationResult(null, context), emptyMessage);
-					Assert.IsNull(compareOperator.GetValidationResult("", context), emptyMessage);
-					Assert.IsNull(compareOperator.GetValidationResult(" ", context), emptyMessage);
-
-					//string version check
-					holder.otherProperty = Convert.ToString(check.Item1);
-					Assert.IsNull(
-							compareOperator.GetValidationResult(Convert.ToString(check.Item2), context), 
-							trueMessage);
-					Assert.IsNotNull(
-							compareOperator.GetValidationResult(Convert.ToString(check.Item3), context), 
-							falseMessage);
-				}
-			}
+			return checks;
 		}
 	}		
 }
