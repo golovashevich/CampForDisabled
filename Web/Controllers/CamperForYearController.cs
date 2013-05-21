@@ -21,17 +21,12 @@ namespace Web.Controllers
 				return RedirectToAction("Index", "Camp");
 			}
 
-			var campers = from camper in CampDB.CampersForYear
-						  where camper.CampId == id.Value
-						  select camper;
-
-			var camperList = new List<CamperModel>();
-			foreach (var camperForYear in campers) {
-				camperList.Add(camperForYear.Camper);
-			}
+			var campers = from camperForYear in CampDB.CampersForYear
+						  where camperForYear.CampId == id.Value
+						  select camperForYear.Camper;
 
 			ViewBag.CampName = camp.CampName;
-			return View(camperList);
+			return View(campers.ToList());
 		}
 
 
@@ -86,6 +81,21 @@ namespace Web.Controllers
 
 			ViewBag.CampName = camp.CampName;
 			return View(wantedCamper);
+		}
+
+
+		[Authorize]
+        public ActionResult EditList(int? id)
+        {
+			throw new System.NotImplementedException();
+        }
+
+
+        [HttpPost]
+        [Authorize]
+        public ActionResult EditList(int? id, CampModel newCamp)
+        {
+			throw new System.NotImplementedException();
 		}
 	}
 }
