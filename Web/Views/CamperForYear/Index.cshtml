@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Camp.Models.CamperModel>
+@using Resources;
+
+@{
+    ViewBag.Title = CamperForYear.Title;
+}
+
+<table style="border:0">
+    <tr>
+        <td style="border:0">
+            <h2>@CamperForYear.Campers 
+                <span style="font-weight: normal">
+                    @String.Format(CamperForYear.IndexTitleFormatString, ViewBag.CampName, Model.Count())
+                </span>
+            </h2>
+        </td>
+
+        <td style="border:0" align="right">
+            @Html.ActionLink(CamperForYear.BackToCamps, "Index", "Camp")
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="2" style="border:0">
+            <table>
+                <tr>
+                    <th>
+                        @Html.LabelFor(m => Model.SingleOrDefault().FullName)
+                    </th>
+                    @if (ViewBag.CanUpdate)
+                    {
+                    <th></th>
+                    }
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td id="name">
+                        @Html.ActionLink(item.FullName, String.Format("Details/{0}/{1}", 
+                            Url.RequestContext.RouteData.Values["id"], item.Id))
+                    </td>
+                    @if (ViewBag.CanUpdate)
+                    {
+                    <td id="actions">
+                        @Html.ActionLink(CamperForYear.DeleteFromList, "Delete", 
+                            new { campId = Url.RequestContext.RouteData.Values["id"], id = item.Id }) 
+                    </td>
+                    }
+                </tr>
+                }
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" id="footer">
+            @Html.ActionLink(CamperForYear.BackToCamps, "Index", "Camp")
+        </td>
+    </tr>
+</table>
+

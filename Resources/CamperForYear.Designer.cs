@@ -70,6 +70,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Campers.
+        /// </summary>
+        public static string Campers {
+            get {
+                return ResourceManager.GetString("Campers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete.
         /// </summary>
         public static string DeleteFromList {
@@ -79,11 +88,38 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Back to List.
+        /// </summary>
+        public static string DetailsBackToList {
+            get {
+                return ResourceManager.GetString("DetailsBackToList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit.
+        /// </summary>
+        public static string DetailsEdit {
+            get {
+                return ResourceManager.GetString("DetailsEdit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit list.
         /// </summary>
         public static string EditList {
             get {
                 return ResourceManager.GetString("EditList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ({0}) - [{1}].
+        /// </summary>
+        public static string IndexTitleFormatString {
+            get {
+                return ResourceManager.GetString("IndexTitleFormatString", resourceCulture);
             }
         }
         

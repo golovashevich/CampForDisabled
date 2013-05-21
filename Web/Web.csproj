@@ -203,6 +203,7 @@
     <Compile Include="Controllers\CampControllerFactory.cs" />
     <Compile Include="Controllers\CampEntityController.cs" />
     <Compile Include="Controllers\CamperController.cs" />
+    <Compile Include="Controllers\CamperForYearController.cs" />
     <Compile Include="Controllers\DriverController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Utils.cs" />
@@ -342,7 +343,8 @@
     <Content Include="Views\Shared\_LogOnPartial.cshtml">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="Views\Camp\CamperForYearList.cshtml" />
+    <Content Include="Views\CamperForYear\Index.cshtml" />
+    <Content Include="Views\CamperForYear\Details.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -31,9 +31,8 @@
                     <th>
                         @Html.LabelFor(m => Model.SingleOrDefault().Theme)
                     </th>
-                     @if (ViewBag.CanUpdate) {    
-                        <th></th>   
-                     }
+
+                    <th></th>
                 </tr>
 
                 @foreach (var item in Model)
@@ -48,13 +47,15 @@
                     <td id="theme">
                         @item.Theme
                     </td> 
-                     @if (ViewBag.CanUpdate) {    
-                        <td id="actions">
-                             @Html.ActionLink(Camps.IndexEdit, "Edit", new { id = item.Id }) |
-                             @Html.ActionLink(Camps.IndexDelete, "Delete", new { id = item.Id },
+        
+                    <td id="actions">
+                        @Html.ActionLink(Camps.Campers, "Index", "CamperForYear", new { id = item.Id }, null)
+                        @if (ViewBag.CanUpdate) {        
+                             @: | @Html.ActionLink(Camps.IndexEdit, "Edit", new { id = item.Id })
+                             @: | @Html.ActionLink(Camps.IndexDelete, "Delete", new { id = item.Id },
                                 new { onclick = "return confirm('" + item.DeleteConfirmationString + "')" })
-                        </td>
-                     }
+                        }
+                    </td>
                 </tr>
                 }
             </table>

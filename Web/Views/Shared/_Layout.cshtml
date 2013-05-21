@@ -36,7 +36,8 @@
                     <li class="@("Driver".Equals(currentController) ? "selected" : "")">
                         @Html.ActionLink(Drivers.IndexTitle, "Index", "Driver")
                     </li>
-                    <li class="@("Camp".Equals(currentController) ? "selected" : "")">
+                    <li class="@("Camp".Equals(currentController) ||
+                            "CamperForYear".Equals(currentController) ? "selected" : "")">
                         @Html.ActionLink(Camps.MainMenuItem, "Index", "Camp")
                     </li>
                     <li class="@("Home".Equals(currentController) && "About".Equals(currentAction) ? "selected" : "")">

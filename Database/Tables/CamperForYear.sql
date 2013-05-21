@@ -3,10 +3,8 @@
 
 CREATE TABLE [dbo].[CamperForYear](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
-	[YearId] [int] NOT NULL,
+	[CampId] [int] NOT NULL,
 	[CamperId] [int] NOT NULL,
-	--FOREIGN KEY (YearId) REFERENCES [dbo].[Camp] (Id),
-	--FOREIGN KEY (CamperId) REFERENCES [dbo].[Camper] (Id),
 	CONSTRAINT [PK_CamperForYear] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
@@ -16,9 +14,10 @@ CREATE TABLE [dbo].[CamperForYear](
 SET IDENTITY_INSERT CamperForYear ON
 
 INSERT INTO [dbo].[CamperForYear]
-	([Id], [YearId], [CamperId]) 
+	([Id], [CampId], [CamperId]) 
 VALUES
 	(1, 1, 4),
+	(13, 1, 4),
 	(2, 1, 2),
 	(3, 1, 3),
 	(4, 2, 1),

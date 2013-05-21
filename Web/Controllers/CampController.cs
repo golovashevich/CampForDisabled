@@ -145,42 +145,5 @@ namespace Web.Controllers
 			CampDB.SaveChanges();
 			return RedirectToAction("Index");
         }
-
-
-		public ActionResult CamperForYearList(int? id) {
-			if (id == null) {
-				return RedirectToAction("Index");
-			}
-
-			var camp = CampDB.Camps.SingleOrDefault(r => r.Id == id);
-			if (camp == null) {
-				return RedirectToAction("Index");
-			}
-			
-			List<CamperModel> campersForYear = new List<CamperModel>();
-			foreach (var camperForYear in CampDB.CampersForYear) {
-				if (camperForYear.YearId != id) {
-					continue;
-				}
-
-				var camper = CampDB.Campers.SingleOrDefault(r => r.Id == camperForYear.CamperId);
-				if (camper != null) {
-					campersForYear.Add(camper);
-				}
-			}
-
-			ViewBag.CampName = camp.CampName;
-			return View(campersForYear);
-		}
-
-
-		public ActionResult EditList()
-		{
- 			throw new System.NotImplementedException();
-		}
-
-		public ActionResult DeleteFromList() {
-			throw new System.NotImplementedException();
-		}
 	}
 }

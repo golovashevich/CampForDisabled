@@ -19,6 +19,12 @@ namespace Web
 				"{language}/{controller}/{action}/{id}", // URL with parameters
 				new { language = "en", controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
 				);
+
+			routes.MapRoute(
+				"CamperForYear", // Route name
+				"{language}/CamperForYear/{action}/{campId}/{id}", // URL with parameters
+				new { language = "en", controller = "CamperForYear", action = "Index", campId = "", id = UrlParameter.Optional } // Parameter defaults
+				);
 		}
 	}
 }
