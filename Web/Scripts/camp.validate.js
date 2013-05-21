@@ -1,4 +1,5 @@
-﻿$.validator.attributeRules = function () { return {}; };
+﻿//https://github.com/jzaefferer/jquery-validation/issues/165
+$.validator.attributeRules = function () { return {}; };
 
 
 jQuery.validator.addMethod('numericlessthan', function (value, element, params) {
