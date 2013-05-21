@@ -81,8 +81,6 @@ namespace Web.Controllers
 
             ViewBag.IsCreate = false;
 
-			//TODO: Remove after debug
-			ViewBag.ConnectionString = ((CampDB)CampDB).Database.Connection.ConnectionString;
             return View(model);
         }
 
