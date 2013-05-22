@@ -48,7 +48,6 @@ namespace Camp.Models
 
 
 		[Display(Name = "ModelSitPlacesNum", ResourceType = typeof(Drivers))]
-		[Coupled("WheelchairsNum")]
 		[CompareOperator(ValidationDataType.Integer, ErrorMessageResourceName = "Integer", 
 				ErrorMessageResourceType = typeof(ValidationMessages))]
 		[Range(1, 19, ErrorMessageResourceName = "Range", ErrorMessageResourceType = typeof(ValidationMessages))]

@@ -55,7 +55,7 @@ namespace Web.Controllers
             if (!ModelState.IsValid)
             {
                 ViewBag.IsCreate = true;
-                return View("Edit", driver);
+                return View("Edit");
             }
 
             CampDB.Drivers.Add(driver);
