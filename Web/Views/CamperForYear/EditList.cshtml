@@ -1,0 +1,86 @@
+﻿@model Camp.Models.SelectCamperModel
+@using Resources
+
+@{
+    ViewBag.Title = CamperForYear.Title;
+}
+
+<script type="text/javascript">
+    function addItem() {
+        $("#AvailableCampers option:selected").appendTo("#ChosenCampers");
+        $("#ChosenCampers option").attr("selected", false);
+    }
+    function addAllItems() {
+        $("#AvailableCampers option").appendTo("#ChosenCampers");
+        $("#ChosenCampers option").attr("selected", false);
+    }
+    function removeItem() {
+        $("#ChosenCampers option:selected").appendTo("#AvailableCampers");
+        $("#AvailableCampers option").attr("selected", false);
+    }
+    function removeAllItems() {
+        $("#ChosenCampers option").appendTo("#AvailableCampers");
+        $("#AvailableCampers option").attr("selected", false);
+    }
+    $(function () {
+        // this event fires when the browser is about to submit a form
+        $('#form').submit(function () {
+            // modifies the 'selected' options on the list 
+            // before finally being submitted by the browser
+            $('#ChosenCampers option').prop('selected', true);
+        });
+    });
+</script>
+
+<table style="border:0" width="98%">
+    <tr>
+        <td style="border:0">
+            <h2>@CamperForYear.Campers 
+                <span style="font-weight: normal">
+                    (@ViewBag.CampName)
+                </span>
+            </h2>
+        </td>
+
+        <td style="border:0" align="right">
+            @Html.ActionLink(CamperForYear.BackToList, "Index", 
+                new { id = Url.RequestContext.RouteData.Values["id"] })
+        </td>
+    </tr>
+    
+    <tr>
+        <td colspan = "2">
+            @using (Html.BeginForm("EditList", "CamperForYear", FormMethod.Post, new { id = "form" })) {
+                <div id="chooseDiv">
+                    @Html.ListBoxFor(model => model.ChosenCampers, 
+                        new MultiSelectList(Model.ChosenCampers, "Id", "FullName"), 
+                        new { size = "15", style = "width:20em" } )
+
+                    <input id="btnAddAll" type="button" value=" >> " onclick="removeAllItems();" />
+                    <input id="btnAdd" type="button" value=" > " onclick="removeItem();" />
+                    <input id="btnRemove" type="button" value=" < "  onclick="addItem();" />
+                    <input id="btnRemoveAll"type="button" value=" << "  onclick="addAllItems();" />
+
+                    @Html.ListBoxFor(model => model.AvailableCampers,
+                        new MultiSelectList(Model.AvailableCampers, "Id", "FullName"), 
+                        new { size = "15", style = "width:20em" } )
+                </div>  
+
+                 <div class="editor-footer">
+                    <div class="right">
+                        <input type="submit" id="save" style="margin-right:2%"
+ 						    value="@CamperForYear.SaveChanges" />
+                    </div>
+                </div>
+            }
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="2" align="right" style="border:0">
+            @Html.ActionLink(CamperForYear.BackToList, "Index", 
+                new { id = Url.RequestContext.RouteData.Values["id"] })
+        </td>
+    </tr>
+
+</table>

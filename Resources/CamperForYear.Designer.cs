@@ -70,6 +70,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Back to List.
+        /// </summary>
+        public static string BackToList {
+            get {
+                return ResourceManager.GetString("BackToList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Campers.
         /// </summary>
         public static string Campers {
@@ -84,15 +93,6 @@ namespace Resources {
         public static string DeleteFromList {
             get {
                 return ResourceManager.GetString("DeleteFromList", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Back to List.
-        /// </summary>
-        public static string DetailsBackToList {
-            get {
-                return ResourceManager.GetString("DetailsBackToList", resourceCulture);
             }
         }
         
@@ -120,6 +120,15 @@ namespace Resources {
         public static string IndexTitleFormatString {
             get {
                 return ResourceManager.GetString("IndexTitleFormatString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        public static string SaveChanges {
+            get {
+                return ResourceManager.GetString("SaveChanges", resourceCulture);
             }
         }
         

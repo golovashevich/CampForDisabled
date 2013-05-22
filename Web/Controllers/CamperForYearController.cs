@@ -26,7 +26,7 @@ namespace Web.Controllers
 						  select camperForYear.Camper;
 
 			ViewBag.CampName = camp.CampName;
-			return View(campers.ToList());
+			return View(campers.Distinct().ToList());
 		}
 
 
@@ -87,15 +87,59 @@ namespace Web.Controllers
 		[Authorize]
         public ActionResult EditList(int? id)
         {
-			throw new System.NotImplementedException();
+			if (id == null) {
+				return RedirectToAction("Index", "Camp");
+			}
+
+			var camp = CampDB.Camps.SingleOrDefault(r => r.Id == id);
+			if (camp == null) {
+				return RedirectToAction("Index", "Camp");
+			} 
+			
+			var campers = 
+				from camperForYear in CampDB.CampersForYear
+				where camperForYear.CampId == id.Value
+				select camperForYear.Camper;
+
+			SelectCamperModel model = new SelectCamperModel();
+			model.ChosenCampers = campers.Distinct();
+			model.AvailableCampers = CampDB.Campers.ToList().Except(model.ChosenCampers, new CamperComparer());
+
+			ViewBag.CampName = camp.CampName;
+			return View(model);
         }
 
 
         [HttpPost]
         [Authorize]
-        public ActionResult EditList(int? id, CampModel newCamp)
+        public ActionResult EditList(int? id, SelectCamperPostModel model)
         {
-			throw new System.NotImplementedException();
+			if (id == null) {
+				return RedirectToAction("Index", "Camp");
+			}
+
+			var camp = CampDB.Camps.SingleOrDefault(r => r.Id == id);
+			if (camp == null) {
+				return RedirectToAction("Index", "Camp");
+			}
+
+			var oldCampersForYear = from camperForYear in CampDB.CampersForYear
+									where camperForYear.CampId == id.Value
+									select camperForYear;
+
+			foreach (var oldCamperForYear in oldCampersForYear) {
+				CampDB.CampersForYear.Remove(oldCamperForYear);
+			}
+
+			foreach (var camper in model.ChosenCampers) {
+				var camperForYear = new CamperForYearModel();
+				camperForYear.CampId = id.Value;
+				camperForYear.CamperId = camper;
+				CampDB.CampersForYear.Add(camperForYear);
+			}
+
+			CampDB.SaveChanges();
+			return RedirectToAction("Index", new { id = id });
 		}
 	}
 }

@@ -17,7 +17,7 @@
         </td>
 
         <td style="border:0" align="right">
-            @Html.ActionLink(CamperForYear.DetailsBackToList, "Index", 
+            @Html.ActionLink(CamperForYear.BackToList, "Index", 
                 new { id = Url.RequestContext.RouteData.Values["campId"] })
             @if (ViewBag.CanUpdate) {
                 @: | @Html.ActionLink(CamperForYear.DetailsEdit, "Edit", "Camper", new { id = Model.Id }, null)
@@ -32,8 +32,8 @@
 
     <tr>
         <td colspan="2" align="right" style="border:0">
-            @Html.ActionLink(CamperForYear.DetailsBackToList, "Index", "CamperForYear", 
-                new { id = Url.RequestContext.RouteData.Values["campId"]}, null)
+            @Html.ActionLink(CamperForYear.BackToList, "Index", 
+                new { id = Url.RequestContext.RouteData.Values["campId"] })
             @if (ViewBag.CanUpdate) {
                 @: | @Html.ActionLink(CamperForYear.DetailsEdit, "Edit", "Camper", new { id = Model.Id }, null)
                 @: | @Html.ActionLink(CamperForYear.DeleteFromList, "Delete", 

@@ -204,6 +204,7 @@
     <Compile Include="Controllers\CampEntityController.cs" />
     <Compile Include="Controllers\CamperController.cs" />
     <Compile Include="Controllers\CamperForYearController.cs" />
+    <Compile Include="Controllers\CamperComparer.cs" />
     <Compile Include="Controllers\DriverController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Utils.cs" />
@@ -218,6 +219,7 @@
     <Compile Include="Models\CampMembershipProvider.cs" />
     <Compile Include="Models\CampModel.cs" />
     <Compile Include="Models\CamperForYearModel.cs" />
+    <Compile Include="Models\SelectCamperModel.cs" />
     <Compile Include="Models\DriverModel.cs" />
     <Compile Include="Models\FullNameComposer.cs" />
     <Compile Include="Models\UserModel.cs" />
@@ -346,6 +348,7 @@
     <Content Include="Views\CamperForYear\Index.cshtml" />
     <Content Include="Views\CamperForYear\Details.cshtml" />
     <Content Include="Views\Shared\_CamperDetailsPartial.cshtml" />
+    <Content Include="Views\CamperForYear\EditList.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -377,7 +380,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>1719</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:49193/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
