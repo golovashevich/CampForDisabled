@@ -345,6 +345,7 @@
     </Content>
     <Content Include="Views\CamperForYear\Index.cshtml" />
     <Content Include="Views\CamperForYear\Details.cshtml" />
+    <Content Include="Views\Shared\_CamperDetailsPartial.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
