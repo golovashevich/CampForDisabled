@@ -145,7 +145,7 @@
     <value>All campers</value>
   </data>
   <data name="ModelChosenCampers" xml:space="preserve">
-    <value>Current camp list</value>
+    <value>In this camp</value>
   </data>
   <data name="SaveChanges" xml:space="preserve">
     <value>Save</value>

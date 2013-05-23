@@ -14,7 +14,7 @@ body {
 }
 
 a {
-    color: #66e;
+    color: 	rgb(17, 85, 204); /*Color as on Gmail.com*/
     outline: none;
     padding-left: 3px;
     padding-right: 3px;
@@ -23,7 +23,7 @@ a {
 
     a:link, a:visited,
     a:active, a:hover {
-        color: #66e;
+        color: 	rgb(17, 85, 204); /*Color as on Gmail.com*/
     }
 
     a:hover {
@@ -493,7 +493,7 @@ textarea {
 		input[type="submit"]:disabled,
 		input[type="button"]:disabled,
 		button:disabled {
-			cursor:none;
+			cursor: default;
 			background-color: #e9f0f3;
 			color: gray;
 		}

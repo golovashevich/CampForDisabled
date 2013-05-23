@@ -142,7 +142,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Current camp list.
+        ///   Looks up a localized string similar to In this camp.
         /// </summary>
         public static string ModelChosenCampers {
             get {

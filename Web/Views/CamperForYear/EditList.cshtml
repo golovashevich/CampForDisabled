@@ -5,48 +5,6 @@
     ViewBag.Title = CamperForYear.Title;
 }
 
-<script type="text/javascript">
-    function UpdateChosenCampersCount() {
-        var count = $("#ChosenCampers").find("option").length;
-        document.getElementById('chosenCampersCount').textContent=count;
-    }
-    function addItem() {
-        $("#AvailableCampers option:selected").appendTo("#ChosenCampers");
-        $("#ChosenCampers option").attr("selected", false);
-        UpdateChosenCampersCount();
-    }
-    function addAllItems() {
-        $("#AvailableCampers option").appendTo("#ChosenCampers");
-        $("#ChosenCampers option").attr("selected", false);
-        $("#btnAddAll").attr("disabled", true);
-        $("#btnAdd").attr("disabled", true);
-        $("#btnRemoveAll").attr("disabled", false);
-        UpdateChosenCampersCount();
-    }
-    function removeItem() {
-        $("#ChosenCampers option:selected").appendTo("#AvailableCampers");
-        $("#AvailableCampers option").attr("selected", false);
-        UpdateChosenCampersCount();
-    }
-    function removeAllItems() {
-        $("#ChosenCampers option").appendTo("#AvailableCampers");
-        $("#AvailableCampers option").attr("selected", false);
-        $("#btnAddAll").attr("disabled", false);
-        $("#btnAdd").attr("disabled", false);
-        $("#btnRemoveAll").attr("disabled", true);
-        $("#btnRemove").attr("disabled", true);
-        UpdateChosenCampersCount();
-    }
-    $(function () {
-        // this event fires when the browser is about to submit a form
-        $('#form').submit(function () {
-            // modifies the 'selected' options on the list 
-            // before finally being submitted by the browser
-            $('#ChosenCampers option').prop('selected', true);
-        });
-    });
-</script>
-
 <table style="border:0" width="auto">
     <tr>
         <td style="border:0">
@@ -118,3 +76,65 @@
     </tr>
 
 </table>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        DisableAddRemoveButtons();
+        $("#btnRemoveAll").attr("disabled", $("#ChosenCampers").find("option").length == 0);
+        $("#btnAddAll").attr("disabled", $("#AvailableCampers").find("option").length == 0);
+    });
+
+    function addItem() {
+        $("#AvailableCampers option:selected").appendTo("#ChosenCampers");
+        $("#ChosenCampers option").attr("selected", false);
+        DisableAddRemoveButtons();
+        $("#btnRemoveAll").attr("disabled", false);
+        UpdateChosenCampersCount();
+    }
+    function addAllItems() {
+        $("#AvailableCampers option").appendTo("#ChosenCampers");
+        $("#ChosenCampers option").attr("selected", false);
+        $("#btnAddAll").attr("disabled", true);
+        $("#btnRemoveAll").attr("disabled", false);
+        DisableAddRemoveButtons();
+        UpdateChosenCampersCount();
+    }
+    function removeItem() {
+        $("#ChosenCampers option:selected").appendTo("#AvailableCampers");
+        $("#AvailableCampers option").attr("selected", false);
+        DisableAddRemoveButtons();
+        $("#btnAddAll").attr("disabled", false);
+        UpdateChosenCampersCount();
+    }
+    function removeAllItems() {
+        $("#ChosenCampers option").appendTo("#AvailableCampers");
+        $("#AvailableCampers option").attr("selected", false);
+        $("#btnAddAll").attr("disabled", false);
+        $("#btnRemoveAll").attr("disabled", true);
+        DisableAddRemoveButtons();
+        UpdateChosenCampersCount();
+    }
+    function UpdateChosenCampersCount() {
+        var count = $("#ChosenCampers").find("option").length;
+        document.getElementById('chosenCampersCount').textContent = count;
+    }
+    function DisableAddRemoveButtons() {
+        $("#btnAdd").attr("disabled", true);
+        $("#btnRemove").attr("disabled", true);
+    }
+
+    $(function () {
+        // this event fires when the browser is about to submit a form
+        $('#form').submit(function () {
+            // modifies the 'selected' options on the list 
+            // before finally being submitted by the browser
+            $('#ChosenCampers option').prop('selected', true);
+        });
+        $("#ChosenCampers").change(function () {
+            $("#btnRemove").attr("disabled", ($('option:selected', $(this)).length == 0));
+        });
+        $("#AvailableCampers").change(function () {
+            $("#btnAdd").attr("disabled", ($('option:selected', $(this)).length == 0));
+        });
+    });
+</script>
