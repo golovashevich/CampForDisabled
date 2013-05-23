@@ -1,11 +1,16 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using Resources;
 
 namespace Camp.Models
 {
 	public class SelectCamperModel
 	{
-		public virtual IEnumerable<CamperModel> AvailableCampers { get; set; } 
+		[Display(Name = "ModelChosenCampers", ResourceType = typeof(CamperForYear))]
 		public virtual IEnumerable<CamperModel> ChosenCampers { get; set; }
+
+		[Display(Name = "ModelAvailableCampers", ResourceType = typeof(CamperForYear))]
+		public virtual IEnumerable<CamperModel> AvailableCampers { get; set; } 
 	}
 
 	public class SelectCamperPostModel

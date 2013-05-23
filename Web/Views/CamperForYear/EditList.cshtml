@@ -13,6 +13,9 @@
     function addAllItems() {
         $("#AvailableCampers option").appendTo("#ChosenCampers");
         $("#ChosenCampers option").attr("selected", false);
+        $("#btnAddAll").attr("disabled", true);
+        $("#btnAdd").attr("disabled", true);
+        $("#btnRemoveAll").attr("disabled", false);
     }
     function removeItem() {
         $("#ChosenCampers option:selected").appendTo("#AvailableCampers");
@@ -21,6 +24,10 @@
     function removeAllItems() {
         $("#ChosenCampers option").appendTo("#AvailableCampers");
         $("#AvailableCampers option").attr("selected", false);
+        $("#btnAddAll").attr("disabled", false);
+        $("#btnAdd").attr("disabled", false);
+        $("#btnRemoveAll").attr("disabled", true);
+        $("#btnRemove").attr("disabled", true);
     }
     $(function () {
         // this event fires when the browser is about to submit a form
@@ -32,7 +39,7 @@
     });
 </script>
 
-<table style="border:0" width="98%">
+<table style="border:0" width="auto">
     <tr>
         <td style="border:0">
             <h2>@CamperForYear.Campers 
@@ -49,28 +56,42 @@
     </tr>
     
     <tr>
-        <td colspan = "2">
+        <td colspan = "2" style="border: 0 none;">
             @using (Html.BeginForm("EditList", "CamperForYear", FormMethod.Post, new { id = "form" })) {
-                <div id="chooseDiv">
-                    @Html.ListBoxFor(model => model.ChosenCampers, 
-                        new MultiSelectList(Model.ChosenCampers, "Id", "FullName"), 
-                        new { size = "15", style = "width:20em" } )
-
-                    <input id="btnAddAll" type="button" value=" >> " onclick="removeAllItems();" />
-                    <input id="btnAdd" type="button" value=" > " onclick="removeItem();" />
-                    <input id="btnRemove" type="button" value=" < "  onclick="addItem();" />
-                    <input id="btnRemoveAll"type="button" value=" << "  onclick="addAllItems();" />
-
-                    @Html.ListBoxFor(model => model.AvailableCampers,
-                        new MultiSelectList(Model.AvailableCampers, "Id", "FullName"), 
-                        new { size = "15", style = "width:20em" } )
-                </div>  
-
-                 <div class="editor-footer">
-                    <div class="right">
-                        <input type="submit" id="save" style="margin-right:2%"
- 						    value="@CamperForYear.SaveChanges" />
+                <div class="chooseCampersForYear clear-fix">
+                    <div class="chosenCampers">
+                        <div class="label">
+                            @Html.LabelFor(model => model.ChosenCampers)
+                        </div>
+                        <div class="listbox">
+                            @Html.ListBoxFor(model => model.ChosenCampers, 
+                                new MultiSelectList(Model.ChosenCampers, "Id", "FullName"), 
+                                new { size = "15", style = "width: 20em" } )
+                        </div>
                     </div>
+                    
+                    <div class="actionButtons">
+                        <input id="btnRemoveAll" type="button" value=" >> " onclick="removeAllItems();" />
+                        <input id="btnRemove" type="button" value=" > " onclick="removeItem();" />
+                        <input id="btnAdd" type="button" value=" < "  onclick="addItem();" />
+                        <input id="btnAddAll" type="button" value=" << "  onclick="addAllItems();" />
+                    </div>
+
+                    <div class="availableCampers">
+                        <div class="label">
+                            @Html.LabelFor(model => model.AvailableCampers) 
+                        </div>
+                        <div class="listbox">
+                            @Html.ListBoxFor(model => model.AvailableCampers,
+                                new MultiSelectList(Model.AvailableCampers, "Id", "FullName"), 
+                                new { size = "15", style = "width: 20em" } )
+                        </div>
+                    </div>
+                </div>  
+              
+                <div class="chooseCamperSave">
+                    <input type="submit" id="save" 
+ 						value="@CamperForYear.SaveChanges" />
                 </div>
             }
         </td>

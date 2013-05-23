@@ -106,7 +106,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit list.
+        ///   Looks up a localized string similar to Edit.
         /// </summary>
         public static string EditList {
             get {
@@ -120,6 +120,24 @@ namespace Resources {
         public static string IndexTitleFormatString {
             get {
                 return ResourceManager.GetString("IndexTitleFormatString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All campers.
+        /// </summary>
+        public static string ModelAvailableCampers {
+            get {
+                return ResourceManager.GetString("ModelAvailableCampers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Current camp list.
+        /// </summary>
+        public static string ModelChosenCampers {
+            get {
+                return ResourceManager.GetString("ModelChosenCampers", resourceCulture);
             }
         }
         

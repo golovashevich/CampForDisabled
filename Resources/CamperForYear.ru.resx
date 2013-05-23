@@ -133,10 +133,16 @@
     <value>Редактировать</value>
   </data>
   <data name="EditList" xml:space="preserve">
-    <value>Редактировать список</value>
+    <value>Редактировать</value>
   </data>
   <data name="IndexTitleFormatString" xml:space="preserve">
     <value>({0}) - [{1}]</value>
+  </data>
+  <data name="ModelAvailableCampers" xml:space="preserve">
+    <value>Все отдыхающие</value>
+  </data>
+  <data name="ModelChosenCampers" xml:space="preserve">
+    <value>Список этого лагеря</value>
   </data>
   <data name="SaveChanges" xml:space="preserve">
     <value>Сохранить</value>

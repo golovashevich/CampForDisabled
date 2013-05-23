@@ -133,10 +133,16 @@
     <value>Edit</value>
   </data>
   <data name="EditList" xml:space="preserve">
-    <value>Edit list</value>
+    <value>Edit</value>
   </data>
   <data name="IndexTitleFormatString" xml:space="preserve">
     <value>({0}) - [{1}]</value>
+  </data>
+  <data name="ModelAvailableCampers" xml:space="preserve">
+    <value>All campers</value>
+  </data>
+  <data name="ModelChosenCampers" xml:space="preserve">
+    <value>Current camp list</value>
   </data>
   <data name="SaveChanges" xml:space="preserve">
     <value>Save</value>
