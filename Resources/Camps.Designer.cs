@@ -178,6 +178,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Actions.
+        /// </summary>
+        public static string IndexActions {
+            get {
+                return ResourceManager.GetString("IndexActions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add new....
         /// </summary>
         public static string IndexCreateNew {

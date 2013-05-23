@@ -177,6 +177,9 @@
   <data name="EditSaving" xml:space="preserve">
     <value>Сохранение...</value>
   </data>
+  <data name="IndexActions" xml:space="preserve">
+    <value>Действия</value>
+  </data>
   <data name="IndexCreateNew" xml:space="preserve">
     <value>Добавить...</value>
   </data>

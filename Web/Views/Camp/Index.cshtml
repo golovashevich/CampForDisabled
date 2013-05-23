@@ -31,8 +31,9 @@
                     <th>
                         @Html.LabelFor(m => Model.SingleOrDefault().Theme)
                     </th>
-
-                    <th></th>
+                    <th style ="text-align:center">
+                        @Html.Label(Camps.IndexActions)
+                    </th>
                 </tr>
 
                 @foreach (var item in Model)

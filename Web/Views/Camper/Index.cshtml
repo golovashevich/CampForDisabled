@@ -13,7 +13,7 @@
 
         <td style="border:0" align="right">
             @if (ViewBag.CanUpdate) {
-                @Html.ActionLink(Campers.IndexCreateNew, "Create")
+                 @Html.ActionLink(Campers.IndexCreateNew, "Create")
             }
         </td>
     </tr>
@@ -39,7 +39,9 @@
                     </th>
                     @if (ViewBag.CanUpdate)
                     {
-                    <th></th>
+                        <th style ="text-align:center">
+                            @Html.Label(Campers.IndexActions)
+                        </th>   
                     }
                 </tr>
 

@@ -135,6 +135,9 @@
   <data name="EditList" xml:space="preserve">
     <value>Редактировать</value>
   </data>
+  <data name="IndexActions" xml:space="preserve">
+    <value>Действия</value>
+  </data>
   <data name="IndexTitleFormatString" xml:space="preserve">
     <value>({0}) - [{1}]</value>
   </data>

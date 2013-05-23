@@ -71,18 +71,6 @@ mark {
     height: 0;
 }
 
-.clear-fix {
-    display: inline-block;
-}
-
-html[xmlns] .clear-fix {
-    display: block;
-}
-
-* html .clear-fix {
-    height: 1%;
-}
-
 h1, h2, h3,
 h4, h5, h6 {
     color: #000;
@@ -980,6 +968,7 @@ text
 .chooseCamperSave {
 	float:none;
 	text-align: right;
+	margin-top: 0.5em;
 }
 
 @media only screen and (max-width: 850px) {
@@ -995,7 +984,7 @@ text
 
 		.chooseCampersForYear .actionButtons {
 			margin-left: 11%;
-			margin-top: 0.2em;
+			margin-top: 0.5em;
 			float: none;
 		}
 }

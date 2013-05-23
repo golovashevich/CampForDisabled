@@ -150,6 +150,9 @@
   <data name="EditSaving" xml:space="preserve">
     <value>Saving...</value>
   </data>
+  <data name="IndexActions" xml:space="preserve">
+    <value>Actions</value>
+  </data>
   <data name="IndexCreateNew" xml:space="preserve">
     <value>Add New...</value>
   </data>
