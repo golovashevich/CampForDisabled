@@ -6,9 +6,14 @@
 }
 
 <script type="text/javascript">
+    function UpdateChosenCampersCount() {
+        var count = $("#ChosenCampers").find("option").length;
+        document.getElementById('chosenCampersCount').textContent=count;
+    }
     function addItem() {
         $("#AvailableCampers option:selected").appendTo("#ChosenCampers");
         $("#ChosenCampers option").attr("selected", false);
+        UpdateChosenCampersCount();
     }
     function addAllItems() {
         $("#AvailableCampers option").appendTo("#ChosenCampers");
@@ -16,10 +21,12 @@
         $("#btnAddAll").attr("disabled", true);
         $("#btnAdd").attr("disabled", true);
         $("#btnRemoveAll").attr("disabled", false);
+        UpdateChosenCampersCount();
     }
     function removeItem() {
         $("#ChosenCampers option:selected").appendTo("#AvailableCampers");
         $("#AvailableCampers option").attr("selected", false);
+        UpdateChosenCampersCount();
     }
     function removeAllItems() {
         $("#ChosenCampers option").appendTo("#AvailableCampers");
@@ -28,6 +35,7 @@
         $("#btnAdd").attr("disabled", false);
         $("#btnRemoveAll").attr("disabled", true);
         $("#btnRemove").attr("disabled", true);
+        UpdateChosenCampersCount();
     }
     $(function () {
         // this event fires when the browser is about to submit a form
@@ -62,6 +70,11 @@
                     <div class="chosenCampers">
                         <div class="label">
                             @Html.LabelFor(model => model.ChosenCampers)
+                            [
+                            <span id="chosenCampersCount">
+                                @Model.ChosenCampers.Count()
+                            </span>
+                            ]
                         </div>
                         <div class="listbox">
                             @Html.ListBoxFor(model => model.ChosenCampers, 

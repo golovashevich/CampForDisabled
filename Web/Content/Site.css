@@ -941,7 +941,7 @@ text
 	.chooseCampersForYear .listbox {
 		width: auto;
 		height: auto;
-		margin-top: 0.2em;
+		margin-top: 0.4em;
 	}
 	
 	.chooseCampersForYear .chosenCampers {
@@ -968,7 +968,7 @@ text
 .chooseCamperSave {
 	float:none;
 	text-align: right;
-	margin-top: 0.5em;
+	margin-top: 1em;
 }
 
 @media only screen and (max-width: 850px) {
@@ -976,10 +976,6 @@ text
 		.chooseCampersForYear .chosenCampers,
 		.chooseCampersForYear .availableCampers {
 			float: none;
-		}
-
-		.chooseCampersForYear .listbox {
-			margin-top: 0.2em;
 		}
 
 		.chooseCampersForYear .actionButtons {
