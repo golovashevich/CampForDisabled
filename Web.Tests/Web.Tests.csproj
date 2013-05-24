@@ -64,6 +64,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\PhoneValidatorTests.cs" />
     <Compile Include="Controllers\CampControllerTest.cs" />
     <Compile Include="Controllers\CamperControllerTest.cs" />
     <Compile Include="Controllers\DriverControllerTest.cs" />
@@ -79,6 +80,14 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Resources\Resources.csproj">
+      <Project>{6d483833-4fcd-4ef8-aa67-3440ffc11cb5}</Project>
+      <Name>Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Validation\Validation.csproj">
+      <Project>{defcc8fc-47d3-4262-9444-babf136541b5}</Project>
+      <Name>Validation</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Web\Web.csproj">
       <Project>{F6548B6E-57F6-4624-86E5-CCDFB7D9624B}</Project>
       <Name>Web</Name>
@@ -91,6 +100,7 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
