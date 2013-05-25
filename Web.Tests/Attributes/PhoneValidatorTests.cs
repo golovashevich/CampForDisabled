@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using CustomValidation.Attributes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Validation;
+using Validation.Tests;
 
 namespace Web.Tests.Attributes {
 	[TestClass]

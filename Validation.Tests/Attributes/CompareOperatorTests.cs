@@ -8,7 +8,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Validation;
 using Validation.Attributes;
 
-namespace Web.Tests.Attributes {
+namespace Validation.Tests.Attributes {
 	[TestClass]
 	public class CompareOperatorTests {
 		private const double DOUBLE_BIG_VALUE = Double.MaxValue / 2;

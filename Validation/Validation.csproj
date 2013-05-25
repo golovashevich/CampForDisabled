@@ -49,7 +49,6 @@
     <Compile Include="Attributes\BaseValidationAttribute.cs" />
     <Compile Include="Attributes\CompareOperatorAttribute.cs" />
     <Compile Include="Attributes\CoupledAttribute.cs" />
-    <Compile Include="Checks.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rules\ModelClientValidationCompareRule.cs" />
     <Compile Include="Rules\ModelClientValidationCoupledRule.cs" />

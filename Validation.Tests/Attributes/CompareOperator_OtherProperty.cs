@@ -6,7 +6,7 @@ using Validation;
 using Validation.Attributes;
 using Validation.Tests.Attributes;
 
-namespace Web.Tests.Attributes
+namespace Validation.Tests.Attributes
 {
     [TestClass]
     public class CompareOperator_OtherProperty

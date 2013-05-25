@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Validation {
+namespace Validation.Tests {
 	public class Checks<T1, T2> : List<Tuple<T1, T2>> {
 		public void Add(T1 t1, T2 t2) {
 			Add(Tuple.Create(t1, t2));

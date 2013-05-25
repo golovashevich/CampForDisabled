@@ -84,6 +84,10 @@
       <Project>{6d483833-4fcd-4ef8-aa67-3440ffc11cb5}</Project>
       <Name>Resources</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Validation.Tests\Validation.Tests.csproj">
+      <Project>{4d4d1278-9f61-45a1-ad0c-ebbebb612d3b}</Project>
+      <Name>Validation.Tests</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Validation\Validation.csproj">
       <Project>{defcc8fc-47d3-4262-9444-babf136541b5}</Project>
       <Name>Validation</Name>
