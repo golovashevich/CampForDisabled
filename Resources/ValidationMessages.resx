@@ -147,9 +147,6 @@
   <data name="PhoneStartedWithPlus" xml:space="preserve">
     <value>If the phone number starts with +, it should be 11 or 12 digits in length.</value>
   </data>
-  <data name="PostIndex" xml:space="preserve">
-    <value>Only five-digit post index is allowed.</value>
-  </data>
   <data name="Range" xml:space="preserve">
     <value>The field {0} must be between {1} and {2}.</value>
   </data>

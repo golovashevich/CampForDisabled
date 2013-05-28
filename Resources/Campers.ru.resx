@@ -249,9 +249,6 @@
   <data name="ModelMedicalNote" xml:space="preserve">
     <value>Медицинская информация</value>
   </data>
-  <data name="ModelPostIndex" xml:space="preserve">
-    <value>Почтовый индекс</value>
-  </data>
   <data name="ModelSkype" xml:space="preserve">
     <value>Skype</value>
   </data>

@@ -249,9 +249,6 @@
   <data name="ModelMedicalNote" xml:space="preserve">
     <value>Medical Note</value>
   </data>
-  <data name="ModelPostIndex" xml:space="preserve">
-    <value>Post Index</value>
-  </data>
   <data name="ModelSkype" xml:space="preserve">
     <value>Skype</value>
   </data>

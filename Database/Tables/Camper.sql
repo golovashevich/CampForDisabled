@@ -7,7 +7,6 @@ CREATE TABLE [dbo].[Camper](
 	[LastName] [nvarchar](30) NOT NULL,
 	[DateOfBirth] [datetime] NULL,
 	[Foto] [image] NULL,
-	[PostIndex] [int] NULL,
 	[CityId] [int] NOT NULL CONSTRAINT [DF_Camper_CityId]  DEFAULT ((1)),
 	[District] [nvarchar](60) NOT NULL,
 	[Street] [nvarchar](max) NOT NULL,
@@ -37,7 +36,6 @@ INSERT INTO [dbo].[Camper]
 	,[FirstName]
 	,[LastName]
 	,[DateOfBirth]
-	,[PostIndex]
 	,[CityId]
 	,[District]
 	,[Street]
@@ -56,7 +54,6 @@ VALUES
 	,N'FirstName1'
 	,N'LastName1'
 	,'1980-01-01'
-	,11111
 	,1
 	,N'District1'
 	,N'Street'
@@ -69,33 +66,12 @@ VALUES
 	,N'my_skype'
 	,2
 	,N'No medical notes'
-	,N'Likes ice-cream')
-
-INSERT INTO [dbo].[Camper] 
-	([Id]
-	,[FirstName]
-	,[LastName]
-	,[DateOfBirth]
-	,[PostIndex]
-	,[CityId]
-	,[District]
-	,[Street]
-	,[HomeNumber]
-	,[AppartmentNumber]
-	,[HomePhone]
-	,[AddressNote]
-	,[Contacts]
-	,[Email]
-	,[Skype]
-	,[DisabilityGrade]
-	,[MedicalNote]
-	,[Comments])
-VALUES 
+	,N'Likes ice-cream'),
+	
 	(2
 	,N'FirstName2'
 	,N'LastName2'
 	,'1981-05-05'
-	,26147
 	,1
 	,N'District2'
 	,N'Second avenue'
@@ -108,33 +84,12 @@ VALUES
 	,N'my_skype2'
 	,2
 	,N'No medical notes'
-	,N'')
+	,N''),
 	
-INSERT INTO [dbo].[Camper] 
-	([Id]
-	,[FirstName]
-	,[LastName]
-	,[DateOfBirth]
-	,[PostIndex]
-	,[CityId]
-	,[District]
-	,[Street]
-	,[HomeNumber]
-	,[AppartmentNumber]
-	,[HomePhone]
-	,[AddressNote]
-	,[Contacts]
-	,[Email]
-	,[Skype]
-	,[DisabilityGrade]
-	,[MedicalNote]
-	,[Comments])
-VALUES 
 	(3
 	,N'FirstName3'
 	,N'LastName3'
 	,'1979-12-06'
-	,98765
 	,1
 	,N'District2'
 	,N'Time Sq.'
@@ -147,33 +102,12 @@ VALUES
 	,N'my_skype3'
 	,2
 	,N'No medical notes'
-	,N'')
-
-INSERT INTO [dbo].[Camper] 
-	([Id]
-	,[FirstName]
-	,[LastName]
-	,[DateOfBirth]
-	,[PostIndex]
-	,[CityId]
-	,[District]
-	,[Street]
-	,[HomeNumber]
-	,[AppartmentNumber]
-	,[HomePhone]
-	,[AddressNote]
-	,[Contacts]
-	,[Email]
-	,[Skype]
-	,[DisabilityGrade]
-	,[MedicalNote]
-	,[Comments])
-VALUES 
+	,N''),
+	
 	(4
 	,N'FirstName4'
 	,N'LastName4'
 	,'1965-07-16'
-	,98765
 	,1
 	,N'District2'
 	,N'Time Sq.'
@@ -186,33 +120,12 @@ VALUES
 	,N'my_skype4'
 	,2
 	,N'No medical notes'
-	,N'')
-
-INSERT INTO [dbo].[Camper] 
-	([Id]
-	,[FirstName]
-	,[LastName]
-	,[DateOfBirth]
-	,[PostIndex]
-	,[CityId]
-	,[District]
-	,[Street]
-	,[HomeNumber]
-	,[AppartmentNumber]
-	,[HomePhone]
-	,[AddressNote]
-	,[Contacts]
-	,[Email]
-	,[Skype]
-	,[DisabilityGrade]
-	,[MedicalNote]
-	,[Comments])
-VALUES 
+	,N''),
+	
 	(5
 	,N'FirstName5'
 	,N'LastName5'
 	,'1997-10-25'
-	,28763
 	,1
 	,N'District3'
 	,N'Elisabet St.'

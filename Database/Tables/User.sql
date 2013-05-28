@@ -14,24 +14,16 @@ CREATE TABLE [dbo].[User](
 
 GO
 
-
 --hash for "123" is "202cb962ac59075b964b07152d234b70"
 
 SET IDENTITY_INSERT [dbo].[User] ON
 
 INSERT INTO [dbo].[User] ([Id], [Name], [PasswordHash])
-VALUES (1, 'Greek', '202cb962ac59075b964b07152d234b70')
-
-INSERT INTO [dbo].[User] ([Id], [Name], [PasswordHash])
-VALUES (2, 'BigMax', '202cb962ac59075b964b07152d234b70')
- 
-INSERT INTO [dbo].[User] ([Id], [Name], [PasswordHash])
-VALUES (3, 'Jane', '202cb962ac59075b964b07152d234b70')
-
-INSERT INTO [dbo].[User] ([Id], [Name], [PasswordHash])
-VALUES (4, 'Oksana', '202cb962ac59075b964b07152d234b70')
-
-INSERT INTO [dbo].[User] ([Id], [Name], [PasswordHash])
-VALUES (5, 'Editor', '202cb962ac59075b964b07152d234b70')
+VALUES 
+(1, 'Greek', '202cb962ac59075b964b07152d234b70'),
+(2, 'BigMax', '202cb962ac59075b964b07152d234b70'),
+(3, 'Jane', '202cb962ac59075b964b07152d234b70'),
+(4, 'Oksana', '202cb962ac59075b964b07152d234b70'),
+(5, 'Editor', '202cb962ac59075b964b07152d234b70')
 
 SET IDENTITY_INSERT Driver OFF

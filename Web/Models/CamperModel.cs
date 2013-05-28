@@ -57,14 +57,6 @@ namespace Camp.Models
 		// TODO: Add foto
 		// public virtual Image Foto { get; set; }
 
-		[Display(Name = "ModelPostIndex", ResourceType = typeof(Campers))]
-		[DisplayFormat(DataFormatString = "{0,5:D5}", ApplyFormatInEditMode = true)]
-		[CompareOperator(ValidationDataType.Integer, ErrorMessageResourceName = "Integer",
-				ErrorMessageResourceType = typeof(ValidationMessages))]
-		[Range(0, 99999, ErrorMessageResourceName = "PostIndex",
-				ErrorMessageResourceType = typeof(ValidationMessages))]
-		public virtual int? PostIndex { get; set; }
-
 
 		[Display(Name = "ModelCityId", ResourceType = typeof(Campers))]
 		[DefaultValue(1)]

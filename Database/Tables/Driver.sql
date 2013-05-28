@@ -35,34 +35,16 @@ VALUES
 	,N'+380 67 000-00-00'
 	,18
 	,8
-	,N'Volkswagen LT')
+	,N'Volkswagen LT'),
 
-INSERT INTO [dbo].[Driver] 
-	([Id]
-	,[FirstName]
-	,[LastName]
-	,[Contacts]
-	,[SitPlacesNum]
-	,[WheelchairsNum]
-	,[Comments])
-VALUES
 	(2 
 	,N'Driver2'
 	,N'Vanman'
 	,N'+380 67 000-00-01'
 	,12
 	,7
-	,N'Vito TDI')
+	,N'Vito TDI'),
 
-INSERT INTO [dbo].[Driver] 
-	([Id]
-	,[FirstName]
-	,[LastName]
-	,[Contacts]
-	,[SitPlacesNum]
-	,[WheelchairsNum]
-	,[Comments])
-VALUES
 	(3
 	,N'Driver3'
 	,N'Carman'

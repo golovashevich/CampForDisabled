@@ -136,7 +136,6 @@ namespace Web.Controllers
 				existingCamper.FirstName = newCamper.FirstName;
 				existingCamper.LastName = newCamper.LastName;
 				existingCamper.DateOfBirth = newCamper.DateOfBirth;
-				existingCamper.PostIndex = newCamper.PostIndex;
 				existingCamper.CityId = newCamper.CityId;
 				existingCamper.District = newCamper.District;
 				existingCamper.Street = newCamper.Street;
