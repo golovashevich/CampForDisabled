@@ -1,16 +1,4 @@
-﻿jQuery.validator.addMethod('numericlessthan', function (value, element, params) {
-	value = value.trim();
-	var otherValue = $(params.element).val().trim();
-
-	return isNaN(value) && isNaN(otherValue)
-        || "" == value || "" == otherValue //skip comparison if one of values is empty
-        || (params.allowequality === 'True'
-            ? parseFloat(value) <= parseFloat(otherValue)
-            : parseFloat(value) < parseFloat(otherValue));
-}, '');
-
-
-jQuery.validator.addMethod('compareoperatortypecheck', function (value, element, params) {
+﻿jQuery.validator.addMethod('compareoperatortypecheck', function (value, element, params) {
 	switch (params.dataType) {
 		case "Integer": {
 			return compareOperator_isValidInteger(value);
@@ -145,22 +133,6 @@ function compareOperator_isEmpty(value) {
 		return true;
 	}
 }
-
-
-jQuery.validator.unobtrusive.adapters.add('numericlessthan', ['other', 'allowequality'], function (options) {
-	var prefix = options.element.name.substr(0, options.element.name.lastIndexOf('.') + 1),
-    other = options.params.other,
-    fullOtherName = appendModelPrefix(other, prefix),
-    otherElement = $(options.form).find(':input[name=' + fullOtherName + ']')[0];
-
-	options.rules['numericlessthan'] = {
-		allowequality: options.params.allowequality,
-		element: otherElement
-	};
-	if (options.message) {
-		options.messages['numericlessthan'] = options.message;
-	}
-});
 
 
 jQuery.validator.unobtrusive.adapters.add('compareoperator', ['other', 'datatype', 'compareoperator'],

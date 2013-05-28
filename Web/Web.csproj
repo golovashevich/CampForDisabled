@@ -191,12 +191,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Attributes\CustomModelBinder.cs" />
-    <Compile Include="Attributes\ModelClientPhoneDigitsCountRangeRule.cs" />
     <Compile Include="Attributes\ModelClientPhoneNumberValidatorRule.cs" />
-    <Compile Include="Attributes\ModelClientPhoneNumberWithPlusValidatorRule.cs" />
-    <Compile Include="Attributes\PhoneDigitsCountRangeAttribute.cs" />
     <Compile Include="Attributes\PhoneNumberAttribute.cs" />
-    <Compile Include="Attributes\PhoneNumberWithPlusValidatorAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CampController.cs" />
     <Compile Include="Controllers\CampControllerBase.cs" />
@@ -302,6 +298,9 @@
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\PhoneValidator.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Scripts\Validation.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

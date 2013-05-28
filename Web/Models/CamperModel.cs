@@ -102,20 +102,11 @@ namespace Camp.Models
 		public virtual string AppartmentNumber { get; set; }
 
 
-		//TODO: Get rid of waste validators
-		//TODO: Get rid of Validator suffix
 		[Display(Name = "ModelHomePhone", ResourceType = typeof(Campers))]
 		[StringLength(20, ErrorMessageResourceName = "StringLength",
 			ErrorMessageResourceType = typeof(ValidationMessages))]
-		[DataType(DataType.PhoneNumber)]
-		[RegularExpression(@"^( +)?\+?[- 0-9#()]+?$", ErrorMessageResourceName = "PhoneInvalidSymbols",
-			ErrorMessageResourceType = typeof(ValidationMessages))]
-        [PhoneDigitsCountRange(ErrorMessageResourceName="PhoneDigitCountNotInTheRange",
-			ErrorMessageResourceType = typeof(ValidationMessages))]
-		[PhoneNumberWithPlusValidator(ErrorMessageResourceName = "InvalidPhoneNumber",
-			ErrorMessageResourceType = typeof(ValidationMessages))]
-		//One PhoneValidator instead of above standart validators (Not finished)
-		//[PhoneNumberValidator(ErrorMessageResourceType = typeof(ValidationMessages))]
+		[PhoneNumber(ErrorMessageResourceName = "PhoneNumber", 
+				ErrorMessageResourceType = typeof(ValidationMessages))]
 		public virtual string HomePhone { get; set; }
 
 

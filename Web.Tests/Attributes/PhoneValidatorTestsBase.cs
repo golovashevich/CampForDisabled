@@ -1,22 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using CustomValidation.Attributes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Validation.Tests;
 
 namespace Web.Tests.Attributes {
-	[TestClass]
-	public class PhoneValidatorTests {
-		private static PhoneNumberAttribute _validator;
-		private static ValidationContext _context;
-
-		[TestInitialize]
-		public void TestInit() {
-			_validator = new PhoneNumberAttribute();
-			_context = new ValidationContext(_validator);
-		}
-
+	public abstract class PhoneValidatorTestsBase {
 		[TestMethod]
 		public void PhoneNumbersWithSymbols() {
 			PerformChecks(new Checks<bool, string>() {
@@ -48,21 +36,16 @@ namespace Web.Tests.Attributes {
             });
 		}
 
-		private void PerformChecks(IList<Tuple<bool, string>> checks) {
-			foreach (var check in checks) {
-				Assert.AreEqual(check.Item1, null == _validator.GetValidationResult(check.Item2, _context),
-				"Phone {0} should be {1}valid", check.Item2, check.Item1 ? "" : "in");
-			}
-		}
-
 		[TestMethod]
 		public void NullPhone() {
-			Assert.IsNull(_validator.GetValidationResult(null, _context), "Null phone is valid");
+			PerformChecks(new Checks<bool, string>() { { true, null } });
 		}
 
 		[TestMethod]
 		public void EmptyPhone() {
-			Assert.IsNull(_validator.GetValidationResult(null, _context), "Empty phone is valid"); ;
+			PerformChecks(new Checks<bool, string>() { { true, "" } });
 		}
+
+		protected abstract void PerformChecks(IList<Tuple<bool, string>> checks);
 	}
 }

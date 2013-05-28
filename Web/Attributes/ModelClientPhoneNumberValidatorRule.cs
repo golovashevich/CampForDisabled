@@ -7,7 +7,7 @@ namespace CustomValidation.Attributes
 		public ModelClientPhoneNumberValidatorRule(string errorMessage)
         {
             ErrorMessage = errorMessage;
-			ValidationType = "phonenumbervalidator";
+			ValidationType = "phonenumber";
         }
     }
 }
