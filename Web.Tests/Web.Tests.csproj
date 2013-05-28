@@ -65,7 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Attributes\jsUnit.js">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Compile Include="Attributes\JavaScriptTestHelper.cs" />
     <Compile Include="Attributes\PhoneValidatorClientTests.cs" />
