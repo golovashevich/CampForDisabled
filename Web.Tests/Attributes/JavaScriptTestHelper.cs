@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Reflection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MSScriptControl;
 
@@ -39,7 +40,10 @@ namespace Web.Tests.Attributes {
 		/// </summary>
 		/// <param name="path">Path to JavaScript file</param>
 		public void LoadFile(string path) {
-			var directory = Directory.GetCurrentDirectory();
+			if (!File.Exists(path)) {
+				var directory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+				path = Path.Combine(directory, path);
+			}
 			var fileContents = File.ReadAllText(path);
 			try {
 				_sc.AddCode(fileContents);
