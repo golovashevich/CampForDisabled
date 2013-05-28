@@ -3,7 +3,6 @@
 
 CREATE TABLE [dbo].[Camp](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
-	[Year] [int] NOT NULL,
 	[Name] [nvarchar](50) NOT NULL,
 	[Theme] [nvarchar](100) NOT NULL,
 	[BeginDate] [datetime] NOT NULL,
@@ -22,8 +21,7 @@ SET IDENTITY_INSERT Camp ON
 
 INSERT INTO [dbo].[Camp]
            ([Id]
-		   ,[Year]
-           ,[Name]
+	       ,[Name]
            ,[Theme]
            ,[BeginDate]
            ,[EndDate]
@@ -31,8 +29,7 @@ INSERT INTO [dbo].[Camp]
            ,[History])
      VALUES
            (1
-		   ,2004
-           ,N'First Camp'
+	       ,N'First Camp'
            ,N'Greeting'
            ,'2004-06-01'
            ,'2004-06-12'
@@ -40,8 +37,7 @@ INSERT INTO [dbo].[Camp]
            ,N''),
            
            (2
-		   ,2005
-           ,N'Second Camp'
+	       ,N'Second Camp'
            ,N'Dasibled people problems'
            ,'2005-06-04'
            ,'2005-06-18'
@@ -49,8 +45,7 @@ INSERT INTO [dbo].[Camp]
            ,N''),
            
            (3
-		   ,2006
-           ,N'Third Camp'
+	       ,N'Third Camp'
            ,N'Placement for disabled'
            ,'2006-06-06'
            ,'2006-06-19'
@@ -58,14 +53,12 @@ INSERT INTO [dbo].[Camp]
            ,N''),
 
            (4
-		   ,2007
-           ,N'4th Camp'
+	       ,N'4th Camp'
            ,N'Medical helping'
            ,'2007-06-02'
            ,'2007-06-15'
            ,N''
            ,N'')
-           
 
 SET IDENTITY_INSERT Camp OFF
 

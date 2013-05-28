@@ -129,7 +129,6 @@ namespace Web.Controllers
 
 			if (existingCamp != null)
 			{
-				existingCamp.Year = newCamp.Year;
 				existingCamp.Name = newCamp.Name;
 				existingCamp.Theme = newCamp.Theme;
 				existingCamp.BeginDate = newCamp.BeginDate;

@@ -23,7 +23,7 @@
             <table>
                 <tr>
                     <th>
-                        @Html.LabelFor(m => Model.SingleOrDefault().Year)
+                        @Html.Label(Camps.Year)
                     </th>
                     <th>
                         @Html.LabelFor(m => Model.SingleOrDefault().Name)
@@ -40,7 +40,7 @@
                 {
                 <tr>
                     <td id="numeric">
-                        @item.Year
+                        @item.BeginDate.Value.Year
                     </td>
                     <td id="name">
                         @Html.ActionLink(item.Name, "Details", new { id = item.Id })

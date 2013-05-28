@@ -28,8 +28,8 @@
             <fieldset>
                 <legend>@Camps.DetailsLegend</legend>
                 <div class="display-item">
-                    <div class="display-label">@Html.LabelFor(m => m.Year)</div>
-                    <div class="display-field">@Model.Year</div>
+                    <div class="display-label">@Html.Label(Camps.Year)</div>
+                    <div class="display-field">@Model.BeginDate.Value.Year</div>
                 </div>
 
                 <div class="display-item">

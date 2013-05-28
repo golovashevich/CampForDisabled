@@ -192,7 +192,7 @@
   <data name="ModelTheme" xml:space="preserve">
     <value>Тема</value>
   </data>
-  <data name="ModelYear" xml:space="preserve">
+  <data name="Year" xml:space="preserve">
     <value>Год</value>
   </data>
 </root>

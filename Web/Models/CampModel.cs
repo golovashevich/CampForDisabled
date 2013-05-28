@@ -17,11 +17,6 @@ namespace Camp.Models
         [HiddenInput]
 		public virtual int Id { get; set; }
 
-		[Display(Name = "ModelYear", ResourceType = typeof(Camps))]
-        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(ValidationMessages))]
-		[DefaultValue(2003)]
-		public virtual int Year { get; set; }
-
 		[Display(Name = "ModelName", ResourceType = typeof(Camps))]
         [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(ValidationMessages))]
 		[StringLength(50, ErrorMessageResourceName = "StringLength", ErrorMessageResourceType = typeof(ValidationMessages))]
@@ -29,7 +24,7 @@ namespace Camp.Models
 
 		public virtual string CampName {
 			get {
-				return String.Format("{0}, {1}", Year, Name);
+				return String.Format("{0}, {1}", BeginDate.Value.Year, Name);
 			}
 		}
 

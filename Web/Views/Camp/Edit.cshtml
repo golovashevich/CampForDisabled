@@ -58,17 +58,6 @@
 
                     @Html.HiddenFor(model => model.Id)
               
-                     <div class="editor-item">
-                        <div class="editor-label">
-                            @Html.LabelFor(model => model.Year)
-                        </div>
-                        <div class="editor-field">
-                            @Html.DropDownListFor(model => model.Year,
-                                new SelectList(Enumerable.Range(2003, DateTime.Now.Year - 2003 + 6)))
-                            @Html.ValidationMessageFor(model => model.Year)
-                        </div>
-                    </div>
-   
                     <div class="editor-item">
                         <div class="editor-label">
                             @Html.LabelFor(model => model.Name)
