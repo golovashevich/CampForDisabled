@@ -48,7 +48,7 @@ namespace Camp.Models
 
 
 		[Display(Name = "ModelSitPlacesNum", ResourceType = typeof(Drivers))]
-		[CompareOperator(ValidationDataType.Integer, ErrorMessageResourceName = "Integer", 
+		[TypeCheck(ValidationDataType.Integer, ErrorMessageResourceName = "Integer", 
 				ErrorMessageResourceType = typeof(ValidationMessages))]
 		[Range(1, 19, ErrorMessageResourceName = "Range", ErrorMessageResourceType = typeof(ValidationMessages))]
 		public virtual int? SitPlacesNum { get; set; }
@@ -56,9 +56,9 @@ namespace Camp.Models
 
 		[Range(0, 19, ErrorMessageResourceName = "Range", ErrorMessageResourceType = typeof(ValidationMessages))]
         [Display(Name = "ModelWheelchairsNum", ResourceType = typeof(Drivers))]
-		[CompareOperator(ValidationDataType.Integer, ErrorMessageResourceName = "Integer",
+		[TypeCheck(ValidationDataType.Integer, ErrorMessageResourceName = "Integer",
 				ErrorMessageResourceType = typeof(ValidationMessages))]
-		[CompareOperator("SitPlacesNum", ValidationCompareOperator.LessThanEqual, ValidationDataType.Integer,
+		[CompareOperator("SitPlacesNum", CompareOperator.LessThanEqual, ValidationDataType.Integer,
 				ErrorMessageResourceName = "NumericLessThanOrEqual", ErrorMessageResourceType = typeof(ValidationMessages))]
 		public virtual int? WheelchairsNum { get; set; }
 

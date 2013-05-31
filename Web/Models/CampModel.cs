@@ -36,16 +36,16 @@ namespace Camp.Models
 		[Display(Name = "ModelBeginDate", ResourceType = typeof(Camps))]
         [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(ValidationMessages))]
 		[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
-		[CompareOperator(ValidationDataType.Date, ErrorMessageResourceName = "Date",
+		[TypeCheck(ValidationDataType.Date, ErrorMessageResourceName = "Date",
 				ErrorMessageResourceType = typeof(ValidationMessages))]
 		public virtual DateTime? BeginDate { get; set; }
 
 		[Display(Name = "ModelEndDate", ResourceType = typeof(Camps))]
         [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(ValidationMessages))]
 		[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
-		[CompareOperator(ValidationDataType.Date, ErrorMessageResourceName = "Date",
+		[TypeCheck(ValidationDataType.Date, ErrorMessageResourceName = "Date",
 				ErrorMessageResourceType = typeof(ValidationMessages))]
-		[CompareOperator("BeginDate", ValidationCompareOperator.GreaterThanEqual, ValidationDataType.Date,
+		[CompareOperator("BeginDate", CompareOperator.GreaterThanEqual, ValidationDataType.Date,
 				ErrorMessageResourceName = "DateGreaterThanEqual", ErrorMessageResourceType = typeof(ValidationMessages))]
 		public virtual DateTime? EndDate { get; set; }
 
