@@ -14,5 +14,12 @@ namespace Web.Tests.Controllers
             var redirectResult = result as RedirectToRouteResult;
             Assert.AreEqual("Index", redirectResult.RouteValues["action"], place + " should redirect to Index on invalid id");
         }
-    }
+
+
+		internal static void CheckForView(ActionResult result, string controllerName, string actionName) {
+			string place = String.Format("/{0}/{1}: ", controllerName, actionName);
+			Assert.IsNotNull(result, place + "Action result should not be null");
+			Assert.IsInstanceOfType(result, typeof(ViewResult), place + "Invalid result type");
+		}
+	}
 }

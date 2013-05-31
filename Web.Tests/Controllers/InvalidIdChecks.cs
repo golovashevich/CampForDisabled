@@ -3,7 +3,7 @@ using Camp.Interfaces;
 
 namespace Web.Tests.Controllers
 {
-    internal class InvalidIdChecks<T>
+    internal class InvalidIdChecks<T> where T: new()
     {
         private readonly ICampEntityController<T> _controller;
         private readonly string _controllerName;
@@ -17,32 +17,40 @@ namespace Web.Tests.Controllers
 
         public void NullIdRedirectsToIndex()
         {
-            Details_NullIdRedirectsToIndex();
-            Delete_NullIdRedirectsToIndex();
-            Edit_NullIdRedirectsToIndex();
+            Details_NullIdRedirectsToIndex(null);
+            Delete_NullIdRedirectsToIndex(null);
+            Edit_NullIdRedirectsToIndex(null);
         }
 
 
-        public void Details_NullIdRedirectsToIndex()
+		public void NonExistingIdRedirectsToIndex(int id) 
+		{
+			Details_NullIdRedirectsToIndex(id);
+			Delete_NullIdRedirectsToIndex(id);
+			Edit_NullIdRedirectsToIndex(id);
+		}
+
+
+		public void Details_NullIdRedirectsToIndex(int? invalidValue)
         {
-            ActionResult result = _controller.Details(null);
+			ActionResult result = _controller.Details(invalidValue);
             ControllerUtils.CheckForRedirectToIndex(result, _controllerName, "Details");
         }
 
 
-        public void Delete_NullIdRedirectsToIndex()
+		public void Delete_NullIdRedirectsToIndex(int? invalidValue)
         {
-            ActionResult result = _controller.Delete(null);
+			ActionResult result = _controller.Delete(invalidValue);
             ControllerUtils.CheckForRedirectToIndex(result, _controllerName, "Delete");
         }
 
 
-        public void Edit_NullIdRedirectsToIndex()
+		public void Edit_NullIdRedirectsToIndex(int? invalidValue)
         {
-            ActionResult result = _controller.Edit(null);
+			ActionResult result = _controller.Edit(invalidValue);
             ControllerUtils.CheckForRedirectToIndex(result, _controllerName, "[Get]Edit");
 
-            result = _controller.Edit(null);
+			result = _controller.Edit(invalidValue, new T());
             ControllerUtils.CheckForRedirectToIndex(result, _controllerName, "[Post]Edit");
         }
     }

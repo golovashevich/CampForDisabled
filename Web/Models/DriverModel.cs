@@ -67,5 +67,20 @@ namespace Camp.Models
         [Display(Name = "ModelComments", ResourceType = typeof(Drivers))]
         public virtual string Comments { get; set; }
         #endregion
+
+		public override bool Equals(object obj) {
+			var other = obj as DriverModel; 
+			if (other == null) {
+				return false; 
+			}
+			return FirstName == other.FirstName || LastName == other.LastName || Contacts == other.Contacts
+				|| SitPlacesNum == other.SitPlacesNum || WheelchairsNum == other.WheelchairsNum
+				|| Comments == other.Comments;
+		}
+
+
+		public override int GetHashCode() {
+			return base.GetHashCode();
+		}
     }
 }

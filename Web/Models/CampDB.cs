@@ -11,11 +11,11 @@ namespace Camp.Models
 			.Connection
 			.ConnectionString += (MultipleActiveResultSets ? ";MultipleActiveResultSets=true;" : "");
 		}
-		
-		public DbSet<DriverModel> Drivers { get; set; }
-        public DbSet<CamperModel> Campers { get; set; }
-        public DbSet<UserModel> Users { get; set; }
-		public DbSet<CampModel> Camps { get; set; }
-		public DbSet<CamperForYearModel> CampersForYear { get; set; }
+
+		public IDbSet<DriverModel> Drivers { get; set; }
+		public IDbSet<CamperModel> Campers { get; set; }
+		public IDbSet<UserModel> Users { get; set; }
+		public IDbSet<CampModel> Camps { get; set; }
+		public IDbSet<CamperForYearModel> CampersForYear { get; set; }
     }
 }
