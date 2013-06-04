@@ -10,22 +10,18 @@ using DataAnnotationsExtensions;
 using Resources;
 
 
-//TODO: Adjust string lengths accroding to SQL
-
 namespace Camp.Models
 {
 	[Table("Camper")]
 	public class CamperModel : ICampModel
 	{
-		#region Public properties
-
 		[Required]
 		[HiddenInput]
 		public virtual int Id { get; set; }
 
 
 		[Display(Name = "ModelFullName", ResourceType = typeof(Campers))]
-		public virtual string FullName 
+		public string FullName 
 		{
             get { return new FullNameComposer(FirstName, LastName); }
         }
@@ -34,6 +30,31 @@ namespace Camp.Models
 		public string DeleteConfirmationString
 		{
 			get { return String.Format(Campers.DeleteConfirmation, FullName); }
+		}
+
+
+		public string DisabilityGradeString {
+			get {
+				if (DisabilityGrade == null) {
+					return Campers.DisabilityGradeUnknown;
+				}
+
+				switch (DisabilityGrade) {
+					case 0:
+						return Campers.DisabilityGradeUnknown;
+					case 1:
+						return Campers.DisabilityGradeWalking;
+					case 2:
+						return Campers.DisabilityGradeHardWalking;
+					case 3:
+						return Campers.DisabilityGradeWheelchair;
+					case 4:
+						return Campers.DisabilityGradeBedPatient;
+
+					default:
+						return Campers.DisabilityGradeUnknown;
+				}
+			}
 		}
 
 
@@ -57,7 +78,6 @@ namespace Camp.Models
 		// TODO: Add foto
 		// public virtual Image Foto { get; set; }
 
-
 		[Display(Name = "ModelCityId", ResourceType = typeof(Campers))]
 		[DefaultValue(1)]
 		[Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(ValidationMessages))]
@@ -75,15 +95,13 @@ namespace Camp.Models
 
 		[Display(Name = "ModelDistrict", ResourceType = typeof(Campers))]
 		[Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(ValidationMessages))]
-		[StringLength(30, ErrorMessageResourceName = "StringLength", 
+		[StringLength(60, ErrorMessageResourceName = "StringLength", 
 				ErrorMessageResourceType = typeof(ValidationMessages))]
 		public virtual string District { get; set; }
 
 
 		[Display(Name = "ModelStreet", ResourceType = typeof(Campers))]
 		[Required(ErrorMessageResourceName = "Required",
-				ErrorMessageResourceType = typeof(ValidationMessages))]
-		[StringLength(40, ErrorMessageResourceName = "StringLength", 
 				ErrorMessageResourceType = typeof(ValidationMessages))]
 		public virtual string Street { get; set; }
 
@@ -103,7 +121,7 @@ namespace Camp.Models
 
 
 		[Display(Name = "ModelHomePhone", ResourceType = typeof(Campers))]
-		[StringLength(20, ErrorMessageResourceName = "StringLength",
+		[StringLength(70, ErrorMessageResourceName = "StringLength",
 			ErrorMessageResourceType = typeof(ValidationMessages))]
 		[PhoneNumber(ErrorMessageResourceName = "PhoneNumber", 
 				ErrorMessageResourceType = typeof(ValidationMessages))]
@@ -140,29 +158,6 @@ namespace Camp.Models
 		[DefaultValue(0)]
 		public virtual int? DisabilityGrade { get; set; }
 
-		public string DisabilityGradeString {
-			get {
-				if (DisabilityGrade == null) {
-					return Campers.DisabilityGradeUnknown;
-				}
-
-				switch (DisabilityGrade) {
-					case 0:
-						return Campers.DisabilityGradeUnknown;
-					case 1:
-						return Campers.DisabilityGradeWalking;
-					case 2:
-						return Campers.DisabilityGradeHardWalking;
-					case 3:
-						return Campers.DisabilityGradeWheelchair;
-					case 4:
-						return Campers.DisabilityGradeBedPatient;
-					
-					default:
-						return Campers.DisabilityGradeUnknown;
-				}
-			}
-		}
 
 		[Display(Name = "ModelMedicalNote", ResourceType = typeof(Campers))]
 		[DataType(DataType.MultilineText)]
@@ -172,6 +167,24 @@ namespace Camp.Models
 		[Display(Name = "ModelComments", ResourceType = typeof(Campers))]
 		[DataType(DataType.MultilineText)]
 		public virtual string Comments { get; set; }
-		#endregion
+
+		public override bool Equals(object obj) {
+			CamperModel other = obj as CamperModel;
+			if (other == null) {
+				return false;
+			}
+
+			return Id == other.Id && FirstName == other.FirstName && LastName == other.LastName
+					&& DateOfBirth == other.DateOfBirth && CityId == other.CityId
+					&& District == other.District && Street == other.Street && HomeNumber == other.HomeNumber
+					&& AppartmentNumber == other.AppartmentNumber && HomePhone == other.HomePhone
+					&& AddressNote == other.AddressNote && Contacts == other.Contacts && Email == other.Email
+					&& Skype == other.Skype && DisabilityGrade == other.DisabilityGrade
+					&& MedicalNote == other.MedicalNote && Comments == other.Comments;
+		}
+
+		public override int GetHashCode() {
+			return base.GetHashCode();
+		}
 	}
 }

@@ -62,7 +62,6 @@ namespace Web.Tests.Controllers {
 			new InvalidIdChecks<T>(_controller).NullIdRedirectsToIndex();
 		}
 
-
 		[TestMethod]
 		public void NonExistingIdRedirectsToIndex() {
 			new InvalidIdChecks<T>(_controller).NonExistingIdRedirectsToIndex(Int32.MinValue);
@@ -97,7 +96,7 @@ namespace Web.Tests.Controllers {
 		/// Create with invalid model does not add anything and returns to Create view
 		/// </summary>
 		[TestMethod]
-		public void Create_IndvalidModel() {
+		public void Create_InvalidModel() {
 			int oldCount = Entities.Count();
 			int newId = oldCount + 1;
 			var entity = CreateTestEntity(newId);
