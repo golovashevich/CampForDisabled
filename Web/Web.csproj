@@ -218,6 +218,7 @@
     <Compile Include="Models\CampMembershipProvider.cs" />
     <Compile Include="Models\CampModel.cs" />
     <Compile Include="Models\CamperForYearModel.cs" />
+    <Compile Include="Interfaces\ICampModel.cs" />
     <Compile Include="Models\SelectCamperModel.cs" />
     <Compile Include="Models\DriverModel.cs" />
     <Compile Include="Models\FullNameComposer.cs" />

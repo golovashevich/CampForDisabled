@@ -32,7 +32,7 @@ namespace Web.Controllers
             }
 
 			var camp = CampDB.Camps.SingleOrDefault(r => r.Id == id);
-            if (null == id)
+            if (null == camp)
             {
                 return RedirectToAction("Index");
             }

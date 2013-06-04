@@ -1,9 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Web.Mvc;
+using Camp.Interfaces;
 
 namespace Camp.Models {
 	[Table("CamperForYear")]
-	public class CamperForYearModel {
+	public class CamperForYearModel : ICampModel {
 		
 		#region Public properties
 		[HiddenInput]

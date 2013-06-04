@@ -75,6 +75,7 @@
     <Compile Include="Attributes\PhoneValidatorServerTests.cs" />
     <Compile Include="Attributes\PhoneValidatorTestsBase.cs" />
     <Compile Include="Controllers\CampControllerTest.cs" />
+    <Compile Include="Controllers\CampControllerTestBase.cs" />
     <Compile Include="Controllers\CamperControllerTest.cs" />
     <Compile Include="Controllers\DriverControllerTest.cs" />
     <Compile Include="Controllers\ControllerUtils.cs" />

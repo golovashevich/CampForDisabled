@@ -4,10 +4,10 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Web.Mvc;
 using System.Web.UI.WebControls;
+using Camp.Interfaces;
 using CustomValidation.Attributes;
 using DataAnnotationsExtensions;
 using Resources;
-using Validation.Attributes;
 
 
 //TODO: Adjust string lengths accroding to SQL
@@ -15,7 +15,7 @@ using Validation.Attributes;
 namespace Camp.Models
 {
 	[Table("Camper")]
-	public class CamperModel
+	public class CamperModel : ICampModel
 	{
 		#region Public properties
 

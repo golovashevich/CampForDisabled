@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Web.Mvc;
 using System.Web.UI.WebControls;
+using Camp.Interfaces;
 using Resources;
 using Validation.Attributes;
 
@@ -10,7 +11,7 @@ using Validation.Attributes;
 namespace Camp.Models
 {
     [Table("Driver")]
-    public class DriverModel
+    public class DriverModel : ICampModel
     {
         #region Public properties
         [HiddenInput]
@@ -73,14 +74,17 @@ namespace Camp.Models
 			if (other == null) {
 				return false; 
 			}
-			return FirstName == other.FirstName || LastName == other.LastName || Contacts == other.Contacts
-				|| SitPlacesNum == other.SitPlacesNum || WheelchairsNum == other.WheelchairsNum
-				|| Comments == other.Comments;
+			return Id == other.Id && FirstName == other.FirstName && LastName == other.LastName 
+				&& Contacts == other.Contacts && SitPlacesNum == other.SitPlacesNum 
+				&& WheelchairsNum == other.WheelchairsNum && Comments == other.Comments;
 		}
-
 
 		public override int GetHashCode() {
 			return base.GetHashCode();
+		}
+
+		public override string ToString() {
+			return FullName;
 		}
     }
 }
