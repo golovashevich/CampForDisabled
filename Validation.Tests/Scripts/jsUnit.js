@@ -1,6 +1,9 @@
 ﻿/// jQuery->Script Control adapter
 
 var jQuery = {
+	extend: function (object, options) {
+	},
+
 	validator: {
 		addMethod: function (methodName, method) {
 		},
@@ -13,6 +16,12 @@ var jQuery = {
 		}
 	}
 };
+
+var $ = jQuery;
+
+String.prototype.trim = function () {
+	return this.replace(/^\s*/, "").replace(/\s*$/, "");
+}
 
 
 /// QUnit->Script Control adapter

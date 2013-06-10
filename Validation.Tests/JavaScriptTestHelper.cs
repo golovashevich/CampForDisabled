@@ -4,8 +4,7 @@ using System.Reflection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MSScriptControl;
 
-
-namespace Web.Tests.Attributes {
+namespace Validation.Tests {
 
 	/// <summary>
 	/// Idea came from 
@@ -83,9 +82,9 @@ namespace Web.Tests.Attributes {
 			var error = ((IScriptControl)_sc).Error;
 			if (error != null) {
 				var description = error.Description;
-				var text = error.Text;	  
+				var text = error.Text;
 				var source = error.Source;
-				var details = String.Format("{0}\r\n{1}\r\nLine: {2} Column: {3}", 
+				var details = String.Format("{0}\r\n{1}\r\nLine: {2} Column: {3}",
 						description, source, error.Line, error.Column);
 				if (_context != null) {
 					_context.WriteLine(details);
@@ -94,7 +93,6 @@ namespace Web.Tests.Attributes {
 			}
 			return new AssertFailedException("Unknown error returned from JScript control");
 		}
-
 
 		public void Dispose() {
 			_sc = null;

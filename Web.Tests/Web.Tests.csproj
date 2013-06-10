@@ -67,10 +67,6 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Attributes\jsUnit.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Compile Include="Attributes\JavaScriptTestHelper.cs" />
     <Compile Include="Attributes\PhoneValidatorClientTests.cs" />
     <Compile Include="Attributes\PhoneValidatorServerTests.cs" />
     <Compile Include="Attributes\PhoneValidatorTestsBase.cs" />

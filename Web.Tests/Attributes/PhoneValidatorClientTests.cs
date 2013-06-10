@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Validation.Tests;
 
 namespace Web.Tests.Attributes {
 	[TestClass]
@@ -16,7 +17,7 @@ namespace Web.Tests.Attributes {
 		[TestInitialize]
 		public void TestInit() {
 			_jsHelper = new JavaScriptTestHelper(_testContext);
-			_jsHelper.LoadFile(@".\Attributes\jsUnit.js");
+			_jsHelper.LoadFile(@".\Scripts\jsUnit.js");
 			_jsHelper.LoadFile(@".\Scripts\PhoneValidator.js");
 		}
 
