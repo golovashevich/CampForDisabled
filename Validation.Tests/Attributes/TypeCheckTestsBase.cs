@@ -3,6 +3,9 @@ using System.Web.UI.WebControls;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Validation.Tests.Attributes {
+
+	[TestClass]
+	[Ignore]
 	public abstract class TypeCheckTestsBase {
 		private const double DOUBLE_BIG_VALUE = Double.MaxValue / 2;
 

@@ -9,6 +9,8 @@ using Validation.Attributes;
 
 namespace Validation.Tests.Attributes {
 
+	[TestClass]
+	[Ignore]
 	public abstract class CompareOperatorTestsBase {
 		protected const double DOUBLE_BIG_VALUE = Double.MaxValue / 2;
 		protected const double DOUBLE_SMALL_VALUE = Double.MinValue / 2;
