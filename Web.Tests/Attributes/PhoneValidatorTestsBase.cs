@@ -4,6 +4,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Validation.Tests;
 
 namespace Web.Tests.Attributes {
+	[TestClass]
+	[Ignore]
 	public abstract class PhoneValidatorTestsBase {
 		[TestMethod]
 		public void PhoneNumbersWithSymbols() {

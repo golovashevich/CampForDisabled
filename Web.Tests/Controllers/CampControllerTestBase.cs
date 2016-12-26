@@ -8,6 +8,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
 namespace Web.Tests.Controllers {
+	[TestClass]
+	[Ignore]
 	public abstract class CampControllerTestBase<T> where T: class, ICampModel, new() {
 		protected static ICampDB _campDB;
 		protected static ICampEntityController<T> _controller;
