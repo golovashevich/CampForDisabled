@@ -5,7 +5,8 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Web;
+
+using Resources;
 using Web.Controllers;
 using Web.Models;
 
@@ -154,7 +155,7 @@ namespace Web.Tests.Controllers
             Assert.IsInstanceOfType(result, typeof(ViewResult));
             ViewResult viewResult = (ViewResult)result;
             Assert.AreEqual(model, viewResult.ViewData.Model);
-            Assert.AreEqual("The user name or password provided is incorrect.", controller.ModelState[""].Errors[0].ErrorMessage);
+            Assert.AreEqual(Account.IncorrectUserOrPassword, controller.ModelState[""].Errors[0].ErrorMessage);
         }
 
 
