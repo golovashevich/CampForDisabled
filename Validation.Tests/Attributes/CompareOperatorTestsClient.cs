@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
+﻿using System.ComponentModel.DataAnnotations;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web.UI.WebControls;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Validation.Attributes;
 
-namespace Validation.Tests.Attributes {
+namespace Validation.Tests.Attributes
+{
 	[TestClass]
 	public class CompareOperatorTestsClient : CompareOperatorTestsBase {
 		private static TestContext _testContext;
