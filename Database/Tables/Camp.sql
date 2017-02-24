@@ -38,7 +38,7 @@ INSERT INTO [dbo].[Camp]
            
            (2
 	       ,N'Second Camp'
-           ,N'Dasibled people problems'
+           ,N'Disabled people problems'
            ,'2005-06-04'
            ,'2005-06-18'
            ,N''
