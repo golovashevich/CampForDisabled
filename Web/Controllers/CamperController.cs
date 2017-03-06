@@ -1,14 +1,12 @@
-﻿using Camp.Interfaces;
-using Camp.Models;
-using Resources;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web.Mvc;
+using Camp.Interfaces;
+using Camp.Models;
 
-namespace Web.Controllers
-{
+namespace Web.Controllers {
 	public class CamperController : CampEntityController, ICampEntityController<CamperModel>
 	{
         public CamperController(ICampDB campDB) : base(campDB) { }
@@ -26,7 +24,18 @@ namespace Web.Controllers
 			return View(campers);
 		}
 
-		
+		public JsonResult JsonIndex() {
+
+			var campers = new List<CamperModel>();
+			foreach (var camper in CampDB.Campers) {
+				camper.Comments = Utils.PrepareStringForItemList(camper.Comments, 30);
+				campers.Add(camper);
+			}
+
+			return Json(campers);
+		}
+
+
 		public ActionResult Details(int? id)
 		{
             if (null == id)
@@ -47,14 +56,12 @@ namespace Web.Controllers
         [Authorize]
         public ActionResult Delete(int? id)
 		{
-            if (null == id)
-            {
-                return RedirectToAction("Index");
-            }
+			if (null == id) {
+				return RedirectToAction("Index");
+			}
 
 			var camper = CampDB.Campers.SingleOrDefault(r => r.Id == id);
-			if (camper != null)
-			{
+			if (camper != null) {
 				CampDB.Campers.Remove(camper);
 				CampDB.SaveChanges();
 			}

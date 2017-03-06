@@ -1077,6 +1077,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Scripts\Validation.js" />
+    <Content Include="Views\Camper\camper-list.component.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1159,7 +1160,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>0</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:49193/</IISUrl>
+          <IISUrl>http://localhost:49194/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

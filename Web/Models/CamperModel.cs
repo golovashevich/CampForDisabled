@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.RegularExpressions;
 using System.Web.Mvc;
 using System.Web.UI.WebControls;
 using Camp.Interfaces;
@@ -10,8 +11,7 @@ using DataAnnotationsExtensions;
 using Resources;
 
 
-namespace Camp.Models
-{
+namespace Camp.Models {
 	[Table("Camper")]
 	public class CamperModel : ICampModel
 	{
@@ -29,7 +29,7 @@ namespace Camp.Models
 
 		public string DeleteConfirmationString
 		{
-			get { return String.Format(Campers.DeleteConfirmation, FullName); }
+			get { return String.Format(Regex.Unescape(Campers.DeleteConfirmation), FullName); }
 		}
 
 
