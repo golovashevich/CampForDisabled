@@ -2,7 +2,7 @@
 
 var camperListApp = angular.module('camperListApp', []);
 
-camperListApp.controller("CamperListController", function CamperListController($scope, CamperListService) {
+camperListApp.controller("CamperListController", ['$scope', 'CamperListService', function CamperListController($scope, CamperListService) {
     getCampers();
     function getCampers() {
         CamperListService.getCampers()
@@ -17,7 +17,7 @@ camperListApp.controller("CamperListController", function CamperListController($
     };
     $scope.message = 'Hello from AngularJS';
     $scope.parseMSDate = parseMSDate;
-});
+}]);
 
 camperListApp.directive('ngConfirmOnClick', [
         function () {
