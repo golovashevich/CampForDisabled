@@ -35,6 +35,15 @@ namespace Web.Controllers {
 			return Json(campers);
 		}
 
+		public ActionResult AngularIndex() {
+			List<CamperModel> campers = new List<CamperModel>();
+			foreach (var camper in CampDB.Campers) {
+				camper.Comments = Utils.PrepareStringForItemList(camper.Comments, 30);
+				campers.Add(camper);
+			}
+
+			return PartialView("AngularIndex", campers);
+		}
 
 		public ActionResult Details(int? id)
 		{

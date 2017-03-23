@@ -1127,6 +1127,7 @@
     <Content Include="Views\Shared\_CamperDetailsPartial.cshtml" />
     <Content Include="Views\CamperForYear\EditList.cshtml" />
     <Content Include="Scripts\version.json" />
+    <Content Include="Views\Camper\AngularIndex.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

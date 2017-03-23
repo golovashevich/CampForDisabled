@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Camp.Models.CamperModel>
+@using Resources;
+@using Web.Controllers;
+
+<table style="border:0">
+	<tr>
+		<td style="border:0">
+			<h2>@Campers.IndexTitle</h2>
+		</td>
+
+		<td style="border:0" align="right">
+			@if (ViewBag.CanUpdate) {
+				@Html.ActionLink(Campers.IndexCreateNew, "Create")
+			}
+		</td>
+	</tr>
+
+	<tr>
+		<td colspan="2" style="border:0">
+			<table>
+				<tr>
+					<th>
+						@Html.LabelFor(m => Model.SingleOrDefault().FullName)
+					</th>
+					<th>
+						@Html.LabelFor(m => Model.SingleOrDefault().DateOfBirth)
+					</th>
+					<th>
+						@Html.LabelFor(m => Model.SingleOrDefault().City)
+					</th>
+					<th>
+						@Html.LabelFor(m => Model.SingleOrDefault().District)
+					</th>
+					<th>
+						@Html.LabelFor(m => Model.SingleOrDefault().Comments)
+					</th>
+					@if (ViewBag.CanUpdate) {
+						<th style="text-align:center">
+							@Html.Label(Campers.IndexActions)
+						</th>
+					}
+				</tr>
+
+				<tr ng-repeat="item in $ctrl.campers">
+					<td id="name">
+						@Html.AngularActionLink("{{item.FullName}}", "Details", "{{item.Id}}")
+					</td>
+					<td id="date">
+						{{parseMSDate(item.DateOfBirth) | date:'yyyy-MM-dd'}}
+					</td>
+					<td>
+						{{item.City}}
+					</td>
+					<td>
+						{{item.District}}
+					</td>
+					<td id="comments">
+						{{item.Comments | limitTo: 60}}{{item.Comments.length > 60 ? '...' : ''}}
+					</td>
+					@if (ViewBag.CanUpdate) {
+						<td id="actions">
+							@Html.AngularActionLink(Campers.IndexEdit, "Edit", "{{item.Id}}") |
+							@Html.AngularActionLink(Campers.IndexDelete, "Delete", "{{item.Id}}",
+									new { ng_confirm_on_click = "{{item.DeleteConfirmationString}}" })
+						</td>
+					}
+				</tr>
+			</table>
+		</td>
+	</tr>
+	@if (ViewBag.CanUpdate) {
+		<tr>
+			<td colspan="2" id="footer">
+				@Html.ActionLink(Campers.IndexCreateNew, "Create")
+			</td>
+		</tr>
+	}
+</table>
+
