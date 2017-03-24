@@ -1,12 +1,5 @@
 ﻿'use strict';
 
-// Define the `camperListApp` module
-angular.module('camperListApp', [
-  // ...which depends on the `camperList` module
-  'camperList'
-]);
-
-
 //Define the 'camperList' module
 angular.module('camperList', []);
 

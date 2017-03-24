@@ -1077,6 +1077,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Scripts\Validation.js" />
+    <Content Include="Views\Camper\app.config.js" />
+    <Content Include="Views\Camper\app.module.js" />
     <Content Include="Views\Camper\camper-list.component.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>

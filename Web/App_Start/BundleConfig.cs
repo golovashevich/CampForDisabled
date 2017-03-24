@@ -18,9 +18,12 @@ namespace Web
 						"~/Scripts/jquery.validate*"));
 
 			bundles.Add(new ScriptBundle("~/bundles/angular").Include(
-						"~/Scripts/angular.js"));
+						"~/Scripts/angular.js", 
+						"~/Scripts/angular-route.js"));
 
 			bundles.Add(new ScriptBundle("~/bundles/camper").Include(
+						"~/Views/Camper/app.module.js",
+						"~/Views/Camper/app.config.js",
 						"~/Views/Camper/*.js"));
 
 			bundles.Add(new ScriptBundle("~/bundles/campedit").Include(
